@@ -5,20 +5,20 @@
   --color-brand: #b91c1c;
   --color-brand-hot: #dc2626;
   --color-brand-dark: #7f1212;
-  /* red for text on dark steel backgrounds — meets 4.5:1 on steel-950 */
-  --color-brand-soft: #f47272;
+  /* red for text on dark steel backgrounds — meets 4.5:1 on steel-950/900 */
+  --color-brand-soft: #f68585;
 
-  /* Galvanized steel neutrals — cool, never warm */
-  --color-steel-950: #14171c;
-  --color-steel-900: #1d2129;
-  --color-steel-800: #2a303b;
-  --color-steel-700: #3f4753;
-  --color-steel-400: #8a93a3;
-  --color-steel-500: #6b7484;
-  --color-steel-300: #b6bdc9;
-  --color-steel-200: #d5dae2;
-  --color-steel-100: #eceef2;
-  --color-steel-50: #f6f7f9;
+  /* Galvanized steel neutrals — cool blue-steel, brightened */
+  --color-steel-950: #1f2b3a;
+  --color-steel-900: #2a3849;
+  --color-steel-800: #3a4b60;
+  --color-steel-700: #506379;
+  --color-steel-400: #94a5b8;
+  --color-steel-500: #65768b;
+  --color-steel-300: #c0cddb;
+  --color-steel-200: #dce5ee;
+  --color-steel-100: #eef3f8;
+  --color-steel-50: #f8fafc;
 
   --font-display: 'Archivo Variable', 'Be Vietnam Pro', system-ui, sans-serif;
   --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
