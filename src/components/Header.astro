@@ -1,0 +1,102 @@
+---
+import { site, nav } from '../data/site';
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<header class="sticky top-0 z-40 bg-white shadow-sm">
+  <!-- Hotline strip -->
+  <div class="bg-steel-950 text-steel-200">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-1.5 text-xs sm:text-sm">
+      <p class="eyebrow !text-[0.65rem] text-steel-300 max-sm:hidden">Sản xuất tôn — xà gồ từ {site.founded}</p>
+      <div class="flex items-center gap-4 tabular">
+        <a href={`tel:${site.phones[0].tel}`} class="hover:text-white">{site.phones[0].display}</a>
+        <a href={`tel:${site.hotline.tel}`} class="font-bold text-white hover:text-brand-soft">
+          {site.hotline.display}
+        </a>
+        <a href="/en/" class="border-l border-steel-700 pl-4 text-steel-300 hover:text-white">EN</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main bar -->
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/img/logo.png" alt={site.name} class="h-11 w-auto" width="120" height="87" />
+      <span class="leading-tight">
+        <span class="display block text-lg text-steel-950 sm:text-xl">HÀ LAN</span>
+        <span class="block text-[0.65rem] font-medium tracking-wide text-steel-500 uppercase">Tôn lợp · Xà gồ · Thép</span>
+      </span>
+    </a>
+
+    <nav class="max-lg:hidden">
+      <ul class="flex items-center gap-1">
+        {nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                'display block px-3 py-2 text-[0.85rem] tracking-wide uppercase transition-colors',
+                isActive(item.href) ? 'text-brand' : 'text-steel-700 hover:text-brand',
+              ]}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a
+            href={`tel:${site.hotline.tel}`}
+            class="display ml-2 bg-brand px-4 py-2.5 text-[0.85rem] tracking-wide text-white uppercase transition-colors hover:bg-brand-hot"
+          >
+            Gọi báo giá
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      id="menu-btn"
+      class="p-2 text-steel-900 lg:hidden"
+      aria-label="Mở menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav id="mobile-menu" class="hidden border-t border-steel-100 bg-white lg:hidden">
+    <ul class="mx-auto max-w-6xl px-4 py-2">
+      {nav.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class:list={[
+              'display block border-b border-steel-100 py-3 text-sm tracking-wide uppercase',
+              isActive(item.href) ? 'text-brand' : 'text-steel-800',
+            ]}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href="/en/" class="display block py-3 text-sm tracking-wide text-steel-500 uppercase">English</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>

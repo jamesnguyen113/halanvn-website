@@ -1,0 +1,95 @@
+---
+import '@fontsource/be-vietnam-pro/400.css';
+import '@fontsource/be-vietnam-pro/500.css';
+import '@fontsource/be-vietnam-pro/700.css';
+import '@fontsource-variable/archivo';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCTA from '../components/MobileCTA.astro';
+import { site, locations } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+  ogImage?: string;
+  /** Extra JSON-LD blocks (e.g. Product on product pages) */
+  schema?: object[];
+  noChrome?: boolean;
+}
+
+const {
+  title,
+  description,
+  lang = 'vi',
+  ogImage = '/img/logo.png',
+  schema = [],
+  noChrome = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.name,
+  legalName: site.legalName,
+  url: site.domain,
+  logo: `${site.domain}/img/logo.png`,
+  foundingDate: String(site.founded),
+  email: site.email,
+  telephone: '+84' + site.hotline.tel.slice(1),
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '358 Cộng Hòa, Phường 13, Quận Tân Bình',
+    addressLocality: 'TP. Hồ Chí Minh',
+    addressCountry: 'VN',
+  },
+  department: locations
+    .filter((l) => l.kind === 'factory')
+    .map((l) => ({ '@type': 'LocalBusiness', name: l.name, address: l.address })),
+};
+---
+
+<!doctype html>
+<html {lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:locale" content={lang === 'vi' ? 'vi_VN' : 'en_US'} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <!-- GA4: replace G-XXXXXXXXXX with the real Measurement ID, then uncomment.
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+  <body class="min-h-screen">
+    {!noChrome && <Header />}
+    <main>
+      <slot />
+    </main>
+    {!noChrome && <Footer />}
+    {!noChrome && <MobileCTA />}
+  </body>
+</html>

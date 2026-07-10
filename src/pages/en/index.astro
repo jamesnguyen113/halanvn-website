@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import Corrugation from '../../components/Corrugation.astro';
+import { site, locations } from '../../data/site';
+import { categories } from '../../data/products';
+---
+
+<Base
+  lang="en"
+  title="Steel roofing sheets, C & Z purlins, construction steel | Ha Lan Corporation, Vietnam"
+  description="Ha Lan Corporation — manufacturer of corrugated roofing sheets, C/Z purlins and construction steel since 2002. Four factories in Ho Chi Minh City, Binh Duong and Tay Ninh, Vietnam."
+>
+  <section class="relative bg-steel-950 text-white">
+    <div class="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14">
+      <p class="eyebrow text-brand-soft">Manufacturing since {site.founded}</p>
+      <h1 class="display mt-4 max-w-3xl text-4xl sm:text-5xl">
+        Roofing sheets & purlins,<br />
+        <span class="text-steel-300">rolled to your project's spec</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-steel-300">
+        Four factories in Ho Chi Minh City, Binh Duong and Tay Ninh. Galvanized, pre-painted and
+        Galvalume sheets on Hoa Sen, Dong A, Nam Kim and POSCO base steel — cut to length, delivered to site, VAT invoiced.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={`tel:${site.hotline.tel}`} class="display bg-brand px-6 py-3.5 text-sm tracking-widest text-white uppercase hover:bg-brand-hot">
+          Call for a quote — {site.hotline.display}
+        </a>
+        <a href="/en/contact/" class="display border border-steel-500 px-6 py-3.5 text-sm tracking-widest text-white uppercase hover:border-white">
+          Contact
+        </a>
+      </div>
+    </div>
+    <Corrugation class="h-6 w-full text-brand" />
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-14">
+    <h2 class="display text-2xl text-steel-950 sm:text-3xl">Product lines</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((c) => (
+        <a href="/en/products/" class="group border-l-4 border-steel-200 bg-steel-50 p-5 hover:border-brand hover:bg-white">
+          <h3 class="display text-lg text-steel-950 group-hover:text-brand">{c.nameEn}</h3>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-steel-950 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <p class="eyebrow text-brand-soft">Factories</p>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {locations.map((l) => (
+          <div class="border-l-2 border-steel-700 pl-4">
+            <p class="display text-base">{l.nameEn}</p>
+            <p class="mt-1 text-sm text-steel-300">{l.address}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 text-sm text-steel-300">
+        Email <a href={`mailto:${site.email}`} class="text-white underline">{site.email}</a> ·
+        Phone <a href={`tel:${site.hotline.tel}`} class="text-white underline">{site.hotline.display}</a>
+      </p>
+    </div>
+  </section>
+</Base>

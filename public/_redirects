@@ -1,0 +1,52 @@
+# 301s from the old vnTRUST CMS URLs — preserves 10+ years of Google indexing.
+# Cloudflare Pages format: <old> <new> <status>. Specific rules before catch-alls.
+
+# Core pages
+/vn/ / 301
+/vn/trang-chu.html / 301
+/vn/gioi-thieu.html /gioi-thieu/ 301
+/vn/gioi-thieu-ve-cong-ty.html /gioi-thieu/ 301
+/vn/thanh-tich-thuong-hieu.html /gioi-thieu/ 301
+/vn/day-chuyen-san-xuat.html /gioi-thieu/ 301
+/vn/dong-goi-va-xuat-xuong-san-pham.html /gioi-thieu/ 301
+/vn/quy-trinh-kcs.html /gioi-thieu/ 301
+/vn/san-pham.html /san-pham/ 301
+/vn/nha-may.html /nha-may/ 301
+/vn/du-an.html /du-an/ 301
+/vn/lien-he.html /lien-he/ 301
+/en/main.html /en/ 301
+
+# Price lists and news (only meaningful news posts were price lists)
+/vn/bang-gia-moi-nhat-dang-ap-dung.html /bang-gia/ 301
+/vn/bang-gia-xa-go-chu-c-z-dang-ap-dung-.html /bang-gia/ 301
+/vn/bang-gia-ton-can-song-20-03-2019-.html /bang-gia/ 301
+/vn/tin-tuc.html /bang-gia/ 301
+
+# Product detail pages
+/vn/ton-ma-kem.html /san-pham/ton-ma-kem/ 301
+/vn/ton-ma-mau.html /san-pham/ton-ma-mau/ 301
+/vn/ton-lanh.html /san-pham/ton-lanh/ 301
+/vn/ton-nhom.html /san-pham/ton-nhom/ 301
+/vn/ton-9-song-vuong.html /san-pham/ton-9-song-vuong/ 301
+/vn/ton-9-song-doi-song-kep.html /san-pham/ton-9-song-doi-song-kep/ 301
+/vn/ton-5-song-vuong.html /san-pham/ton-5-song-vuong/ 301
+/vn/ton-cliplock.html /san-pham/ton-cliplock/ 301
+/vn/ton-song-vom.html /san-pham/ton-song-vom/ 301
+/vn/ton-song-ngoi.html /san-pham/ton-song-ngoi/ 301
+/vn/ton-do-san.html /san-pham/ton-do-san/ 301
+/vn/ton-cach-nhiet-pe.html /san-pham/ton-cach-nhiet-pe/ 301
+/vn/ton-pu.html /san-pham/ton-pu/ 301
+/vn/tui-khi-cach-nhiet.html /san-pham/tui-khi-cach-nhiet/ 301
+/vn/xa-go-thep-chu-c.html /san-pham/xa-go-thep-chu-c/ 301
+/vn/xa-go-thep-chu-z.html /san-pham/xa-go-thep-chu-z/ 301
+/vn/phoi-thep-ma-kem.html /san-pham/phoi-thep-ma-kem/ 301
+/vn/phoi-thep-den.html /san-pham/phoi-thep-den/ 301
+/vn/sat-thep-xay-dun.html /san-pham/sat-thep-xay-dun/ 301
+
+# Product category listing pages
+/vn/ton-lop.html /san-pham/ 301
+/vn/xa-go-chu-c-z.html /san-pham/ 301
+/vn/ton-cach-nhiet.html /san-pham/ 301
+
+# Everything else under the old CMS path prefix (new site doesn't use /vn/)
+/vn/* / 301

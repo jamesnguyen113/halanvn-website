@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import Corrugation from '../components/Corrugation.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { site, locations } from '../data/site';
+import { categories, byCategory, bySlug } from '../data/products';
+
+const featured = [
+  'ton-ma-mau', 'ton-lanh', 'ton-9-song-vuong', 'ton-cliplock',
+  'xa-go-thep-chu-c', 'xa-go-thep-chu-z', 'ton-cach-nhiet-pe', 'ton-do-san',
+].map((s) => bySlug.get(s)!);
+---
+
+<Base
+  title="Tôn lợp, xà gồ C — Z, sắt hộp, thép xây dựng | Công ty Cổ phần Hà Lan"
+  description={site.description}
+>
+  <!-- Hero: charcoal steel, corrugation profile, phone-first -->
+  <section class="relative overflow-hidden bg-steel-950 text-white">
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.07]"
+      style="background-image: repeating-linear-gradient(90deg, transparent 0 34px, #fff 34px 36px, transparent 36px 46px, #fff 46px 48px);"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-14 pb-10 sm:pt-20 sm:pb-14">
+      <p class="eyebrow text-brand-soft">Sản xuất trực tiếp từ {site.founded} — {new Date().getFullYear()}</p>
+      <h1 class="display mt-4 max-w-3xl text-4xl text-white sm:text-6xl">
+        Tôn lợp — xà gồ<br />
+        <span class="text-steel-300">cán theo công trình của bạn</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-steel-300 sm:text-lg">
+        4 nhà máy tại TP.HCM, Bình Dương và Tây Ninh. Tôn Hoa Sen, Đông Á, Nam Kim chính hãng —
+        cán sóng 5, 9, cliplock theo yêu cầu, giao tận chân công trình, hóa đơn VAT.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-6 py-3.5 text-sm tracking-widest text-white uppercase transition-colors hover:bg-brand-hot"
+        >
+          Gọi báo giá — {site.hotline.display}
+        </a>
+        <a
+          href="/bang-gia/"
+          class="display border border-steel-500 px-6 py-3.5 text-sm tracking-widest text-white uppercase transition-colors hover:border-white"
+        >
+          Xem bảng giá
+        </a>
+      </div>
+    </div>
+    <Corrugation class="h-6 w-full text-brand" />
+  </section>
+
+  <!-- Product categories -->
+  <section class="mx-auto max-w-6xl px-4 py-14">
+    <p class="eyebrow text-brand">Sản phẩm</p>
+    <h2 class="display mt-2 text-2xl text-steel-950 sm:text-3xl">Đúng chủng loại, đúng độ dày, đúng giá</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map((c) => (
+        <a
+          href={`/san-pham/#${c.slug}`}
+          class="group border-l-4 border-steel-200 bg-steel-50 p-5 transition-colors hover:border-brand hover:bg-white hover:shadow-md"
+        >
+          <h3 class="display text-lg text-steel-950 group-hover:text-brand">{c.name}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-steel-700">{c.blurb}</p>
+          <p class="eyebrow mt-3 text-steel-700 group-hover:text-brand">
+            {byCategory(c.slug).length} sản phẩm →
+          </p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Featured products -->
+  <section class="bg-steel-100">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <h2 class="display text-2xl text-steel-950 sm:text-3xl">Hàng bán chạy</h2>
+      <div class="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        {featured.map((p) => <ProductCard product={p} />)}
+      </div>
+      <a href="/san-pham/" class="display mt-8 inline-block border-b-2 border-brand pb-1 text-sm tracking-widest text-steel-950 uppercase hover:text-brand">
+        Xem tất cả sản phẩm →
+      </a>
+    </div>
+  </section>
+
+  <!-- Why us: facts, not slogans -->
+  <section class="mx-auto max-w-6xl px-4 py-14">
+    <div class="grid gap-8 sm:grid-cols-3">
+      <div class="border-t-4 border-brand pt-4">
+        <p class="display text-3xl text-steel-950">{new Date().getFullYear() - site.founded} năm</p>
+        <p class="mt-2 text-sm leading-relaxed text-steel-700">
+          sản xuất và phân phối tôn thép, phục vụ nhà thầu và cửa hàng vật liệu xây dựng khắp miền Nam.
+        </p>
+      </div>
+      <div class="border-t-4 border-brand pt-4">
+        <p class="display text-3xl text-steel-950">4 nhà máy</p>
+        <p class="mt-2 text-sm leading-relaxed text-steel-700">
+          Thủ Đức, Thuận An, Bình Chánh, Tây Ninh — cán sóng và cắt xà gồ ngay tại xưởng gần công trình của bạn.
+        </p>
+      </div>
+      <div class="border-t-4 border-brand pt-4">
+        <p class="display text-3xl text-steel-950">Giao tận nơi</p>
+        <p class="mt-2 text-sm leading-relaxed text-steel-700">
+          Xe giao hàng tận chân công trình, hóa đơn VAT trong 15 ngày, dung sai ±5% công khai trên bảng giá.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations strip -->
+  <section class="bg-steel-950 text-white">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <p class="eyebrow text-brand-soft">Hệ thống nhà máy</p>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {locations.map((l) => (
+          <div class="border-l-2 border-steel-700 pl-4">
+            <p class="display text-base text-white">{l.name}</p>
+            <p class="mt-1 text-sm text-steel-300">{l.address}</p>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.mapQuery)}`}
+              target="_blank"
+              rel="noopener"
+              class="eyebrow mt-2 inline-block text-steel-400 hover:text-white"
+            >
+              Xem bản đồ →
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

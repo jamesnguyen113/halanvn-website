@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+
+const ventures = [
+  {
+    name: 'Rừng sâm Ngọc Linh — Kon Tum',
+    desc: 'Vùng trồng sâm Ngọc Linh dưới tán rừng nguyên sinh núi Ngọc Linh, Kon Tum.',
+  },
+  {
+    name: 'Nhà hàng Ngọc Linh',
+    desc: 'Nhà hàng ẩm thực tại TP.HCM, giới thiệu đặc sản sâm Ngọc Linh.',
+    href: 'http://nhahangngoclinh.com',
+  },
+  {
+    name: 'Trang trại Đam Rông — Lâm Đồng',
+    desc: 'Trang trại nông nghiệp tại huyện Đam Rông, Lâm Đồng.',
+  },
+];
+---
+
+<Base
+  title="Dự án và lĩnh vực khác | Công ty Cổ phần Hà Lan"
+  description="Ngoài sản xuất tôn thép, Hà Lan đầu tư vùng trồng sâm Ngọc Linh tại Kon Tum, nhà hàng Ngọc Linh và trang trại Đam Rông — Lâm Đồng."
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <p class="eyebrow text-brand-soft">Ngoài ngành thép</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Dự án và lĩnh vực khác</h1>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-4 py-10">
+    <p class="max-w-2xl leading-relaxed text-steel-800">
+      Bên cạnh sản xuất tôn — xà gồ, Hà Lan còn đầu tư dài hạn vào nông nghiệp và ẩm thực:
+    </p>
+    <div class="mt-8 space-y-4">
+      {ventures.map((v) => (
+        <section class="border-l-4 border-steel-200 bg-steel-50 p-5 hover:border-brand">
+          <h2 class="display text-lg text-steel-950">{v.name}</h2>
+          <p class="mt-1.5 text-sm text-steel-700">{v.desc}</p>
+          {v.href && (
+            <a href={v.href} target="_blank" rel="noopener" class="eyebrow mt-3 inline-block text-brand">
+              Xem website →
+            </a>
+          )}
+        </section>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,32 @@
+---
+import type { Product } from '../data/products';
+interface Props {
+  product: Product;
+  lang?: 'vi' | 'en';
+}
+const { product, lang = 'vi' } = Astro.props;
+const href = lang === 'vi' ? `/san-pham/${product.slug}/` : `/en/products/#${product.slug}`;
+---
+
+<a
+  href={href}
+  class="group flex flex-col border border-steel-200 bg-white transition-colors hover:border-brand"
+>
+  <div class="aspect-[4/3] overflow-hidden bg-steel-100">
+    <img
+      src={product.cover}
+      alt={lang === 'vi' ? product.name : product.nameEn}
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+      loading="lazy"
+      width="400"
+      height="300"
+    />
+  </div>
+  <div class="flex flex-1 flex-col p-4">
+    <h3 class="display text-base text-steel-950 group-hover:text-brand">
+      {lang === 'vi' ? product.name : product.nameEn}
+    </h3>
+    <p class="mt-2 line-clamp-2 flex-1 text-sm text-steel-700">{lang === 'vi' ? product.short : ''}</p>
+    <span class="eyebrow mt-3 text-brand">{lang === 'vi' ? 'Xem chi tiết →' : 'Details →'}</span>
+  </div>
+</a>

@@ -1,0 +1,24 @@
+---
+// The cross-section profile of "tôn sóng vuông" — the product's own geometry
+// as a section divider. Repeats a trapezoidal rib.
+interface Props {
+  class?: string;
+  color?: string;
+}
+const { class: className = 'h-4 w-full', color = 'currentColor' } = Astro.props;
+---
+
+<svg
+  class={className}
+  viewBox="0 0 480 24"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+  fill="none"
+  stroke={color}
+  stroke-width="2.5"
+>
+  <path
+    d="M0 21 H28 L40 4 H68 L80 21 H148 L160 4 H188 L200 21 H268 L280 4 H308 L320 21 H388 L400 4 H428 L440 21 H480"
+    vector-effect="non-scaling-stroke"
+  />
+</svg>

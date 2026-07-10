@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+@theme {
+  /* HL brand red (from logo) — used sparingly: CTAs, price accents, hot metal */
+  --color-brand: #b91c1c;
+  --color-brand-hot: #dc2626;
+  --color-brand-dark: #7f1212;
+  /* red for text on dark steel backgrounds — meets 4.5:1 on steel-950 */
+  --color-brand-soft: #f47272;
+
+  /* Galvanized steel neutrals — cool, never warm */
+  --color-steel-950: #14171c;
+  --color-steel-900: #1d2129;
+  --color-steel-800: #2a303b;
+  --color-steel-700: #3f4753;
+  --color-steel-400: #8a93a3;
+  --color-steel-500: #6b7484;
+  --color-steel-300: #b6bdc9;
+  --color-steel-200: #d5dae2;
+  --color-steel-100: #eceef2;
+  --color-steel-50: #f6f7f9;
+
+  --font-display: 'Archivo Variable', 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-steel-900);
+  background: #fff;
+}
+
+/* Display headings: tight, heavy, slightly condensed — spec-sheet voice */
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-variation-settings: 'wdth' 92;
+}
+
+/* Eyebrow labels — like stamped steel markings */
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Price tables use lining tabular numerals */
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-hot);
+  outline-offset: 2px;
+}

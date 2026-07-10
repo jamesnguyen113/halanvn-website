@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, locations } from '../data/site';
+
+// TODO trước khi công bố: đăng ký key miễn phí tại https://web3forms.com (nhập email nhận liên hệ)
+// rồi thay YOUR_WEB3FORMS_KEY bên dưới. Form sẽ gửi về email đó, không cần server.
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+const hq = locations[0];
+---
+
+<Base
+  title="Liên hệ báo giá — Công ty Cổ phần Hà Lan"
+  description={`Liên hệ Hà Lan: hotline ${site.hotline.display}, email ${site.email}. Trụ sở 358 Cộng Hòa, Tân Bình, TP.HCM và 4 nhà máy tại TP.HCM, Bình Dương, Tây Ninh.`}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="eyebrow text-brand-soft">Báo giá trong giờ làm việc</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Liên hệ</h1>
+      <p class="mt-3 text-sm text-steel-300">
+        Nhanh nhất: gọi <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        hoặc nhắn <a href={site.zaloUrl} target="_blank" rel="noopener" class="font-bold text-white underline">Zalo</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-10 lg:grid-cols-2">
+    <div>
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Địa chỉ liên hệ</h2>
+      <div class="mt-5 space-y-5">
+        {locations.map((l) => (
+          <div class="border-b border-steel-200 pb-4">
+            <p class="display text-base text-steel-950">{l.name}</p>
+            <p class="mt-1 text-sm text-steel-700">{l.address}</p>
+            <p class="tabular mt-1 text-sm">
+              {l.phones.map((p, i) => (
+                <>
+                  {i > 0 && <span class="text-steel-300"> · </span>}
+                  <a href={`tel:${p.tel}`} class="font-semibold text-steel-900 hover:text-brand">{p.display}</a>
+                </>
+              ))}
+            </p>
+          </div>
+        ))}
+        <p class="text-sm">
+          Email: <a href={`mailto:${site.email}`} class="font-semibold text-brand">{site.email}</a>
+        </p>
+      </div>
+
+      <iframe
+        title={`Bản đồ — ${hq.name}`}
+        src={`https://www.google.com/maps?q=${encodeURIComponent(hq.mapQuery)}&output=embed`}
+        class="mt-6 h-64 w-full border border-steel-200"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    <div>
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Gửi yêu cầu báo giá</h2>
+      <form action="https://api.web3forms.com/submit" method="POST" class="mt-5 space-y-4">
+        <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+        <input type="hidden" name="subject" value="Yêu cầu báo giá từ halanvn.com" />
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true" />
+
+        <div>
+          <label for="name" class="mb-1 block text-sm font-semibold text-steel-800">Họ và tên *</label>
+          <input id="name" name="name" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+        </div>
+        <div>
+          <label for="phone" class="mb-1 block text-sm font-semibold text-steel-800">Số điện thoại *</label>
+          <input id="phone" name="phone" type="tel" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+        </div>
+        <div>
+          <label for="email" class="mb-1 block text-sm font-semibold text-steel-800">Email</label>
+          <input id="email" name="email" type="email" class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+        </div>
+        <div>
+          <label for="message" class="mb-1 block text-sm font-semibold text-steel-800">
+            Nội dung * <span class="font-normal text-steel-500">(chủng loại, độ dày, số lượng, nơi giao)</span>
+          </label>
+          <textarea id="message" name="message" rows="5" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand"></textarea>
+        </div>
+        <button
+          type="submit"
+          class="display w-full bg-brand px-6 py-3.5 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          Gửi yêu cầu
+        </button>
+        <p class="text-xs text-steel-500">
+          Chúng tôi gọi lại trong giờ làm việc. Cần gấp? Gọi thẳng {site.hotline.display}.
+        </p>
+      </form>
+    </div>
+  </div>
+</Base>

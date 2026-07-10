@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site, locations } from '../../data/site';
+---
+
+<Base
+  lang="en"
+  title="Contact Ha Lan Corporation — Ho Chi Minh City, Vietnam"
+  description={`Contact Ha Lan Corporation: hotline +84 963 199 313, email ${site.email}. Head office at 358 Cong Hoa St., Tan Binh District, Ho Chi Minh City.`}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="display text-3xl sm:text-4xl">Contact</h1>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-4 py-10">
+    <div class="space-y-5">
+      {locations.map((l) => (
+        <div class="border-b border-steel-200 pb-4">
+          <p class="display text-base text-steel-950">{l.nameEn}</p>
+          <p class="mt-1 text-sm text-steel-700">{l.address}</p>
+          <p class="tabular mt-1 text-sm">
+            {l.phones.map((p, i) => (
+              <>
+                {i > 0 && <span class="text-steel-300"> · </span>}
+                <a href={`tel:${p.tel}`} class="font-semibold text-steel-900 hover:text-brand">{p.display}</a>
+              </>
+            ))}
+          </p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-sm">
+      Email: <a href={`mailto:${site.email}`} class="font-semibold text-brand">{site.email}</a>
+    </p>
+    <a
+      href={`tel:${site.hotline.tel}`}
+      class="display mt-8 inline-block bg-brand px-6 py-3.5 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+    >
+      Call {site.hotline.display}
+    </a>
+  </div>
+</Base>
