@@ -52,6 +52,24 @@ const breadcrumbSchema = {
   ],
 };
 
+// detail lines use a light markdown convention: "## " = heading, "- " = bullet.
+type DetailBlock =
+  | { t: 'h'; text: string }
+  | { t: 'p'; text: string }
+  | { t: 'ul'; items: string[] };
+const detailBlocks: DetailBlock[] = [];
+for (const line of product.detail) {
+  if (line.startsWith('## ')) {
+    detailBlocks.push({ t: 'h', text: line.slice(3) });
+  } else if (line.startsWith('- ')) {
+    const last = detailBlocks[detailBlocks.length - 1];
+    if (last?.t === 'ul') last.items.push(line.slice(2));
+    else detailBlocks.push({ t: 'ul', items: [line.slice(2)] });
+  } else {
+    detailBlocks.push({ t: 'p', text: line });
+  }
+}
+
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -158,7 +176,17 @@ const productSchema = {
       <section class="mt-12 max-w-3xl">
         <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Mô tả chi tiết</h2>
         <div class="mt-4 space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
-          {product.detail.map((para) => <p>{para}</p>)}
+          {detailBlocks.map((b) =>
+            b.t === 'h' ? (
+              <h3 class="display pt-3 text-base text-steel-950">{b.text}</h3>
+            ) : b.t === 'ul' ? (
+              <ul class="list-disc space-y-1.5 pl-5 marker:text-brand">
+                {b.items.map((item) => <li>{item}</li>)}
+              </ul>
+            ) : (
+              <p>{b.text}</p>
+            )
+          )}
         </div>
       </section>
     )}
