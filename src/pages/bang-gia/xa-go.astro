@@ -1,12 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
+import SeoCrossLinks from '../../components/SeoCrossLinks.astro';
 import { site } from '../../data/site';
+import { purlinSizes } from '../../data/purlin';
 
-// Xà gồ được báo giá theo quy cách + khối lượng từng công trình, không có
-// đơn giá niêm yết — bảng dưới chỉ liệt kê quy cách sản xuất được.
+// Xà gồ được báo giá theo quy cách + khối lượng từng công trình — bảng dưới
+// liệt kê quy cách sản xuất được, mỗi quy cách có trang barem + giá riêng.
 const specs = [
-  { profile: 'Xà gồ C', sizes: 'C60, C80, C100, C125, C150, C180, C200, C250, C300', canh: '30 — 65 mm' },
-  { profile: 'Xà gồ Z', sizes: 'Z100, Z125, Z150, Z180, Z200, Z250, Z300', canh: 'theo bản vẽ' },
+  { profile: 'Xà gồ C', sizes: purlinSizes.filter((s) => s.section === 'C'), canh: '30 — 65 mm' },
+  { profile: 'Xà gồ Z', sizes: purlinSizes.filter((s) => s.section === 'Z'), canh: 'theo bản vẽ' },
 ];
 const thicknesses = '1.4 — 3.0 mm';
 ---
@@ -51,7 +53,14 @@ const thicknesses = '1.4 — 3.0 mm';
             {specs.map((s, i) => (
               <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
                 <td class="px-3 py-2.5 font-semibold">{s.profile}</td>
-                <td class="px-3 py-2.5">{s.sizes}</td>
+                <td class="px-3 py-2.5">
+                  {s.sizes.map((sz, j) => (
+                    <>
+                      {j > 0 && ', '}
+                      <a href={`/xa-go/${sz.slug}/`} class="text-brand underline">{sz.label}</a>
+                    </>
+                  ))}
+                </td>
                 <td class="px-3 py-2.5">{s.canh}</td>
                 <td class="px-3 py-2.5">{thicknesses}</td>
                 <td class="px-3 py-2.5 text-right font-bold">
@@ -64,7 +73,8 @@ const thicknesses = '1.4 — 3.0 mm';
       </div>
       <p class="mt-2 text-xs text-steel-500">
         Thép đen hoặc mạ kẽm (nền thép cường độ cao G350 — 450 MPa, phủ kẽm Z120 — 275 g/m²),
-        chiều dài cắt và đột lỗ theo bản vẽ.
+        chiều dài cắt và đột lỗ theo bản vẽ. Bấm vào từng quy cách để xem barem trọng lượng
+        theo độ dày và báo giá riêng.
       </p>
     </section>
 
@@ -105,5 +115,7 @@ const thicknesses = '1.4 — 3.0 mm';
         </a>
       </div>
     </section>
+
+    <SeoCrossLinks current="/bang-gia/xa-go/" />
   </div>
 </Base>

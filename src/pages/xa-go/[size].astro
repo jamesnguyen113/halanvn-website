@@ -1,0 +1,226 @@
+---
+// Trang đích theo từng quy cách xà gồ: /xa-go/c200/, /xa-go/z150/...
+// Dữ liệu + giá (chủ doanh nghiệp cung cấp): src/data/purlin.ts
+import Base from '../../layouts/Base.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import { site } from '../../data/site';
+import type { PriceGroup } from '../../data/prices';
+import {
+  purlinSizes,
+  purlinThicknesses,
+  purlinPricesUpdated,
+  purlinPriceOf,
+  baremKgm,
+  type PurlinSize,
+} from '../../data/purlin';
+
+export function getStaticPaths() {
+  return purlinSizes.map((s) => ({ params: { size: s.slug }, props: { size: s } }));
+}
+
+const { size } = Astro.props as { size: PurlinSize };
+const { label } = size;
+
+const fmtNum = (n: number, digits = 2) =>
+  n.toLocaleString('vi-VN', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+
+// Hai bảng đen / mạ kẽm — barem chung (chênh lệch lớp mạ không đáng kể ở đ/m).
+const coatGroup = (coat: 'black' | 'galv'): PriceGroup => ({
+  id: `${size.slug}-${coat}`,
+  name: coat === 'black' ? `Xà gồ ${label} đen` : `Xà gồ ${label} mạ kẽm`,
+  note:
+    coat === 'black'
+      ? 'Thép cán nóng / cán nguội G300 — 350'
+      : 'Thép cường độ cao G350 — 450 MPa, phủ kẽm Z120 — 275 g/m²',
+  unit: 'đ/m',
+  rows: purlinThicknesses.map((t) => ({
+    spec: `${label} — dày ${t.toLocaleString('vi-VN')} mm`,
+    weight: fmtNum(baremKgm(size.devWidth, t)),
+    price: purlinPriceOf(size.slug, coat, t),
+  })),
+});
+const groups = [coatGroup('black'), coatGroup('galv')];
+
+const specList = [
+  { k: 'Chiều cao tiết diện', v: `${size.height} mm` },
+  { k: 'Cạnh', v: size.flange },
+  { k: 'Độ dày', v: '1,4 — 3,0 mm' },
+  { k: 'Chiều dài', v: 'cắt theo bản vẽ, đột lỗ theo thiết kế' },
+  {
+    k: 'Vật liệu',
+    v: 'thép đen G300 — 350 hoặc mạ kẽm G350 — 450 MPa (Z120 — 275 g/m²)',
+  },
+];
+
+const others = purlinSizes.filter((s) => s.slug !== size.slug);
+
+const title = purlinPricesUpdated
+  ? `Giá xà gồ ${label} hôm nay ${purlinPricesUpdated} — đen & mạ kẽm | Hà Lan`
+  : `Giá xà gồ ${label} hôm nay — đen & mạ kẽm, barem trọng lượng | Hà Lan`;
+const description = `Báo giá xà gồ ${label} đen và mạ kẽm theo quy cách: barem trọng lượng từng độ dày 1.4 — 3.0 mm, cắt và đột lỗ theo bản vẽ. Sản xuất tại TP.HCM, Bình Dương. Gọi ${site.hotline.display}.`;
+
+const faq = [
+  {
+    q: `Giá xà gồ ${label} hôm nay bao nhiêu 1 mét?`,
+    a: `Giá xà gồ tính theo trọng lượng thép và biến động theo thị trường từng ngày. Báo độ dày + số lượng qua ${site.hotline.display}, nhà máy quy ra đ/m (barem ${label} trong bảng trên) và chốt giá ngay trong ngày, đã gồm VAT.`,
+  },
+  {
+    q: `Nên dùng xà gồ ${label} đen hay mạ kẽm?`,
+    a: 'Xà gồ đen rẻ hơn, cần sơn chống gỉ, hợp công trình khô ráo có bảo trì. Xà gồ mạ kẽm (Z120 — 275 g/m²) không cần sơn, bền 15 — 30 năm tùy môi trường — đáng chọn cho nhà xưởng, khu vực ẩm hoặc ven biển.',
+  },
+  {
+    q: `Xà gồ ${label} có cắt chiều dài và đột lỗ theo bản vẽ không?`,
+    a: 'Có — cán tại 4 nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh, Tây Ninh: chiều dài cắt đúng thiết kế, lỗ đột oval/tròn theo bản vẽ, giao tận công trình TP.HCM và các tỉnh lân cận.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Bảng giá xà gồ C, Z', item: new URL('/bang-gia/xa-go/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: `Xà gồ ${label}` },
+  ],
+};
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: `Xà gồ thép ${label}`,
+  description,
+  brand: { '@type': 'Brand', name: 'Hà Lan' },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'VND',
+    availability: 'https://schema.org/InStock',
+    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'VND' },
+  },
+};
+---
+
+<Base title={title} description={description} schema={[breadcrumbSchema, faqSchema, productSchema]}>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <nav class="text-xs text-steel-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Trang chủ</a>
+        <span aria-hidden="true"> / </span>
+        <a href="/bang-gia/xa-go/" class="hover:text-white">Bảng giá xà gồ C, Z</a>
+        <span aria-hidden="true"> / </span>
+        <span class="text-steel-300">{label}</span>
+      </nav>
+      <p class="eyebrow mt-3 text-brand-soft">
+        Xà gồ {size.section === 'C' ? 'chữ C' : 'chữ Z'}
+        {purlinPricesUpdated ? ` · Giá cập nhật ${purlinPricesUpdated}` : ' · Báo giá theo ngày'}
+      </p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Giá xà gồ {label} — đen & mạ kẽm</h1>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-steel-300">
+        Xà gồ {label} cao {size.height} mm, cạnh {size.flange}, dày 1,4 — 3,0 mm — cắt và đột lỗ
+        theo bản vẽ. Đọc quy cách qua
+        <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        hoặc gửi bản vẽ Zalo, báo giá trong ngày.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-4 py-10">
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>{size.use}</p>
+      <p>
+        Giá xà gồ {label} tính theo trọng lượng thép (đ/kg quy ra đ/m theo barem bên dưới) nên thay
+        đổi theo thị trường từng ngày — bảng dưới là barem trọng lượng để bạn tự tính khối lượng
+        công trình; đơn giá chốt qua hotline, đã gồm VAT.
+      </p>
+    </section>
+
+    <dl class="mt-8 max-w-3xl border-t border-steel-200">
+      {specList.map((s) => (
+        <div class="grid grid-cols-[10rem_1fr] gap-3 border-b border-steel-200 py-2.5 text-sm">
+          <dt class="font-semibold text-steel-500">{s.k}</dt>
+          <dd class="text-steel-900">{s.v}</dd>
+        </div>
+      ))}
+    </dl>
+
+    <div class="mt-10 space-y-10">
+      {groups.map((g) => <PriceTable group={g} />)}
+    </div>
+    <p class="mt-3 text-xs text-steel-500">
+      Barem lý thuyết theo tiết diện khai triển, dung sai ±3% tùy nhà máy và cỡ cạnh.
+      {purlinPricesUpdated
+        ? ` Đơn giá đã gồm VAT, cập nhật ${purlinPricesUpdated} — giá có thể giảm theo khối lượng.`
+        : ' Đơn giá báo theo thị trường trong ngày — gọi hotline kèm độ dày và số lượng.'}
+    </p>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Chốt giá xà gồ {label} hôm nay</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Đọc: đen hay mạ kẽm, độ dày, chiều dài cây và số lượng — nhà máy tính khối lượng và báo
+        tổng tiền ngay, đã gồm VAT, có xe giao tận công trình.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Các quy cách khác</h2>
+      <ul class="mt-3 flex flex-wrap gap-2 text-sm">
+        {others.map((s) => (
+          <li>
+            <a
+              href={`/xa-go/${s.slug}/`}
+              class="inline-block border border-steel-300 px-3 py-1.5 text-steel-800 hover:border-brand hover:text-brand"
+            >
+              Xà gồ {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-4 text-sm text-steel-700">
+        Xem thêm: <a href="/bang-gia/xa-go/" class="text-brand underline">bảng giá xà gồ C, Z</a> ·
+        <a
+          href={`/san-pham/xa-go-thep-chu-${size.section === 'C' ? 'c' : 'z'}/`}
+          class="text-brand underline"
+        >
+          sản phẩm xà gồ thép chữ {size.section}
+        </a>
+      </p>
+    </section>
+  </div>
+</Base>

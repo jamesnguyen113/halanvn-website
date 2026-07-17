@@ -1,9 +1,10 @@
 ---
-import Base from '../layouts/Base.astro';
-import PriceTable from '../components/PriceTable.astro';
-import SeoCrossLinks from '../components/SeoCrossLinks.astro';
-import { site } from '../data/site';
-import { priceGroups, priceListUpdated, fmtVnd } from '../data/prices';
+import Base from '../../layouts/Base.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import SeoCrossLinks from '../../components/SeoCrossLinks.astro';
+import { site } from '../../data/site';
+import { priceGroups, priceListUpdated, fmtVnd } from '../../data/prices';
+import { dongAVariants } from '../../data/dong-a-variants';
 
 // Đông Á có giá niêm yết trong bảng giá hiện hành — nhúng thẳng vào trang.
 const dongAGroups = priceGroups.filter((g) => ['ton-mau-dong-a', 'ton-lanh-trang'].includes(g.id));
@@ -21,24 +22,32 @@ const thicknessSections = [
     id: 'ton-dong-a-0-40mm',
     h: 'Giá tôn Đông Á 0.40mm hôm nay',
     price: p040,
+    href: '/ton-dong-a/4-dem/',
+    hrefLabel: 'Xem trang giá tôn Đông Á 4 dem',
     body: `Tôn màu Đông Á 0.40mm dòng ĐA-S là lựa chọn tiết kiệm nhất trong các độ dày chính hãng — phù hợp mái nhà ở dân dụng, mái hiên, công trình thay tôn cũ. Cán được sóng 5, sóng 9, lafông 13 sóng và cliplock.`,
   },
   {
     id: 'ton-dong-a-0-45mm',
     h: 'Giá tôn Đông Á 0.45mm hôm nay',
     price: p045,
+    href: '/ton-dong-a/4-5-dem/',
+    hrefLabel: 'Xem trang giá tôn Đông Á 4.5 dem',
     body: `Độ dày 0.45mm (ĐA-S) cứng cáp hơn 0.40mm rõ rệt — đi được khoảng cách xà gồ rộng hơn, chịu gió tốt hơn, ít ọp khi thi công. Đây là độ dày được chọn nhiều nhất cho mái nhà ở xây mới.`,
   },
   {
     id: 'ton-dong-a-0-50mm',
     h: 'Giá tôn Đông Á 0.50mm hôm nay',
     price: p050,
+    href: '/ton-dong-a/5-dem/',
+    hrefLabel: 'Xem trang giá tôn Đông Á 5 dem',
     body: `Độ dày 0.50mm ở dòng ĐA-W — dòng bền màu hơn của Đông Á, phù hợp nhà xưởng, công trình cần tuổi thọ màu dài. Nếu cần chống ăn mòn tối đa mà không cần màu, xem tôn lạnh trắng AZ100 bên dưới.`,
   },
   {
     id: 'ton-lanh-dong-a-az100',
     h: 'Giá tôn lạnh Đông Á AZ100 (0.50mm)',
     price: pAZ100,
+    href: '/ton-dong-a/az100/',
+    hrefLabel: 'Xem trang giá tôn lạnh Đông Á AZ100',
     body: `Tôn lạnh trắng Đông Á mạ nhôm kẽm AZ100 chống ăn mòn cao hơn tôn kẽm thường — hay dùng cho nhà xưởng, khu vực gần biển hoặc môi trường hóa chất nhẹ. Cán sóng 5, sóng 9, lafông, cliplock như tôn màu.`,
   },
 ];
@@ -121,6 +130,22 @@ const breadcrumbSchema = {
       Đơn giá đ/m đã gồm VAT, cập nhật {priceListUpdated}. Giá có thể giảm theo số lượng — gọi hotline.
     </p>
 
+    <nav class="mt-6" aria-label="Trang giá tôn Đông Á theo loại">
+      <p class="text-sm font-semibold text-steel-950">Trang giá riêng theo loại:</p>
+      <ul class="mt-2 flex flex-wrap gap-2 text-sm">
+        {dongAVariants.map((v) => (
+          <li>
+            <a
+              href={`/ton-dong-a/${v.slug}/`}
+              class="inline-block border border-steel-300 px-3 py-1.5 text-steel-800 hover:border-brand hover:text-brand"
+            >
+              {v.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
     <section class="mt-12 max-w-3xl space-y-8">
       {thicknessSections.map((s) => (
         <div id={s.id}>
@@ -130,6 +155,7 @@ const breadcrumbSchema = {
               <strong class="text-steel-950">{fmtVnd(s.price)} đ/m (đã VAT, cập nhật {priceListUpdated}). </strong>
             )}
             {s.body}
+            <a href={s.href} class="text-brand underline"> {s.hrefLabel} →</a>
           </p>
         </div>
       ))}
