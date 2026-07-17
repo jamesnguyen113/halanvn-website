@@ -1,11 +1,76 @@
 ---
 import Base from '../layouts/Base.astro';
 import PriceTable from '../components/PriceTable.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
 import { site } from '../data/site';
-import { priceGroups, priceListUpdated } from '../data/prices';
+import { priceGroups, priceListUpdated, fmtVnd } from '../data/prices';
 
 // Đông Á có giá niêm yết trong bảng giá hiện hành — nhúng thẳng vào trang.
 const dongAGroups = priceGroups.filter((g) => ['ton-mau-dong-a', 'ton-lanh-trang'].includes(g.id));
+
+// Giá theo độ dày lấy trực tiếp từ bảng giá — đổi prices.ts là các mục dưới tự cập nhật.
+const dongAMau = priceGroups.find((g) => g.id === 'ton-mau-dong-a')!;
+const priceOf = (prefix: string) => dongAMau.rows.find((r) => r.spec.startsWith(prefix))?.price ?? null;
+const p040 = priceOf('0.40');
+const p045 = priceOf('0.45');
+const p050 = priceOf('0.50');
+const pAZ100 = priceGroups.find((g) => g.id === 'ton-lanh-trang')?.rows[0]?.price ?? null;
+
+const thicknessSections = [
+  {
+    id: 'ton-dong-a-0-40mm',
+    h: 'Giá tôn Đông Á 0.40mm hôm nay',
+    price: p040,
+    body: `Tôn màu Đông Á 0.40mm dòng ĐA-S là lựa chọn tiết kiệm nhất trong các độ dày chính hãng — phù hợp mái nhà ở dân dụng, mái hiên, công trình thay tôn cũ. Cán được sóng 5, sóng 9, lafông 13 sóng và cliplock.`,
+  },
+  {
+    id: 'ton-dong-a-0-45mm',
+    h: 'Giá tôn Đông Á 0.45mm hôm nay',
+    price: p045,
+    body: `Độ dày 0.45mm (ĐA-S) cứng cáp hơn 0.40mm rõ rệt — đi được khoảng cách xà gồ rộng hơn, chịu gió tốt hơn, ít ọp khi thi công. Đây là độ dày được chọn nhiều nhất cho mái nhà ở xây mới.`,
+  },
+  {
+    id: 'ton-dong-a-0-50mm',
+    h: 'Giá tôn Đông Á 0.50mm hôm nay',
+    price: p050,
+    body: `Độ dày 0.50mm ở dòng ĐA-W — dòng bền màu hơn của Đông Á, phù hợp nhà xưởng, công trình cần tuổi thọ màu dài. Nếu cần chống ăn mòn tối đa mà không cần màu, xem tôn lạnh trắng AZ100 bên dưới.`,
+  },
+  {
+    id: 'ton-lanh-dong-a-az100',
+    h: 'Giá tôn lạnh Đông Á AZ100 (0.50mm)',
+    price: pAZ100,
+    body: `Tôn lạnh trắng Đông Á mạ nhôm kẽm AZ100 chống ăn mòn cao hơn tôn kẽm thường — hay dùng cho nhà xưởng, khu vực gần biển hoặc môi trường hóa chất nhẹ. Cán sóng 5, sóng 9, lafông, cliplock như tôn màu.`,
+  },
+];
+
+const faq = [
+  {
+    q: 'Giá tôn Đông Á 0.40mm hôm nay bao nhiêu?',
+    a: `Giá niêm yết ${priceListUpdated}: ${p040 ? fmtVnd(p040) : 'liên hệ'} đ/m (dòng ĐA-S, đã gồm VAT, cán sóng theo công trình). Đơn số lượng lớn có giá riêng — gọi ${site.hotline.display} để chốt giá trong ngày.`,
+  },
+  {
+    q: 'Nên chọn tôn Đông Á 0.40mm hay 0.45mm?',
+    a: 'Mái nhà ở thông thường, xà gồ dày: 0.40mm đủ dùng và tiết kiệm. Mái khẩu độ lớn, vùng gió mạnh hoặc muốn mái cứng cáp, đi lại bảo trì được: chọn 0.45mm. Chênh lệch giá giữa hai độ dày thường nhỏ so với tổng chi phí mái, nên xây mới đa số khách chọn 0.45mm.',
+  },
+  {
+    q: 'Tôn Đông Á có bị gỉ sét nhanh không?',
+    a: 'Tôn Đông Á chính hãng dùng thép nền mạ nhôm kẽm, sơn phủ đạt chuẩn công bố của nhà sản xuất — dùng đúng môi trường thì không gỉ nhanh. Gỉ sớm thường do mua nhầm hàng trôi nổi in nhái, trầy xước sâu khi thi công, hoặc dùng tôn màu thường cho môi trường ven biển thay vì tôn lạnh AZ100.',
+  },
+  {
+    q: 'Làm sao phân biệt tôn Đông Á chính hãng?',
+    a: 'Tôn Đông Á chính hãng in dòng thương hiệu, độ dày và tiêu chuẩn ngay trên bề mặt tấm tôn — kiểm tra được lúc nhận hàng. Mua tại Hà Lan có hóa đơn VAT và chứng từ nguồn gốc kèm theo.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -20,7 +85,7 @@ const breadcrumbSchema = {
 <Base
   title={`Tôn Đông Á — bảng giá hôm nay ${priceListUpdated}, cán sóng theo công trình | Hà Lan`}
   description={`Mua tôn Đông Á chính hãng: tôn màu ĐA-S, ĐA-W và tôn lạnh AZ100 — giá niêm yết cập nhật ${priceListUpdated}, đã gồm VAT. Cán sóng theo công trình. Gọi ${site.hotline.display}.`}
-  schema={[breadcrumbSchema]}
+  schema={[breadcrumbSchema, faqSchema]}
 >
   <div class="bg-steel-950 py-10 text-white">
     <div class="mx-auto max-w-4xl px-4">
@@ -56,6 +121,40 @@ const breadcrumbSchema = {
       Đơn giá đ/m đã gồm VAT, cập nhật {priceListUpdated}. Giá có thể giảm theo số lượng — gọi hotline.
     </p>
 
+    <section class="mt-12 max-w-3xl space-y-8">
+      {thicknessSections.map((s) => (
+        <div id={s.id}>
+          <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">{s.h}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-steel-800">
+            {s.price && (
+              <strong class="text-steel-950">{fmtVnd(s.price)} đ/m (đã VAT, cập nhật {priceListUpdated}). </strong>
+            )}
+            {s.body}
+          </p>
+        </div>
+      ))}
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">
+        So sánh tôn Đông Á với tôn nhập khẩu và các hãng khác
+      </h2>
+      <div class="mt-3 space-y-3 text-sm leading-relaxed text-steel-800">
+        <p>
+          So với <a href="/bang-gia/ton-lop/" class="text-brand underline">tôn mạ màu nhập khẩu</a>
+          cùng độ dày, tôn Đông Á đắt hơn nhưng có thương hiệu in trên tấm, tiêu chuẩn công bố rõ
+          và bảo hành của nhà sản xuất — đáng cân nhắc khi lợp mái ở lâu dài. Tôn nhập khẩu phù hợp
+          công trình tạm, mái hiên, gara cần tối ưu chi phí.
+        </p>
+        <p>
+          So với <a href="/ton-hoa-sen/" class="text-brand underline">tôn Hoa Sen</a> và
+          <a href="/ton-nam-kim/" class="text-brand underline">tôn Nam Kim</a>: ba hãng cùng phân
+          khúc chính hãng, chênh nhau chủ yếu ở giá từng thời điểm và màu sẵn kho. Hà Lan phân phối
+          cả ba — đọc quy cách một lần qua điện thoại là so được giá cả ba hãng trong ngày.
+        </p>
+      </div>
+    </section>
+
     <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
       <p class="display text-lg text-steel-950">Chốt giá tôn Đông Á hôm nay</p>
       <p class="mt-1 text-sm text-steel-700">
@@ -79,12 +178,18 @@ const breadcrumbSchema = {
       </div>
     </div>
 
-    <section class="mt-12 text-sm text-steel-700">
-      <p>
-        Xem thêm: <a href="/san-pham/ton-lop/" class="text-brand underline">tất cả sản phẩm tôn lợp</a> ·
-        <a href="/bang-gia/ton-lop/" class="text-brand underline">bảng giá tôn hôm nay</a> ·
-        <a href="/ton-hoa-sen/" class="text-brand underline">tôn Hoa Sen</a>
-      </p>
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
     </section>
+
+    <SeoCrossLinks current="/ton-dong-a/" />
   </div>
 </Base>

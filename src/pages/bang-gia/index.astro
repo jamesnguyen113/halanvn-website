@@ -1,13 +1,49 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PriceTable from '../../components/PriceTable.astro';
+import SeoCrossLinks from '../../components/SeoCrossLinks.astro';
 import { site } from '../../data/site';
 import { priceGroups, priceNotes, priceListUpdated } from '../../data/prices';
+
+const faq = [
+  {
+    q: 'Bảng giá này cập nhật khi nào?',
+    a: `Lần cập nhật gần nhất: ${priceListUpdated}. Giá tôn thép biến động theo thị trường — bảng dùng để tham khảo và so sánh; gọi ${site.hotline.display} để có giá chốt trong ngày và chiết khấu theo số lượng.`,
+  },
+  {
+    q: 'Vì sao xà gồ C — Z không có giá niêm yết?',
+    a: 'Xà gồ cán theo quy cách từng công trình (độ dày, cạnh, chiều dài, đục lỗ) nên không có đơn giá cố định — đọc quy cách qua điện thoại, nhà máy báo giá theo kg hoặc theo cây ngay trong ngày.',
+  },
+  {
+    q: 'Mua số lượng ít có được giá này không?',
+    a: 'Được — đơn giá niêm yết áp dụng cho cả đơn lẻ, đã gồm VAT. Đơn số lượng công trình có giá riêng tốt hơn, và có xe giao tận nơi khu vực TP.HCM, Bình Dương, Tây Ninh.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Bảng giá' },
+  ],
+};
 ---
 
 <Base
   title={`Bảng giá tôn lợp, xà gồ hôm nay — cập nhật ${priceListUpdated} | Hà Lan`}
   description={`Bảng giá tôn mạ màu, tôn lạnh, tôn Đông Á, Pomina mới nhất, đã gồm VAT. Báo giá xà gồ C – Z theo quy cách. Gọi ${site.hotline.display} chốt giá trong ngày.`}
+  schema={[breadcrumbSchema, faqSchema]}
 >
   <div class="bg-steel-950 py-10 text-white">
     <div class="mx-auto max-w-4xl px-4">
@@ -45,5 +81,19 @@ import { priceGroups, priceNotes, priceListUpdated } from '../../data/prices';
         Gọi chốt giá — {site.hotline.display}
       </a>
     </section>
+
+    <section class="max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <SeoCrossLinks current="/bang-gia/" />
   </div>
 </Base>

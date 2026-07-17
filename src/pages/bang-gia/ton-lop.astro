@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PriceTable from '../../components/PriceTable.astro';
+import SeoCrossLinks from '../../components/SeoCrossLinks.astro';
 import { site } from '../../data/site';
 import { priceGroups, priceNotes, priceListUpdated, fmtVnd } from '../../data/prices';
 
@@ -8,11 +9,53 @@ const tonGroups = priceGroups.filter((g) => g.tag === 'ton');
 const minPrice = Math.min(
   ...tonGroups.flatMap((g) => g.rows.map((r) => r.price).filter((p): p is number => p !== null))
 );
+
+const dongAMin = Math.min(
+  ...(priceGroups.find((g) => g.id === 'ton-mau-dong-a')?.rows ?? [])
+    .map((r) => r.price)
+    .filter((p): p is number => p !== null)
+);
+
+const faq = [
+  {
+    q: 'Giá tôn lợp hôm nay bao nhiêu 1 mét?',
+    a: `Cập nhật ${priceListUpdated}: tôn mạ màu nhập khẩu từ ${fmtVnd(minPrice)} đ/m; tôn màu Đông Á chính hãng từ ${fmtVnd(dongAMin)} đ/m tùy độ dày. Đơn giá đ/m tới, đã gồm VAT, cán sóng theo công trình.`,
+  },
+  {
+    q: 'Bảng giá đã gồm VAT và cán sóng chưa?',
+    a: 'Rồi — đơn giá trong bảng là giá đ/m tới đã gồm VAT, áp dụng cho các kiểu sóng thông dụng (sóng 5, sóng 9, lafông, cliplock). Số lượng công trình có chiết khấu riêng.',
+  },
+  {
+    q: 'Cách tính số mét tôn cho mái?',
+    a: `Đo chiều dài mái từ đỉnh xuống mép (cộng phần nhô ra), nhân với số tấm theo chiều ngang mái chia khổ hữu dụng của kiểu sóng. Cách nhanh nhất: gọi ${site.hotline.display} đọc kích thước mái — nhà máy tính số mét và báo tổng tiền giúp bạn, cắt đúng chiều dài không hao hụt.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Bảng giá', item: new URL('/bang-gia/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: 'Tôn lợp' },
+  ],
+};
 ---
 
 <Base
   title={`Bảng giá tôn lợp hôm nay ${priceListUpdated} — mạ màu, tôn lạnh, Đông Á | Hà Lan`}
   description={`Giá tôn lợp mới nhất ${priceListUpdated}: tôn mạ màu nhập khẩu từ ${fmtVnd(minPrice)} đ/m, tôn màu Đông Á, tôn lạnh trắng, Pomina. Đã gồm VAT. Gọi ${site.hotline.display} chốt giá tôn hôm nay.`}
+  schema={[breadcrumbSchema, faqSchema]}
 >
   <div class="bg-steel-950 py-10 text-white">
     <div class="mx-auto max-w-4xl px-4">
@@ -64,5 +107,19 @@ const minPrice = Math.min(
         Gọi chốt giá — {site.hotline.display}
       </a>
     </section>
+
+    <section class="max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <SeoCrossLinks current="/bang-gia/ton-lop/" />
   </div>
 </Base>

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
 import { site } from '../data/site';
 import { hoaSenReference } from '../data/hoa-sen-reference';
 import { fmtVnd } from '../data/prices';
@@ -20,6 +21,14 @@ const faq = [
   {
     q: 'Tôn Hoa Sen có bảo hành màu không?',
     a: 'Tôn mạ màu Hoa Sen chính hãng được nhà sản xuất bảo hành phai màu và ăn mòn theo từng dòng sản phẩm (thường 5 — 15 năm tùy dòng). Hà Lan cung cấp phiếu bảo hành kèm hóa đơn VAT.',
+  },
+  {
+    q: 'Nên chọn tôn Hoa Sen dày bao nhiêu?',
+    a: 'Mái nhà ở thông thường: 0.40 — 0.45 mm là phổ biến nhất; mái khẩu độ lớn, vùng gió mạnh hoặc nhà xưởng: 0.45 — 0.50 mm. Khu vực ven biển hoặc môi trường ăn mòn nên dùng dòng tôn lạnh (mạ nhôm kẽm) thay cho tôn kẽm thường.',
+  },
+  {
+    q: 'Tôn Hoa Sen với tôn Đông Á, Nam Kim — loại nào tốt hơn?',
+    a: 'Ba hãng cùng phân khúc chính hãng, chất lượng tương đương theo tiêu chuẩn công bố; khác nhau chủ yếu ở giá từng thời điểm, dòng sản phẩm và màu sẵn kho. Hà Lan phân phối cả ba — đọc quy cách một lần là so được giá cả ba hãng trong ngày.',
   },
 ];
 
@@ -147,12 +156,6 @@ const breadcrumbSchema = {
       </div>
     </section>
 
-    <section class="mt-12 max-w-3xl text-sm text-steel-700">
-      <p>
-        Xem thêm: <a href="/san-pham/ton-lop/" class="text-brand underline">tất cả sản phẩm tôn lợp</a> ·
-        <a href="/bang-gia/ton-lop/" class="text-brand underline">bảng giá tôn hôm nay</a> ·
-        <a href="/ton-dong-a/" class="text-brand underline">tôn Đông Á</a>
-      </p>
-    </section>
+    <SeoCrossLinks current="/ton-hoa-sen/" />
   </div>
 </Base>

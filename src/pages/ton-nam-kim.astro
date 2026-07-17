@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
 import { site } from '../data/site';
 
 const faq = [
@@ -111,13 +112,6 @@ const breadcrumbSchema = {
       </div>
     </section>
 
-    <section class="mt-12 max-w-3xl text-sm text-steel-700">
-      <p>
-        Xem thêm: <a href="/san-pham/ton-lop/" class="text-brand underline">tất cả sản phẩm tôn lợp</a> ·
-        <a href="/bang-gia/ton-lop/" class="text-brand underline">bảng giá tôn hôm nay</a> ·
-        <a href="/ton-hoa-sen/" class="text-brand underline">tôn Hoa Sen</a> ·
-        <a href="/ton-dong-a/" class="text-brand underline">tôn Đông Á</a>
-      </p>
-    </section>
+    <SeoCrossLinks current="/ton-nam-kim/" />
   </div>
 </Base>
