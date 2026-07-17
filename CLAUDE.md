@@ -19,6 +19,16 @@ Vietnamese primary, minimal English pages under `/en/`.
 - Images: `public/img/`, referenced as `/img/...`
 - Old-site archive (do not edit): `content-archive/`
 
+## Automation (scheduled tasks on the owner's PC)
+- **Daily Hoa Sen price watcher**: `node scripts/fetch-hoasen.mjs` fetches Hoa Sen Home's
+  public GraphQL API (recipe: `scripts/hoasen-price-source.md`) and regenerates
+  `src/data/hoa-sen-reference.ts` (market-reference block on `/ton-hoa-sen/`).
+  Exit 1 = sanity rails fired → do NOT commit; a human re-checks the recipe doc.
+  The watcher must NEVER touch `src/data/prices.ts` — those are the owner's own selling
+  prices, updated only by the owner. Unchanged prices produce no git diff (date line excluded).
+- **Content pages are never auto-published**: automation may draft pages on `content/<slug>`
+  branches only; the owner reviews before anything merges to `main` (Google scaled-content risk).
+
 ## Conventions
 - Currency: VND with vi-VN separators (`fmtVnd`), e.g. 57.000 đ
 - Colors/fonts are Tailwind theme tokens in `src/styles/global.css` (brand red #b91c1c, steel grays). Use `text-brand-soft` for red text on dark backgrounds (contrast).
