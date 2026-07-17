@@ -100,15 +100,13 @@ const orgSchema = {
     {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />}
     {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
-    <!-- GA4: replace G-XXXXXXXXXX with the real Measurement ID, then uncomment.
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q3BPRDMPH9"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
+      gtag('config', 'G-Q3BPRDMPH9');
     </script>
-    -->
   </head>
   <body class="min-h-screen">
     {!noChrome && <Header />}

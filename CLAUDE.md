@@ -27,5 +27,5 @@ Vietnamese primary, minimal English pages under `/en/`.
 ## Known TODOs
 - ~~Stale prices~~ **updated 10/07/2026** from the owner's current price-sheet photo (imported CH tôn, Đông Á, Pomina, PE, cliplock). Hoa Sen / Nam Kim / vít bắn tôn rows were dropped — not on the new sheet.
 - Contact form needs a Web3Forms access key in `src/pages/lien-he.astro` (replace YOUR_WEB3FORMS_KEY).
-- GA4 snippet commented out in `src/layouts/Base.astro` — needs a real Measurement ID.
+- ~~GA4 snippet~~ **activated 17/07/2026** with Measurement ID G-Q3BPRDMPH9 in `src/layouts/Base.astro`.
 - ~~HTTPS cert~~ **fixed 10/07/2026**: all 4 GitHub Pages A records added at PA Vietnam, Let's Encrypt cert for halanvn.com issued and verified. If not done yet: tick "Enforce HTTPS" in repo Settings → Pages (needs the cert, which is now active). `gh` CLI is not installed on this machine — use the GitHub web UI or install gh.
