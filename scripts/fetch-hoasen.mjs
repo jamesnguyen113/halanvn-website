@@ -25,12 +25,17 @@ const FAMILIES = [
 const MIN_PRICE = 20_000;
 const MAX_PRICE = 300_000;
 
+// NOTE: set process.exitCode instead of calling process.exit() — forcing exit
+// while undici's sockets are open crashes libuv on Windows (bogus exit code).
 const res = await fetch(`${ENDPOINT}?query=${encodeURIComponent(QUERY)}`);
 if (!res.ok) {
   console.error(`fetch failed: HTTP ${res.status}`);
-  process.exit(1);
+  process.exitCode = 1;
+} else {
+  main(await res.json());
 }
-const body = await res.json();
+
+function main(body) {
 const items = body?.data?.products?.items ?? [];
 
 const groups = new Map(FAMILIES.map((f) => [f.name, []]));
@@ -61,7 +66,8 @@ if (
   console.error(
     `sanity check failed: families=${rows.length} items=${items.length} unmatched=${unmatched} prices=${JSON.stringify(allPrices)}`
   );
-  process.exit(1);
+  process.exitCode = 1;
+  return;
 }
 
 const today = new Date().toLocaleDateString('vi-VN', {
@@ -95,7 +101,8 @@ const prev = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '';
 const stripDate = (s) => s.replace(/updated: '[^']*'/, '');
 if (stripDate(prev) === stripDate(ts)) {
   console.log(`unchanged (${rows.length} families, ${items.length} items) — file not rewritten`);
-  process.exit(0);
+  return;
 }
 fs.writeFileSync(OUT, ts);
 console.log(`written ${OUT}: ${rows.length} families from ${items.length} items, updated ${today}`);
+}
