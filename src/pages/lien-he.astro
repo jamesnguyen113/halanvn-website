@@ -5,7 +5,7 @@ import { site, locations } from '../data/site';
 // TODO trước khi công bố: đăng ký key miễn phí tại https://web3forms.com (nhập email nhận liên hệ)
 // rồi thay YOUR_WEB3FORMS_KEY bên dưới. Form sẽ gửi về email đó, không cần server.
 const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
-const hq = locations[0];
+const hq = locations.find((l) => l.kind === 'office')!;
 ---
 
 <Base

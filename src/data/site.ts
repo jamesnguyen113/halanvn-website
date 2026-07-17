@@ -30,17 +30,6 @@ export interface Location {
 
 export const locations: Location[] = [
   {
-    name: 'Trụ sở chính — Tân Bình',
-    nameEn: 'Head office — Tan Binh',
-    kind: 'office',
-    address: '358 Cộng Hòa, Phường 13, Quận Tân Bình, TP. Hồ Chí Minh',
-    phones: [
-      { tel: '02837271662', display: '(028) 3727 1662' },
-      { tel: '0931390068', display: '0931 390 068' },
-    ],
-    mapQuery: '358 Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh',
-  },
-  {
     name: 'Nhà máy Thủ Đức',
     nameEn: 'Thu Duc factory',
     kind: 'factory',
@@ -50,6 +39,17 @@ export const locations: Location[] = [
       { tel: '0931390068', display: '0931 390 068' },
     ],
     mapQuery: '80 Quốc lộ 1A, Hiệp Bình Phước, Thủ Đức',
+  },
+  {
+    name: 'Trụ sở chính — Tân Bình',
+    nameEn: 'Head office — Tan Binh',
+    kind: 'office',
+    address: '358 Cộng Hòa, Phường 13, Quận Tân Bình, TP. Hồ Chí Minh',
+    phones: [
+      { tel: '02837271662', display: '(028) 3727 1662' },
+      { tel: '0931390068', display: '0931 390 068' },
+    ],
+    mapQuery: '358 Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh',
   },
   {
     name: 'Nhà máy Thuận An — Bình Dương',
