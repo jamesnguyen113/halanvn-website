@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import { site } from '../../data/site';
+import { priceGroups, priceNotes, priceListUpdated, fmtVnd } from '../../data/prices';
+
+const tonGroups = priceGroups.filter((g) => g.tag === 'ton');
+const minPrice = Math.min(
+  ...tonGroups.flatMap((g) => g.rows.map((r) => r.price).filter((p): p is number => p !== null))
+);
+---
+
+<Base
+  title={`Bảng giá tôn lợp hôm nay ${priceListUpdated} — mạ màu, tôn lạnh, Đông Á | Hà Lan`}
+  description={`Giá tôn lợp mới nhất ${priceListUpdated}: tôn mạ màu nhập khẩu từ ${fmtVnd(minPrice)} đ/m, tôn màu Đông Á, tôn lạnh trắng, Pomina. Đã gồm VAT. Gọi ${site.hotline.display} chốt giá tôn hôm nay.`}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <nav class="text-xs text-steel-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Trang chủ</a>
+        <span aria-hidden="true"> / </span>
+        <a href="/bang-gia/" class="hover:text-white">Bảng giá</a>
+        <span aria-hidden="true"> / </span>
+        <span class="text-steel-300">Tôn lợp</span>
+      </nav>
+      <p class="eyebrow mt-3 text-brand-soft">Cập nhật {priceListUpdated}</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Bảng giá tôn lợp hôm nay</h1>
+      <p class="mt-3 max-w-xl text-sm leading-relaxed text-steel-300">
+        Giá tôn mạ màu, tôn lạnh, tôn Đông Á, Pomina — cán sóng 5, 9, lafông, cliplock.
+        Đơn giá đ/m đã gồm VAT. Gọi
+        <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        để chốt giá theo số lượng.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl space-y-10 px-4 py-10">
+    {tonGroups.map((g) => <PriceTable group={g} />)}
+
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        Giá tôn lợp phụ thuộc độ dày (0.35 — 0.50 mm), nguồn thép nền (nhập khẩu hay chính hãng
+        Đông Á, Pomina, Hoa Sen) và kiểu sóng. Cùng một cuộn tôn, cán
+        <a href="/san-pham/ton-5-song-vuong/" class="text-brand underline">sóng 5</a>,
+        <a href="/san-pham/ton-9-song-vuong/" class="text-brand underline">sóng 9</a> hay
+        <a href="/san-pham/ton-cliplock/" class="text-brand underline">cliplock</a> đều tính giá theo mét tới.
+      </p>
+      <p>
+        Cần tôn cách nhiệt hoặc số lượng công trình? Xem
+        <a href="/bang-gia/" class="text-brand underline">bảng giá đầy đủ</a> hoặc gọi hotline —
+        đơn số lượng lớn luôn có giá riêng.
+      </p>
+    </section>
+
+    <section class="border-l-4 border-brand bg-steel-50 p-5">
+      <h2 class="display text-lg text-steel-950">Điều kiện áp dụng</h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-steel-800">
+        {priceNotes.map((n) => <li>{n}</li>)}
+      </ul>
+      <a
+        href={`tel:${site.hotline.tel}`}
+        class="display mt-5 inline-block bg-brand px-6 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+      >
+        Gọi chốt giá — {site.hotline.display}
+      </a>
+    </section>
+  </div>
+</Base>

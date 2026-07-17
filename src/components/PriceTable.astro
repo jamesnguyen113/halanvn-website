@@ -1,0 +1,43 @@
+---
+// One price group as a table — shared by /bang-gia/ and its sub-pages.
+import { site } from '../data/site';
+import { fmtVnd, type PriceGroup } from '../data/prices';
+
+interface Props {
+  group: PriceGroup;
+}
+
+const { group: g } = Astro.props;
+const hasWeight = g.rows.some((r) => r.weight);
+---
+
+<section>
+  <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">{g.name}</h2>
+  {g.note && <p class="mt-1 pl-4 text-sm text-steel-500">{g.note}</p>}
+  <div class="mt-3 overflow-x-auto">
+    <table class="w-full border-collapse text-sm">
+      <thead>
+        <tr class="bg-steel-950 text-left text-white">
+          <th class="px-3 py-2.5 font-semibold">Quy cách</th>
+          {hasWeight && <th class="px-3 py-2.5 font-semibold">Tỷ trọng (kg/md)</th>}
+          <th class="px-3 py-2.5 text-right font-semibold">Đơn giá ({g.unit})</th>
+        </tr>
+      </thead>
+      <tbody class="tabular">
+        {g.rows.map((r, i) => (
+          <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
+            <td class="px-3 py-2.5">{r.spec}</td>
+            {hasWeight && <td class="px-3 py-2.5 text-steel-700">{r.weight ?? '—'}</td>}
+            <td class="px-3 py-2.5 text-right font-bold text-steel-950">
+              {r.price === null ? (
+                <a href={`tel:${site.hotline.tel}`} class="text-brand underline">Liên hệ</a>
+              ) : (
+                `${fmtVnd(r.price)} đ`
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

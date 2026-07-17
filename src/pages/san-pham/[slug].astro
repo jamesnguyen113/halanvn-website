@@ -12,6 +12,46 @@ const { product } = Astro.props;
 const category = categories.find((c) => c.slug === product.category)!;
 const related = byCategory(product.category).filter((p) => p.slug !== product.slug).slice(0, 4);
 
+// Exact-match titles/descriptions for the pages targeting head keywords;
+// other products keep the generic template below.
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  'ton-ma-mau': {
+    title: 'Tôn mạ màu — giá tốt từ nhà máy, cán sóng theo yêu cầu | Hà Lan',
+    description: `Mua tôn mạ màu nhập khẩu và chính hãng Đông Á, Nam Kim — cán sóng 5, 9, cliplock theo công trình, giao tận nơi TP.HCM, Bình Dương. Gọi ${site.hotline.display}.`,
+  },
+  'ton-ma-kem': {
+    title: 'Tôn mạ kẽm — cán sóng theo quy cách, giao tận công trình | Hà Lan',
+    description: `Mua tôn mạ kẽm chính hãng, cán sóng 5, 9, cliplock theo quy cách. Giao tận nơi TP.HCM, Thủ Đức, Bình Dương. Gọi ${site.hotline.display} báo giá hôm nay.`,
+  },
+  'ton-lanh': {
+    title: 'Tôn lạnh — chống ăn mòn, cán sóng theo yêu cầu | Hà Lan',
+    description: `Mua tôn lạnh (mạ nhôm kẽm) Đông Á AZ100 và nhập khẩu — cán sóng theo công trình, giao tận nơi. Gọi ${site.hotline.display} chốt giá trong ngày.`,
+  },
+  'xa-go-thep-chu-c': {
+    title: 'Xà gồ thép chữ C đen & mạ kẽm — báo giá theo quy cách | Hà Lan',
+    description: `Mua xà gồ C đen, xà gồ C mạ kẽm cắt đúng quy cách công trình — sản xuất tại nhà máy Thủ Đức, Bình Dương. Gọi ${site.hotline.display} báo khối lượng và giá ngay.`,
+  },
+  'xa-go-thep-chu-z': {
+    title: 'Xà gồ thép chữ Z đen & mạ kẽm — báo giá theo quy cách | Hà Lan',
+    description: `Mua xà gồ Z đen, xà gồ Z mạ kẽm cắt đúng quy cách công trình — sản xuất tại nhà máy Thủ Đức, Bình Dương. Gọi ${site.hotline.display} báo khối lượng và giá ngay.`,
+  },
+};
+const seo = seoOverrides[product.slug] ?? {
+  title: `${product.name} — báo giá trực tiếp từ nhà máy | Hà Lan`,
+  description: product.short.slice(0, 155) || `${product.name} — sản xuất và cung cấp bởi Công ty Cổ phần Hà Lan.`,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Sản phẩm', item: new URL('/san-pham/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: category.name, item: new URL(`/san-pham/${category.slug}/`, Astro.site).href },
+    { '@type': 'ListItem', position: 4, name: product.name },
+  ],
+};
+
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -30,17 +70,17 @@ const productSchema = {
 ---
 
 <Base
-  title={`${product.name} — báo giá trực tiếp từ nhà máy | Hà Lan`}
-  description={product.short.slice(0, 155) || `${product.name} — sản xuất và cung cấp bởi Công ty Cổ phần Hà Lan.`}
+  title={seo.title}
+  description={seo.description}
   ogImage={product.cover}
-  schema={[productSchema]}
+  schema={[productSchema, breadcrumbSchema]}
 >
   <nav class="mx-auto max-w-6xl px-4 pt-4 text-xs text-steel-500" aria-label="Breadcrumb">
     <a href="/" class="hover:text-brand">Trang chủ</a>
     <span aria-hidden="true"> / </span>
     <a href="/san-pham/" class="hover:text-brand">Sản phẩm</a>
     <span aria-hidden="true"> / </span>
-    <a href={`/san-pham/#${category.slug}`} class="hover:text-brand">{category.name}</a>
+    <a href={`/san-pham/${category.slug}/`} class="hover:text-brand">{category.name}</a>
   </nav>
 
   <article class="mx-auto max-w-6xl px-4 py-6">

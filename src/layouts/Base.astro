@@ -16,6 +16,8 @@ interface Props {
   ogImage?: string;
   /** Extra JSON-LD blocks (e.g. Product on product pages) */
   schema?: object[];
+  /** vi/en alternates for pages that exist in both languages (x-default → vi) */
+  hreflang?: { vi: string; en: string };
   noChrome?: boolean;
 }
 
@@ -25,10 +27,21 @@ const {
   lang = 'vi',
   ogImage = '/img/logo.png',
   schema = [],
+  hreflang,
   noChrome = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === '/';
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.shortName,
+  alternateName: site.name,
+  url: site.domain,
+  inLanguage: 'vi',
+};
 
 const orgSchema = {
   '@context': 'https://schema.org',
@@ -60,6 +73,13 @@ const orgSchema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {hreflang && (
+      <>
+        <link rel="alternate" hreflang="vi" href={new URL(hreflang.vi, Astro.site)} />
+        <link rel="alternate" hreflang="en" href={new URL(hreflang.en, Astro.site)} />
+        <link rel="alternate" hreflang="x-default" href={new URL(hreflang.vi, Astro.site)} />
+      </>
+    )}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
@@ -71,7 +91,13 @@ const orgSchema = {
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:locale" content={lang === 'vi' ? 'vi_VN' : 'en_US'} />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
+
     <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />}
     {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
     <!-- GA4: replace G-XXXXXXXXXX with the real Measurement ID, then uncomment.

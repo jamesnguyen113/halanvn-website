@@ -7,6 +7,7 @@ import { categories, byCategory } from '../../data/products';
 <Base
   title="Sản phẩm — Tôn lợp, xà gồ, tôn cách nhiệt, thép xây dựng | Hà Lan"
   description="Danh mục sản phẩm Hà Lan: tôn mạ kẽm, tôn mạ màu, tôn lạnh, tôn cán sóng 5 — 9, cliplock, xà gồ C — Z, tôn cách nhiệt PE/PU, phôi thép, sắt thép xây dựng."
+  hreflang={{ vi: '/san-pham/', en: '/en/products/' }}
 >
   <div class="bg-steel-950 py-10 text-white">
     <div class="mx-auto max-w-6xl px-4">
@@ -23,7 +24,7 @@ import { categories, byCategory } from '../../data/products';
     <!-- Category jump nav -->
     <nav class="flex flex-wrap gap-2" aria-label="Danh mục sản phẩm">
       {categories.map((c) => (
-        <a href={`#${c.slug}`} class="eyebrow border border-steel-300 px-3 py-2 text-steel-700 hover:border-brand hover:text-brand">
+        <a href={`/san-pham/${c.slug}/`} class="eyebrow border border-steel-300 px-3 py-2 text-steel-700 hover:border-brand hover:text-brand">
           {c.name}
         </a>
       ))}
@@ -31,7 +32,9 @@ import { categories, byCategory } from '../../data/products';
 
     {categories.map((c) => (
       <section id={c.slug} class="scroll-mt-28 pt-12">
-        <h2 class="display border-l-4 border-brand pl-3 text-2xl text-steel-950">{c.name}</h2>
+        <h2 class="display border-l-4 border-brand pl-3 text-2xl text-steel-950">
+          <a href={`/san-pham/${c.slug}/`} class="hover:text-brand">{c.name}</a>
+        </h2>
         <p class="mt-2 max-w-2xl pl-4 text-sm text-steel-700">{c.blurb}</p>
         <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {byCategory(c.slug).map((p) => <ProductCard product={p} />)}

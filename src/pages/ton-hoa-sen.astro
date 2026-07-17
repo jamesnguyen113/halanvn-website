@@ -1,0 +1,121 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const faq = [
+  {
+    q: 'Tôn Hoa Sen ở Hà Lan có phải hàng chính hãng không?',
+    a: 'Có. Hà Lan nhập tôn cuộn Hoa Sen trực tiếp từ nhà máy, đầy đủ chứng từ xuất xứ (CO/CQ) và tem in trên bề mặt cuộn — khách kiểm tra được dòng in thương hiệu, độ dày và tiêu chuẩn ngay trên tấm tôn khi nhận hàng.',
+  },
+  {
+    q: 'Giá tôn Hoa Sen hôm nay bao nhiêu?',
+    a: `Giá tôn Hoa Sen thay đổi theo ngày và theo độ dày (0.35 — 0.50 mm), màu và kiểu sóng. Gọi ${site.hotline.display} đọc quy cách — nhà máy báo giá chính xác trong ngày, đã gồm VAT.`,
+  },
+  {
+    q: 'Hà Lan cán được những sóng nào từ tôn Hoa Sen?',
+    a: 'Sóng 5 vuông, sóng 9 vuông, sóng 9 đôi, cliplock, sóng ngói, sóng vòm và lafông 13 sóng — cán đúng chiều dài mái tại 4 nhà máy Thủ Đức, Thuận An, Bình Chánh, Tây Ninh.',
+  },
+  {
+    q: 'Tôn Hoa Sen có bảo hành màu không?',
+    a: 'Tôn mạ màu Hoa Sen chính hãng được nhà sản xuất bảo hành phai màu và ăn mòn theo từng dòng sản phẩm (thường 5 — 15 năm tùy dòng). Hà Lan cung cấp phiếu bảo hành kèm hóa đơn VAT.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Tôn Hoa Sen' },
+  ],
+};
+---
+
+<Base
+  title="Tôn Hoa Sen chính hãng — đại lý cán sóng, báo giá hôm nay | Hà Lan"
+  description={`Mua tôn Hoa Sen chính hãng: tôn mạ màu, tôn lạnh, tôn kẽm — cán sóng 5, 9, cliplock theo công trình tại TP.HCM, Bình Dương. Gọi ${site.hotline.display} báo giá tôn Hoa Sen hôm nay.`}
+  schema={[breadcrumbSchema, faqSchema]}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="eyebrow text-brand-soft">Thương hiệu phân phối</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Tôn Hoa Sen chính hãng</h1>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-steel-300">
+        Hà Lan nhập tôn cuộn Hoa Sen trực tiếp từ nhà máy và cán sóng theo công trình của bạn —
+        gọi <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        để có giá tôn Hoa Sen hôm nay.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        <strong>Tôn Hoa Sen</strong> là thương hiệu tôn phổ biến nhất Việt Nam — tôn mạ màu,
+        tôn lạnh (mạ nhôm kẽm) và tôn kẽm với lớp mạ đạt chuẩn JIS, bảo hành phai màu theo dòng
+        sản phẩm. Hà Lan phân phối tôn Hoa Sen từ hơn 20 năm nay cùng các thương hiệu Đông Á,
+        Nam Kim, Pomina — khách so sánh giá từng hãng trong một cuộc gọi.
+      </p>
+      <p>
+        Khác với mua tấm cắt sẵn, tại Hà Lan tôn Hoa Sen được <strong>cán sóng trực tiếp từ cuộn</strong>:
+        sóng 5, sóng 9, cliplock, sóng ngói, sóng vòm — cắt đúng chiều dài mái, không hao hụt.
+        Cán tại nhà máy gần công trình nhất trong 4 nhà máy Thủ Đức, Thuận An (Bình Dương),
+        Bình Chánh, Tây Ninh và giao tận nơi.
+      </p>
+    </section>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Giá tôn Hoa Sen theo ngày — gọi để chốt</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Giá phụ thuộc độ dày, màu và kiểu sóng, thay đổi theo thị trường thép. Đọc quy cách qua
+        điện thoại — báo giá chính xác trong ngày, đã gồm VAT.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12 max-w-3xl text-sm text-steel-700">
+      <p>
+        Xem thêm: <a href="/san-pham/ton-lop/" class="text-brand underline">tất cả sản phẩm tôn lợp</a> ·
+        <a href="/bang-gia/ton-lop/" class="text-brand underline">bảng giá tôn hôm nay</a> ·
+        <a href="/ton-dong-a/" class="text-brand underline">tôn Đông Á</a>
+      </p>
+    </section>
+  </div>
+</Base>

@@ -2,6 +2,14 @@
 import Base from '../layouts/Base.astro';
 import { site, locations } from '../data/site';
 
+// Khu vực phục vụ chính của từng điểm — hiển thị dưới địa chỉ.
+const serviceAreas: Record<string, string> = {
+  'Nhà máy Thủ Đức': 'Cung cấp tôn thép khu vực Thủ Đức, Dĩ An, Biên Hòa, Q.12, Gò Vấp, Bình Thạnh.',
+  'Nhà máy Thuận An — Bình Dương': 'Cung cấp tôn thép khu vực Thuận An, Thủ Dầu Một, Dĩ An, Tân Uyên, Bến Cát — toàn Bình Dương.',
+  'Nhà máy Bình Chánh': 'Cung cấp tôn thép khu vực Bình Chánh, Bình Tân, Q.8, Hóc Môn, Củ Chi, Long An.',
+  'Nhà máy Tây Ninh': 'Cung cấp tôn thép khu vực Tây Ninh, Trảng Bàng, Gò Dầu, Củ Chi.',
+};
+
 const gallery = [
   { img: '/img/about/Nhamay.jpg', label: 'Nhà máy sản xuất' },
   { img: '/img/about/DSC00080.jpg', label: 'Khu vực cán sóng' },
@@ -13,8 +21,8 @@ const gallery = [
 ---
 
 <Base
-  title="Hệ thống 4 nhà máy — Thủ Đức, Thuận An, Bình Chánh, Tây Ninh | Hà Lan"
-  description="4 nhà máy cán tôn, cắt xà gồ của Hà Lan tại TP.HCM, Bình Dương và Tây Ninh — nhận cán sóng theo quy cách, giao tận công trình."
+  title="Nhà máy tôn thép tại Thủ Đức, Bình Dương, Bình Chánh, Tây Ninh | Hà Lan"
+  description="4 nhà máy cán tôn, cắt xà gồ của Hà Lan: Thủ Đức, Thuận An (Bình Dương), Bình Chánh, Tây Ninh — cán sóng theo quy cách, giao tận công trình TP.HCM và miền Nam."
 >
   <div class="bg-steel-950 py-10 text-white">
     <div class="mx-auto max-w-6xl px-4">
@@ -33,6 +41,7 @@ const gallery = [
           <p class="eyebrow text-steel-500">{l.kind === 'office' ? 'Văn phòng' : 'Nhà máy'}</p>
           <h2 class="display mt-1 text-lg text-steel-950">{l.name}</h2>
           <p class="mt-2 text-sm text-steel-700">{l.address}</p>
+          {serviceAreas[l.name] && <p class="mt-1.5 text-sm text-steel-500">{serviceAreas[l.name]}</p>}
           <ul class="tabular mt-3 space-y-1 text-sm">
             {l.phones.map((p) => (
               <li>

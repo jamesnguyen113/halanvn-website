@@ -12,8 +12,9 @@ const featured = [
 ---
 
 <Base
-  title="Tôn lợp, xà gồ C — Z, sắt hộp, thép xây dựng | Công ty Cổ phần Hà Lan"
-  description={site.description}
+  title="Tôn lợp, tôn mạ màu, xà gồ C – Z giá tốt | Công ty CP Hà Lan"
+  description={`Mua tôn lợp, tôn mạ màu, tôn Hoa Sen, Đông Á chính hãng, xà gồ C – Z cán theo công trình. 4 nhà máy TP.HCM, Bình Dương, Tây Ninh. Gọi ${site.hotline.display} báo giá ngay.`}
+  hreflang={{ vi: '/', en: '/en/' }}
 >
   <!-- Hero: charcoal steel, corrugation profile, phone-first -->
   <section class="relative overflow-hidden bg-steel-950 text-white">
@@ -30,7 +31,9 @@ const featured = [
         <span class="text-steel-300">cán theo công trình của bạn</span>
       </h1>
       <p class="mt-5 max-w-xl text-base leading-relaxed text-steel-300 sm:text-lg">
-        4 nhà máy tại TP.HCM, Bình Dương và Tây Ninh. Tôn Hoa Sen, Đông Á, Nam Kim chính hãng —
+        4 nhà máy tại TP.HCM, Bình Dương và Tây Ninh.
+        <a href="/ton-hoa-sen/" class="underline decoration-steel-500 hover:text-white">Tôn Hoa Sen</a>,
+        <a href="/ton-dong-a/" class="underline decoration-steel-500 hover:text-white">Đông Á</a>, Nam Kim chính hãng —
         cán sóng 5, 9, cliplock theo yêu cầu, giao tận chân công trình, hóa đơn VAT.
       </p>
       <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -58,7 +61,7 @@ const featured = [
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {categories.map((c) => (
         <a
-          href={`/san-pham/#${c.slug}`}
+          href={`/san-pham/${c.slug}/`}
           class="group border-l-4 border-steel-200 bg-steel-50 p-5 transition-colors hover:border-brand hover:bg-white hover:shadow-md"
         >
           <h3 class="display text-lg text-steel-950 group-hover:text-brand">{c.name}</h3>

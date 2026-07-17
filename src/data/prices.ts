@@ -9,17 +9,22 @@ export interface PriceRow {
 }
 
 export interface PriceGroup {
+  id: string;
   name: string;
   note?: string;
   unit: string;
+  /** 'ton' groups also appear on /bang-gia/ton-lop/ */
+  tag?: 'ton';
   rows: PriceRow[];
 }
 
 export const priceGroups: PriceGroup[] = [
   {
+    id: 'ton-ma-mau-nhap-khau',
     name: 'Tôn mạ màu — nhập khẩu',
     note: '9 sóng, 5 sóng, 13 sóng lafông, cliplock',
     unit: 'đ/m',
+    tag: 'ton',
     rows: [
       { spec: '0.35 mm — TQ', weight: '2.75 — 2.85', price: 52000 },
       { spec: '0.40 mm — NH', weight: '3.31 — 3.35', price: 66000 },
@@ -28,15 +33,19 @@ export const priceGroups: PriceGroup[] = [
     ],
   },
   {
+    id: 'ton-lanh-trang',
     name: 'Tôn lạnh trắng',
     note: '9 sóng, 5 sóng, lafông, cliplock',
     unit: 'đ/m',
+    tag: 'ton',
     rows: [{ spec: '0.50 mm — Đông Á AZ100', price: 112000 }],
   },
   {
+    id: 'ton-mau-dong-a',
     name: 'Tôn màu Đông Á',
     note: '9 sóng, 5 sóng, 13 sóng lafông, cliplock',
     unit: 'đ/m',
+    tag: 'ton',
     rows: [
       { spec: '0.40 mm — ĐA-S', price: 95000 },
       { spec: '0.45 mm — ĐA-S', price: 105000 },
@@ -44,12 +53,15 @@ export const priceGroups: PriceGroup[] = [
     ],
   },
   {
+    id: 'ton-pomina',
     name: 'Tôn Pomina',
     note: '9 sóng, 5 sóng, 13 sóng lafông, cliplock',
     unit: 'đ/m',
+    tag: 'ton',
     rows: [{ spec: 'Các độ dày — báo giá theo ngày', price: null }],
   },
   {
+    id: 'pe-cach-nhiet',
     name: 'PE cách nhiệt — cán theo sóng tôn',
     unit: 'đ/m',
     rows: [
@@ -59,12 +71,14 @@ export const priceGroups: PriceGroup[] = [
     ],
   },
   {
+    id: 'ton-nhua-sang',
     name: 'Tôn nhựa sáng',
     note: '2 m, 2.4 m, 3 m hoặc cắt theo yêu cầu',
     unit: 'đ/m',
     rows: [{ spec: '2 lớp (1.0 mm)', price: 75000 }],
   },
   {
+    id: 'song-cliplock',
     name: 'Sóng cliplock',
     unit: 'đ/m',
     rows: [

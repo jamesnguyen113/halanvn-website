@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+
+// Xà gồ được báo giá theo quy cách + khối lượng từng công trình, không có
+// đơn giá niêm yết — bảng dưới chỉ liệt kê quy cách sản xuất được.
+const specs = [
+  { profile: 'Xà gồ C', sizes: 'C60, C80, C100, C125, C150, C180, C200, C250, C300', canh: '30 — 65 mm' },
+  { profile: 'Xà gồ Z', sizes: 'Z100, Z125, Z150, Z180, Z200, Z250, Z300', canh: 'theo bản vẽ' },
+];
+const thicknesses = '1.4 — 3.0 mm';
+---
+
+<Base
+  title="Bảng giá xà gồ C, Z — đen & mạ kẽm, báo giá theo quy cách | Hà Lan"
+  description={`Báo giá xà gồ C, xà gồ Z đen và mạ kẽm theo quy cách công trình: C60 — C300, Z100 — Z300, dày 1.4 — 3.0 mm. Sản xuất tại TP.HCM, Bình Dương. Gọi ${site.hotline.display}.`}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-4xl px-4">
+      <nav class="text-xs text-steel-400" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Trang chủ</a>
+        <span aria-hidden="true"> / </span>
+        <a href="/bang-gia/" class="hover:text-white">Bảng giá</a>
+        <span aria-hidden="true"> / </span>
+        <span class="text-steel-300">Xà gồ C — Z</span>
+      </nav>
+      <h1 class="display mt-3 text-3xl sm:text-4xl">Bảng giá xà gồ C, Z</h1>
+      <p class="mt-3 max-w-xl text-sm leading-relaxed text-steel-300">
+        Xà gồ báo giá theo quy cách và khối lượng từng công trình — đọc quy cách qua
+        <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        hoặc gửi bản vẽ qua Zalo, nhà máy báo khối lượng và đơn giá ngay trong ngày.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl space-y-10 px-4 py-10">
+    <section>
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Quy cách sản xuất được</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-steel-950 text-left text-white">
+              <th class="px-3 py-2.5 font-semibold">Loại</th>
+              <th class="px-3 py-2.5 font-semibold">Chiều cao tiết diện</th>
+              <th class="px-3 py-2.5 font-semibold">Cạnh</th>
+              <th class="px-3 py-2.5 font-semibold">Độ dày</th>
+              <th class="px-3 py-2.5 text-right font-semibold">Đơn giá</th>
+            </tr>
+          </thead>
+          <tbody class="tabular">
+            {specs.map((s, i) => (
+              <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
+                <td class="px-3 py-2.5 font-semibold">{s.profile}</td>
+                <td class="px-3 py-2.5">{s.sizes}</td>
+                <td class="px-3 py-2.5">{s.canh}</td>
+                <td class="px-3 py-2.5">{thicknesses}</td>
+                <td class="px-3 py-2.5 text-right font-bold">
+                  <a href={`tel:${site.hotline.tel}`} class="text-brand underline">Liên hệ</a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-steel-500">
+        Thép đen hoặc mạ kẽm (nền thép cường độ cao G350 — 450 MPa, phủ kẽm Z120 — 275 g/m²),
+        chiều dài cắt và đột lỗ theo bản vẽ.
+      </p>
+    </section>
+
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        Vì <strong>giá xà gồ C</strong> và <strong>giá xà gồ Z</strong> tính theo trọng lượng thép
+        (đ/kg quy ra đ/m theo tiết diện và độ dày), mỗi công trình một quy cách nên không có đơn giá
+        niêm yết cố định. Báo đúng: loại (C hay Z, đen hay mạ kẽm), chiều cao tiết diện, độ dày,
+        chiều dài cây và số lượng — nhà máy tính khối lượng và báo giá ngay.
+      </p>
+      <p>
+        Xà gồ cán trực tiếp tại 4 nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh, Tây Ninh —
+        giao tận công trình TPHCM và các tỉnh lân cận. Xem thêm sản phẩm
+        <a href="/san-pham/xa-go-thep-chu-c/" class="text-brand underline">xà gồ thép chữ C</a> và
+        <a href="/san-pham/xa-go-thep-chu-z/" class="text-brand underline">xà gồ thép chữ Z</a>.
+      </p>
+    </section>
+
+    <section class="border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Gửi quy cách — nhận báo giá trong ngày</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Gọi điện đọc quy cách hoặc gửi bản vẽ qua Zalo. Đơn giá đã gồm VAT, có xe giao tận nơi.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </section>
+  </div>
+</Base>
