@@ -5,7 +5,18 @@
 // nội suy vào <title> và sitemap lastmod. Giá thiếu → hiển thị "Liên hệ".
 // Automation KHÔNG được sửa file này.
 
-export const purlinPricesUpdated: string | null = null;
+export const purlinPricesUpdated: string | null = '18/07/2026';
+
+/**
+ * Đơn giá đ/kg (ĐÃ gồm VAT 10%) — nhân với barem ra đ/m cho mọi quy cách.
+ * Nguồn nháp 18/07/2026: suy từ bảng C200x50 của tonthepchinhphuthinh.com
+ * (đen 17.400 đ/kg, kẽm 17.850 đ/kg chưa VAT — ổn định ±1% trên cả 10 độ dày)
+ * cộng 10% VAT. CHỦ DOANH NGHIỆP xác nhận/chỉnh 2 số này trước khi commit.
+ */
+export const purlinRates: { black: number | null; galv: number | null } = {
+  black: 19140,
+  galv: 19635,
+};
 
 export interface PurlinSize {
   slug: string; // 'c200'
@@ -39,7 +50,14 @@ export const purlinPriceOf = (
   slug: string,
   coat: 'black' | 'galv',
   t: number
-): number | null => purlinPrices[slug]?.[coat]?.[String(t)] ?? null;
+): number | null => {
+  const explicit = purlinPrices[slug]?.[coat]?.[String(t)];
+  if (explicit != null) return explicit;
+  const rate = purlinRates[coat];
+  const size = purlinBySlug.get(slug);
+  if (rate == null || !size) return null;
+  return Math.round((rate * baremKgm(size.devWidth, t)) / 100) * 100;
+};
 
 export const purlinSizes: PurlinSize[] = [
   {
