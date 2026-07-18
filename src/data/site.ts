@@ -16,7 +16,7 @@ export const site = {
     { label: 'Hotline 2', tel: '0934063768', display: '0934 063 768' },
     { label: 'Bình Dương', tel: '02743617808', display: '(0274) 361 7808' },
   ],
-  bank: 'STK 0461.0004.77816 — Vietcombank CN Bình Dương',
+  bank: 'STK 11802990811 — Vietinbank CN Đông TP.HCM – PGD An Phú (Công Ty Cổ Phần Hà Lan)',
 };
 
 export interface Location {
