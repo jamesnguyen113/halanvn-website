@@ -77,13 +77,8 @@ const productSchema = {
   description: product.short,
   image: product.images.map((i) => new URL(i, Astro.site).href),
   brand: { '@type': 'Brand', name: 'Hà Lan' },
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'VND',
-    availability: 'https://schema.org/InStock',
-    // quote-by-phone business: no fixed price published
-    priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'VND' },
-  },
+  // No offers block: quote-by-phone business with no published per-product price.
+  // Emitting an Offer without a price triggers GSC "Merchant listings" errors.
 };
 ---
 
