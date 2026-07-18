@@ -1,0 +1,177 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SeoCrossLinks from '../../components/SeoCrossLinks.astro';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('tin-tuc');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const posts = (await getCollection('tin-tuc')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const others = posts.filter((p) => p.id !== post.id).slice(0, 4);
+
+const fmtDate = new Intl.DateTimeFormat('vi-VN', {
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+});
+const iso = post.data.date.toISOString().slice(0, 10);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: iso,
+  inLanguage: 'vi',
+  author: { '@type': 'Organization', name: site.name },
+  publisher: { '@type': 'Organization', name: site.name },
+  mainEntityOfPage: new URL(`/tin-tuc/${post.id}/`, Astro.site).href,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Tin tức', item: new URL('/tin-tuc/', Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: post.data.title },
+  ],
+};
+---
+
+<Base
+  title={`${post.data.title} | Hà Lan`}
+  description={post.data.description}
+  schema={[articleSchema, breadcrumbSchema]}
+>
+  <article class="mx-auto max-w-3xl px-4 py-8">
+    <nav class="text-xs text-steel-500" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-brand">Trang chủ</a>
+      <span aria-hidden="true"> / </span>
+      <a href="/tin-tuc/" class="hover:text-brand">Tin tức</a>
+    </nav>
+
+    <p class="mt-4 text-xs text-steel-500">
+      <time datetime={iso}>{fmtDate.format(post.data.date)}</time> · {site.shortName}
+    </p>
+    <h1 class="display mt-2 text-3xl leading-tight text-steel-950 sm:text-4xl">{post.data.title}</h1>
+
+    <div class="article-body mt-6">
+      <Content />
+    </div>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Hỏi nhanh cho công trình của bạn</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Đọc kích thước và loại công trình — nhà máy tư vấn và báo giá ngay trong ngày, đã gồm VAT.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    {others.length > 0 && (
+      <section class="mt-12">
+        <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Bài viết khác</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          {others.map((p) => (
+            <li>
+              <a href={`/tin-tuc/${p.id}/`} class="text-brand underline">{p.data.title}</a>
+              <span class="text-steel-500"> — {fmtDate.format(p.data.date)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <SeoCrossLinks current={`/tin-tuc/${post.id}/`} />
+  </article>
+</Base>
+
+<style is:global>
+  .article-body {
+    color: var(--color-steel-800, #27272a);
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+  .article-body p,
+  .article-body ul,
+  .article-body ol,
+  .article-body table {
+    margin-top: 0.9rem;
+  }
+  .article-body h2 {
+    margin-top: 2rem;
+    font-family: var(--font-display, inherit);
+    font-size: 1.35rem;
+    color: var(--color-steel-950, #09090b);
+    border-left: 4px solid var(--color-brand, #b91c1c);
+    padding-left: 0.75rem;
+  }
+  .article-body h3 {
+    margin-top: 1.4rem;
+    font-weight: 600;
+    color: var(--color-steel-950, #09090b);
+  }
+  .article-body ul {
+    list-style: disc;
+    padding-left: 1.4rem;
+  }
+  .article-body ol {
+    list-style: decimal;
+    padding-left: 1.4rem;
+  }
+  .article-body li {
+    margin-top: 0.35rem;
+  }
+  .article-body li::marker {
+    color: var(--color-brand, #b91c1c);
+  }
+  .article-body a {
+    color: var(--color-brand, #b91c1c);
+    text-decoration: underline;
+  }
+  .article-body strong {
+    color: var(--color-steel-950, #09090b);
+  }
+  .article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .article-body th {
+    background: var(--color-steel-950, #09090b);
+    color: #fff;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-weight: 600;
+  }
+  .article-body td {
+    border-bottom: 1px solid var(--color-steel-200, #e4e4e7);
+    padding: 0.6rem 0.75rem;
+  }
+  .article-body tr:nth-child(even) td {
+    background: var(--color-steel-50, #fafafa);
+  }
+</style>

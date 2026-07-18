@@ -14,8 +14,9 @@ Vietnamese primary, minimal English pages under `/en/`.
 - Prices (Bảng giá): `src/data/prices.ts` — groups `{ id, name, tag?, rows }`, rows `{ spec, weight?, price }`, `price: null` renders "Liên hệ". Update `priceListUpdated` when changing prices — **it is interpolated into the SEO titles** of `/bang-gia/`, `/bang-gia/ton-lop/`, `/ton-dong-a/` and all `/ton-dong-a/<variant>/` pages, so keeping it fresh is the ranking asset. Groups with `tag: 'ton'` also render on `/bang-gia/ton-lop/`; Đông Á groups are picked by `id` in `src/pages/ton-dong-a/index.astro`.
 - SEO landing pages (added 17/07/2026): category pages `/san-pham/<category>/` (via `src/components/CategoryLanding.astro`), brand pages `/ton-hoa-sen/` + `/ton-dong-a/` + `/ton-nam-kim/`, price sub-pages `/bang-gia/ton-lop/` + `/bang-gia/xa-go/`. Product-page titles for head keywords live in the `seoOverrides` map in `src/pages/san-pham/[slug].astro`.
 - Long-tail clusters (added 17/07/2026, Chinh Phú Thịnh competitor pattern):
-  - `/xa-go/<size>/` — 16 pages (C60–C300, Z100–Z300) from `src/pages/xa-go/[size].astro` + `src/data/purlin.ts`. Barem tables are theoretical (±3%). Prices = `purlinRates` (2 đ/kg rates, VAT incl.) × barem — **to update xà gồ prices, change the 2 rates and `purlinPricesUpdated`** (drives dated titles + sitemap lastmod). Per-size `purlinPrices` entries override the rate; null rates+prices render "Liên hệ". Only the owner decides these numbers; automation must never touch `purlin.ts`.
+  - `/xa-go/<size>/` — 16 pages (C60–C300, Z100–Z300) from `src/pages/xa-go/[size].astro` + `src/data/purlin.ts`. Barem tables are theoretical (±3%). Prices = `purlinRates` (2 đ/kg rates, VAT incl.) × barem, always displayed with the "Giá mang tính chất tham khảo" label (owner decision 18/07/2026 — real quotes by phone) — **to update xà gồ prices, change the 2 rates and `purlinPricesUpdated`** (drives dated titles + sitemap lastmod). Per-size `purlinPrices` entries override the rate; null rates+prices render "Liên hệ". Only the owner decides these numbers; automation must never touch `purlin.ts`.
   - `/ton-dong-a/<variant>/` — 6 pages (4-dem, 4-5-dem, 5-dem, az100, cliplock, la-phong) from `src/pages/ton-dong-a/[variant].astro` + `src/data/dong-a-variants.ts`, which **reads all numbers live from `prices.ts`** — never copy prices into variant copy.
+- Tin tức (added 18/07/2026): markdown articles in `src/content/tin-tuc/<slug>.md` (frontmatter title/description/date), rendered by `src/pages/tin-tuc/[slug].astro` (BlogPosting schema, article styling, CTA, SeoCrossLinks) + listing at `/tin-tuc/`. Articles must never hardcode prices — link to bảng giá pages.
 - Phones/addresses/factories/Zalo/email: `src/data/site.ts`
 - Products: `src/data/products.json` (+ categories/EN names in `src/data/products.ts`)
 - Page copy: `src/pages/*.astro` — plain Vietnamese text inline
@@ -29,8 +30,12 @@ Vietnamese primary, minimal English pages under `/en/`.
   Exit 1 = sanity rails fired → do NOT commit; a human re-checks the recipe doc.
   The watcher must NEVER touch `src/data/prices.ts` — those are the owner's own selling
   prices, updated only by the owner. Unchanged prices produce no git diff (date line excluded).
+- **Weekly price refresh** (Mon ~07:45): benchmarks the competitor-implied xà gồ đ/kg rate
+  and price-date staleness, then reports — the owner approves any change in a session
+  ("bump xà gồ date" / "update xà gồ rates to..."). The task itself never edits data.
 - **Content pages are never auto-published**: automation may draft pages on `content/<slug>`
-  branches only; the owner reviews before anything merges to `main` (Google scaled-content risk).
+  branches only (landing pages in src/pages/, articles in src/content/tin-tuc/); the owner
+  reviews before anything merges to `main` (Google scaled-content risk).
 
 ## Conventions
 - Currency: VND with vi-VN separators (`fmtVnd`), e.g. 57.000 đ

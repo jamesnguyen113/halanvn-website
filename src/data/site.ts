@@ -92,5 +92,6 @@ export const nav = [
   { href: '/san-pham/', label: 'Sản phẩm' },
   { href: '/bang-gia/', label: 'Bảng giá' },
   { href: '/nha-may/', label: 'Nhà máy' },
+  { href: '/tin-tuc/', label: 'Tin tức' },
   { href: '/lien-he/', label: 'Liên hệ' },
 ];

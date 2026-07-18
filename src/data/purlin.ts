@@ -9,9 +9,11 @@ export const purlinPricesUpdated: string | null = '18/07/2026';
 
 /**
  * Đơn giá đ/kg (ĐÃ gồm VAT 10%) — nhân với barem ra đ/m cho mọi quy cách.
- * Nguồn nháp 18/07/2026: suy từ bảng C200x50 của tonthepchinhphuthinh.com
+ * Các trang hiển thị kèm nhãn "Giá mang tính chất tham khảo" (quyết định của
+ * chủ 18/07/2026): giá thật phụ thuộc thị trường/khối lượng, chốt qua hotline.
+ * Nguồn 18/07/2026: suy từ bảng C200x50 của tonthepchinhphuthinh.com
  * (đen 17.400 đ/kg, kẽm 17.850 đ/kg chưa VAT — ổn định ±1% trên cả 10 độ dày)
- * cộng 10% VAT. CHỦ DOANH NGHIỆP xác nhận/chỉnh 2 số này trước khi commit.
+ * cộng 10% VAT. Chỉ chủ doanh nghiệp chỉnh 2 số này (weekly-price-refresh nhắc).
  */
 export const purlinRates: { black: number | null; galv: number | null } = {
   black: 19140,
