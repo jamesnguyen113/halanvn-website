@@ -1,6 +1,6 @@
 export const site = {
   name: 'Công ty Cổ phần Hà Lan',
-  legalName: 'CÔNG TY CP SX-TM-DV HÀ LAN',
+  legalName: 'Công Ty Cổ Phần Hà Lan',
   shortName: 'Hà Lan',
   founded: 2002,
   domain: 'https://halanvn.com',
