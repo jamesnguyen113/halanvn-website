@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../data/site';
+---
+
+<Base
+  title="Đã nhận yêu cầu báo giá | Công ty Cổ phần Hà Lan"
+  description="Yêu cầu báo giá của bạn đã được gửi thành công. Hà Lan sẽ gọi lại trong giờ làm việc."
+  noindex
+>
+  <div class="mx-auto max-w-2xl px-4 py-20 text-center">
+    <p class="display text-5xl text-brand">✓</p>
+    <h1 class="display mt-4 text-2xl text-steel-950">Đã nhận yêu cầu của bạn</h1>
+    <p class="mt-3 text-steel-700">
+      Cảm ơn bạn đã liên hệ. Chúng tôi sẽ gọi lại trong giờ làm việc để báo giá.
+      Cần gấp? Gọi thẳng
+      <a href={`tel:${site.hotline.tel}`} class="font-bold text-brand">{site.hotline.display}</a>
+      hoặc nhắn <a href={site.zaloUrl} target="_blank" rel="noopener" class="font-bold text-brand underline">Zalo</a>.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/bang-gia/" class="display bg-brand px-6 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot">Xem bảng giá</a>
+      <a href="/" class="display border border-steel-950 px-6 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white">Trang chủ</a>
+    </div>
+  </div>
+
+  <!-- Chỉ trang này mới bắn sự kiện lead: form gửi thành công mới tới được đây -->
+  <script is:inline>
+    if (typeof gtag === 'function') gtag('event', 'generate_lead', { method: 'quote_form' });
+  </script>
+</Base>

@@ -88,7 +88,7 @@
       "Mã số": "Tôn nhôm",
       "Giá": "Liên hệ"
     },
-    "short": "Tôn nhôm là dòng sản phẩm nhẹ, đồ bền cao, khúc xạ ánh sáng và chống ăn mòn cực tốt.",
+    "short": "Tôn nhôm là dòng sản phẩm nhẹ, độ bền cao, khúc xạ ánh sáng và chống ăn mòn cực tốt.",
     "detail": [
       "## Tính năng",
       "Tôn nhôm với thành phần nhôm chiếm 99%, được cán thành 5, 7, 9 sóng vuông hoặc sóng tròn từ nhôm cuộn khổ 1.200 mm hoặc 1.000 mm, chiều dài theo yêu cầu công trình.",
@@ -147,7 +147,7 @@
       "Mã số": "Tôn 9 sóng đôi",
       "Giá": "Liên hệ"
     },
-    "short": "Tôn chín sóng đôi(sóng kép) là sản phẩm được sản xuất với công nghệ Nhật Bản và được Công Ty Cổ Phần Hà Lan phân phối rộng rãi",
+    "short": "Tôn 9 sóng đôi (sóng kép) có gân sóng kép giúp tấm tôn cứng vững hơn — dùng cho mái và vách nhà dân dụng, nhà xưởng.",
     "detail": [
       "Tôn 9 sóng đôi (sóng kép) được cán từ tôn cuộn như tôn 9 sóng vuông, với gân sóng kép giúp tấm tôn cứng vững hơn — dùng cho mái và vách nhà dân dụng, nhà xưởng.",
       "Chiều dài tấm cắt theo yêu cầu thiết kế, màu sắc theo bảng màu. Gọi hotline để được tư vấn quy cách và báo giá theo công trình."
@@ -197,7 +197,7 @@
       "Mã số": "Tôn cliplock",
       "Giá": "Liên hệ"
     },
-    "short": "Sản phẩm Tôn cliplock của Chúng tôi được sản xuất theo công nghệ tiên tiến của Nhật Bản và Hàn Quốc đạt tiêu chuẩn ISO 9001:2000.",
+    "short": "Tôn cliplock lợp bằng đai kẹp, không bắn vít xuyên tôn — hạn chế tối đa dột tại lỗ vít, phù hợp mái nhà xưởng yêu cầu chất lượng và thẩm mỹ cao.",
     "detail": [
       "## Tính năng",
       "Tấm lợp không dùng vít, dành cho các mái nhà xưởng yêu cầu chất lượng cao và độ mỹ thuật công nghiệp hiện đại. Vì không bắn vít trực tiếp vào tôn nên hạn chế tối đa nước dột tại vị trí bắt vít.",
@@ -266,7 +266,7 @@
   },
   {
     "slug": "ton-do-san",
-    "name": "Tôn Đổ Sàn",
+    "name": "Tôn đổ sàn",
     "specs": {
       "Mã số": "Tôn đổ sàn",
       "Giá": "Liên hệ"
@@ -497,27 +497,6 @@
       "/vnt_upload/product/06_2014/Day_thep_buoc_den_hap_dien_images.jpg",
       "/vnt_upload/product/06_2014/Day_thep_buoc_den_hap_dien_images_1.jpg",
       "/vnt_upload/product/06_2014/Untitled_1_7.jpg"
-    ]
-  },
-  {
-    "slug": "sat-thep-xay-dun",
-    "name": "Sắt thép xây dựng",
-    "specs": {
-      "Mã số": "Sắt thép xây dựng",
-      "Giá": "Liên hệ"
-    },
-    "short": "THÉP VẰN Chủng loại: D10 - D40 Chiều dài thanh thép: L = 11.7 m. Trọng lượng bó thép : W = 3 tấn.",
-    "detail": [
-      "## Thép vằn",
-      "- Chủng loại: D10 – D40.",
-      "- Chiều dài thanh: 11,7 m; trọng lượng bó: 3 tấn.",
-      "- Màu sắc: màu xanh đặc trưng; tiết diện tròn.",
-      "- Phạm vi sử dụng: làm cốt bê tông cho công trình xây dựng công nghiệp và dân dụng đòi hỏi cơ lý tính cao — dẻo dai, chịu uốn, độ dãn dài cao.",
-      "Ngoài thép vằn, công ty cung cấp sắt hộp, ống phi, thép hình H – U – I – V theo yêu cầu công trình."
-    ],
-    "images": [
-      "/vnt_upload/product/06_2014/nlh1375762455.jpg",
-      "/vnt_upload/product/06_2014/kit1401528562.jpg"
     ]
   }
 ]

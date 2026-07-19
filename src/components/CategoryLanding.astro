@@ -68,14 +68,16 @@ const itemListSchema = {
       <slot />
     </section>
 
-    <section class="mt-10">
-      <h2 class="display border-l-4 border-brand pl-3 text-2xl text-steel-950">
-        Sản phẩm {category.name.toLowerCase()}
-      </h2>
-      <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-        {items.map((p) => <ProductCard product={p} />)}
-      </div>
-    </section>
+    {items.length > 0 && (
+      <section class="mt-10">
+        <h2 class="display border-l-4 border-brand pl-3 text-2xl text-steel-950">
+          Sản phẩm {category.name.toLowerCase()}
+        </h2>
+        <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+          {items.map((p) => <ProductCard product={p} />)}
+        </div>
+      </section>
+    )}
 
     <div class="mt-12 border-l-4 border-brand bg-steel-50 p-5">
       <p class="display text-lg text-steel-950">Giá theo ngày — gọi để chốt</p>

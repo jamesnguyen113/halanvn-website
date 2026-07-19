@@ -36,9 +36,17 @@ import { categories, byCategory } from '../../data/products';
           <a href={`/san-pham/${c.slug}/`} class="hover:text-brand">{c.name}</a>
         </h2>
         <p class="mt-2 max-w-2xl pl-4 text-sm text-steel-700">{c.blurb}</p>
-        <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-          {byCategory(c.slug).map((p) => <ProductCard product={p} />)}
-        </div>
+        {byCategory(c.slug).length > 0 ? (
+          <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+            {byCategory(c.slug).map((p) => <ProductCard product={p} />)}
+          </div>
+        ) : (
+          <p class="mt-4 pl-4 text-sm">
+            <a href={`/san-pham/${c.slug}/`} class="font-semibold text-brand underline">
+              Xem chủng loại và quy cách {c.name.toLowerCase()} →
+            </a>
+          </p>
+        )}
       </section>
     ))}
   </div>

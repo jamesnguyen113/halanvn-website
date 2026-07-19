@@ -61,19 +61,20 @@ const hq = locations.find((l) => l.kind === 'office')!;
       <form action="https://api.web3forms.com/submit" method="POST" class="mt-5 space-y-4">
         <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
         <input type="hidden" name="subject" value="Yêu cầu báo giá từ halanvn.com" />
+        <input type="hidden" name="redirect" value="https://halanvn.com/lien-he/cam-on/" />
         <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true" />
 
         <div>
           <label for="name" class="mb-1 block text-sm font-semibold text-steel-800">Họ và tên *</label>
-          <input id="name" name="name" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+          <input id="name" name="name" autocomplete="name" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
         </div>
         <div>
           <label for="phone" class="mb-1 block text-sm font-semibold text-steel-800">Số điện thoại *</label>
-          <input id="phone" name="phone" type="tel" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+          <input id="phone" name="phone" type="tel" autocomplete="tel" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
         </div>
         <div>
           <label for="email" class="mb-1 block text-sm font-semibold text-steel-800">Email</label>
-          <input id="email" name="email" type="email" class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+          <input id="email" name="email" type="email" autocomplete="email" class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
         </div>
         <div>
           <label for="message" class="mb-1 block text-sm font-semibold text-steel-800">
@@ -89,6 +90,10 @@ const hq = locations.find((l) => l.kind === 'office')!;
         </button>
         <p class="text-xs text-steel-500">
           Chúng tôi gọi lại trong giờ làm việc. Cần gấp? Gọi thẳng {site.hotline.display}.
+        </p>
+        <p class="text-xs text-steel-500">
+          Thông tin bạn gửi chỉ dùng để liên hệ báo giá, không chia sẻ cho bên thứ ba —
+          xem <a href="/bao-mat/" class="underline hover:text-brand">chính sách bảo mật</a>.
         </p>
       </form>
     </div>

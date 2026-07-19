@@ -53,12 +53,15 @@ export const categories: Category[] = [
     blurb: 'Phôi thép đen và phôi mạ kẽm cho gia công xà gồ.',
     productSlugs: ['phoi-thep-ma-kem', 'phoi-thep-den'],
   },
+  // Nội dung thép vằn/sắt hộp nằm trực tiếp trên trang danh mục (không có
+  // trang sản phẩm con — trang cũ /san-pham/sat-thep-xay-dun/ trùng nội dung
+  // đã được 301 về đây).
   {
     slug: 'sat-thep-xay-dung',
     name: 'Sắt thép xây dựng',
     nameEn: 'Construction steel',
     blurb: 'Thép vằn D10–D40, sắt hộp, ống phi, thép hình H — U — I — V.',
-    productSlugs: ['sat-thep-xay-dun'],
+    productSlugs: [],
   },
 ];
 
@@ -81,7 +84,6 @@ const namesEn: Record<string, string> = {
   'xa-go-thep-chu-z': 'Z purlin',
   'phoi-thep-ma-kem': 'Galvanized steel strip',
   'phoi-thep-den': 'Black steel strip',
-  'sat-thep-xay-dun': 'Construction steel & rebar',
 };
 
 // A few pages on the old site had empty or garbled short descriptions — patch them here.
@@ -92,8 +94,6 @@ const shortOverrides: Record<string, string> = {
     'Phôi thép đen dạng cuộn xả băng, dùng gia công xà gồ C — Z đen, quy cách theo yêu cầu.',
   'ton-pu':
     'Tôn PU 3 lớp: tôn bề mặt, lõi PU cách nhiệt và lớp lót — chống nóng, cách âm cho nhà xưởng, kho lạnh.',
-  'sat-thep-xay-dun':
-    'Thép vằn D10 — D40 dài 11,7 m cùng sắt hộp, ống phi, thép hình H — U — I — V cho mọi công trình.',
 };
 
 const catOf: Record<string, string> = {};

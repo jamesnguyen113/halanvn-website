@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Chính sách bảo mật thông tin | Công ty Cổ phần Hà Lan"
+  description="Cách halanvn.com thu thập và sử dụng thông tin liên hệ của khách hàng: chỉ để báo giá và tư vấn, không chia sẻ cho bên thứ ba ngoài dịch vụ gửi form."
+>
+  <article class="mx-auto max-w-3xl px-4 py-10">
+    <h1 class="display text-3xl text-steel-950 sm:text-4xl">Chính sách bảo mật thông tin</h1>
+    <div class="mt-6 space-y-4 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        Trang này giải thích ngắn gọn việc <strong>{site.legalName}</strong> (website halanvn.com)
+        thu thập và sử dụng thông tin của khách hàng như thế nào.
+      </p>
+
+      <h2 class="display border-l-4 border-brand pl-3 pt-4 text-xl text-steel-950">Thông tin thu thập</h2>
+      <ul class="list-disc space-y-1.5 pl-5 marker:text-brand">
+        <li>
+          Khi bạn gửi form <a href="/lien-he/" class="text-brand underline">yêu cầu báo giá</a>:
+          họ tên, số điện thoại, email (nếu có) và nội dung yêu cầu.
+        </li>
+        <li>
+          Số liệu truy cập ẩn danh qua Google Analytics (trang đã xem, thời gian xem) để
+          cải thiện website. Bạn có thể chặn bằng tiện ích chặn cookie/quảng cáo thông thường.
+        </li>
+      </ul>
+
+      <h2 class="display border-l-4 border-brand pl-3 pt-4 text-xl text-steel-950">Mục đích sử dụng</h2>
+      <p>
+        Thông tin liên hệ chỉ dùng để gọi lại tư vấn, báo giá và giao hàng cho chính yêu cầu
+        của bạn. Chúng tôi không bán, không chia sẻ thông tin khách hàng cho bên thứ ba
+        vì mục đích quảng cáo.
+      </p>
+
+      <h2 class="display border-l-4 border-brand pl-3 pt-4 text-xl text-steel-950">Bên xử lý trung gian</h2>
+      <p>
+        Nội dung form được chuyển tới email công ty qua dịch vụ gửi form Web3Forms
+        (api.web3forms.com). Ngoài việc chuyển tiếp email, dịch vụ này không dùng dữ liệu
+        của bạn cho mục đích khác.
+      </p>
+
+      <h2 class="display border-l-4 border-brand pl-3 pt-4 text-xl text-steel-950">Lưu trữ và liên hệ</h2>
+      <p>
+        Thông tin chỉ được lưu trong thời gian cần thiết để xử lý yêu cầu. Muốn xóa hoặc
+        điều chỉnh thông tin đã gửi, vui lòng gọi
+        <a href={`tel:${site.hotline.tel}`} class="font-semibold text-brand">{site.hotline.display}</a>
+        hoặc email
+        <a href={`mailto:${site.email}`} class="font-semibold text-brand">{site.email}</a>.
+      </p>
+    </div>
+  </article>
+</Base>

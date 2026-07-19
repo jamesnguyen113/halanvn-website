@@ -33,6 +33,8 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      // trang cảm ơn sau khi gửi form là noindex — không đưa vào sitemap
+      filter: (page) => !page.includes('/lien-he/cam-on/'),
       serialize(item) {
         const lastmod = lastmodOf(new URL(item.url).pathname);
         return lastmod ? { ...item, lastmod } : item;

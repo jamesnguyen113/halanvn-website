@@ -12,8 +12,8 @@ const { product } = Astro.props;
 const category = categories.find((c) => c.slug === product.category)!;
 const related = byCategory(product.category).filter((p) => p.slug !== product.slug).slice(0, 4);
 
-// Exact-match titles/descriptions for the pages targeting head keywords;
-// other products keep the generic template below.
+// Per-product titles/descriptions: spec-flavored, unique, complete sentences
+// (~135–155 ký tự) — không cắt cụt giữa chữ, không lặp một mẫu chung.
 const seoOverrides: Record<string, { title: string; description: string }> = {
   'ton-ma-mau': {
     title: 'Tôn mạ màu — giá tốt từ nhà máy, cán sóng theo yêu cầu | Hà Lan',
@@ -35,10 +35,66 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
     title: 'Xà gồ thép chữ Z đen & mạ kẽm — báo giá theo quy cách | Hà Lan',
     description: `Mua xà gồ Z đen, xà gồ Z mạ kẽm cắt đúng quy cách công trình — sản xuất tại nhà máy Thủ Đức, Bình Dương. Gọi ${site.hotline.display} báo khối lượng và giá ngay.`,
   },
+  'ton-nhom': {
+    title: 'Tôn nhôm — hợp kim 1050/1060/1100, dày 0,15 – 2,0 mm | Hà Lan',
+    description: 'Tôn nhôm nhập khẩu 99% nhôm, khổ 1.000 – 1.219 mm, cán sóng 5, 7, 9 — nhẹ, chống ăn mòn, hợp nhà xưởng cao su, chế biến hải sản. Báo giá theo công trình.',
+  },
+  'ton-9-song-vuong': {
+    title: 'Tôn 9 sóng vuông — sóng cao 21 mm, khổ cuộn 1.200 mm | Hà Lan',
+    description: 'Tôn 9 sóng vuông cán từ cuộn 1.200 mm, thép nền G550, sóng cao 21 mm thoát nước nhanh — hợp mái nhà dân dụng và nhà xưởng. Cắt tấm theo chiều dài yêu cầu.',
+  },
+  'ton-9-song-doi-song-kep': {
+    title: 'Tôn 9 sóng đôi (sóng kép) — tấm cứng vững hơn | Hà Lan',
+    description: 'Tôn 9 sóng đôi có gân sóng kép giúp tấm cứng vững hơn tôn 9 sóng thường — dùng cho mái và vách nhà dân dụng, nhà xưởng. Cắt theo thiết kế, đủ bảng màu.',
+  },
+  'ton-5-song-vuong': {
+    title: 'Tôn 5 sóng vuông — sóng cao 32 mm cho nhà xưởng | Hà Lan',
+    description: 'Tôn 5 sóng vuông sóng cao 32 mm, dày 0,16 – 0,50 mm, thép nền G550 — thiết kế cho mái và vách nhà xưởng công nghiệp. Cán theo chiều dài, giao tận công trình.',
+  },
+  'ton-cliplock': {
+    title: 'Tôn cliplock không vít — mái nhà xưởng hạn chế dột | Hà Lan',
+    description: 'Tôn cliplock lợp bằng đai kẹp, không bắn vít xuyên tôn nên hạn chế tối đa dột tại lỗ vít — chuẩn cho mái nhà xưởng lớn. Cán theo chiều dài, báo giá theo quy cách.',
+  },
+  'ton-song-vom': {
+    title: 'Tôn sóng vòm — uốn cong bán kính 250 mm đến 25 m | Hà Lan',
+    description: 'Tôn sóng vòm uốn từ tôn sóng vuông theo bán kính 250 mm – 25 m tùy thiết kế — dùng cho mái vòm nhà xưởng, mái sảnh. Tư vấn quy cách và báo giá theo bản vẽ.',
+  },
+  'ton-song-ngoi': {
+    title: 'Tôn sóng ngói — lợp mái biệt thự, nhẹ hơn ngói gạch | Hà Lan',
+    description: 'Tôn sóng ngói cao 25 mm kiểu ngói tây, nhẹ hơn ngói gạch nhiều lần — giảm tải trọng khung mái cho biệt thự, mái dốc lớn. Đủ màu, cắt tấm theo kích thước mái.',
+  },
+  'ton-do-san': {
+    title: 'Tôn đổ sàn — sóng cao 50 – 75 mm, khổ 870 – 1.000 mm | Hà Lan',
+    description: 'Tôn đổ sàn sóng cao 50 – 75 mm, khổ hữu dụng 870 – 1.000 mm, dày 7,5 – 9,5 zem và 1,2 ly — đổ sàn bê tông showroom, nhà xưởng, nhà cao tầng thi công nhanh.',
+  },
+  'ton-cach-nhiet-pe': {
+    title: 'Tôn cách nhiệt PE — lớp PE-OPP dày 3 – 10 mm | Hà Lan',
+    description: 'Tôn sóng vuông cao 25 mm dán lớp cách nhiệt PE-OPP dày 3 – 10 mm — giảm nóng, giảm tiếng ồn cho mái nhà ở và nhà xưởng. Báo giá theo độ dày và khổ tôn.',
+  },
+  'ton-pu': {
+    title: 'Tôn PU 3 lớp — lõi PU 18 mm cách nhiệt, cách âm | Hà Lan',
+    description: 'Tôn PU sóng vuông 32 mm phủ lớp Polyurethane dày 18 mm — cách nhiệt, cách âm cho nhà ở, kho lạnh, phòng karaoke, nhà xưởng. Báo giá theo độ dày, số lượng.',
+  },
+  'tui-khi-cach-nhiet': {
+    title: 'Túi khí cách nhiệt — màng nhôm phản xạ nhiệt, dày 4 mm | Hà Lan',
+    description: 'Túi khí cách nhiệt màng nhôm dày 4 mm, khổ cuộn 1,22 – 1,55 m, dài 40 m — phản xạ nhiệt, cách âm cho mái tôn nhà ở và nhà xưởng. Giao nhanh TP.HCM, Bình Dương.',
+  },
+  'phoi-thep-ma-kem': {
+    title: 'Phôi thép mạ kẽm xả băng — dày 1,5 / 1,8 / 2,0 mm | Hà Lan',
+    description: 'Phôi thép mạ kẽm dạng cuộn xả băng theo khổ xà gồ, dày 1,5 / 1,8 / 2,0 mm, xuất xứ Nhật Bản, Trung Quốc — cấp cho xưởng cán xà gồ C, Z mạ kẽm số lượng lớn.',
+  },
+  'phoi-thep-den': {
+    title: 'Phôi thép đen xả băng — dày 1,6 – 3,0 mm | Hà Lan',
+    description: 'Phôi thép đen dạng cuộn xả băng theo khổ xà gồ, độ dày 1,6 – 3,0 mm, xuất xứ Nga, Trung Quốc — cấp cho xưởng gia công xà gồ C, Z đen số lượng lớn.',
+  },
 };
+
+// Fallback cho sản phẩm mới chưa có override: không bao giờ cắt cụt giữa chữ.
+const clip = (s: string, max = 155) =>
+  s.length <= max ? s : s.slice(0, s.lastIndexOf(' ', max - 1)).replace(/[,;:.\s]+$/, '') + '…';
 const seo = seoOverrides[product.slug] ?? {
   title: `${product.name} — báo giá trực tiếp từ nhà máy | Hà Lan`,
-  description: product.short.slice(0, 155) || `${product.name} — sản xuất và cung cấp bởi Công ty Cổ phần Hà Lan.`,
+  description: clip(product.short) || `${product.name} — sản xuất và cung cấp bởi Công ty Cổ phần Hà Lan.`,
 };
 
 const breadcrumbSchema = {
@@ -116,7 +172,7 @@ const productSchema = {
               <button
                 class="thumb h-16 w-20 shrink-0 border border-steel-200 bg-white p-1 hover:border-brand"
                 data-src={img}
-                aria-label={`Ảnh ${i + 1}`}
+                aria-label={`${product.name} — ảnh ${i + 1}`}
               >
                 <img src={img} alt="" class="h-full w-full object-cover" loading="lazy" />
               </button>

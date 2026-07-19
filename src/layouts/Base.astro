@@ -19,6 +19,8 @@ interface Props {
   /** vi/en alternates for pages that exist in both languages (x-default → vi) */
   hreflang?: { vi: string; en: string };
   noChrome?: boolean;
+  /** Trang tiện ích (404, cảm ơn) — không cho index */
+  noindex?: boolean;
 }
 
 const {
@@ -29,6 +31,7 @@ const {
   schema = [],
   hreflang,
   noChrome = false,
+  noindex = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -61,7 +64,12 @@ const orgSchema = {
   },
   department: locations
     .filter((l) => l.kind === 'factory')
-    .map((l) => ({ '@type': 'LocalBusiness', name: l.name, address: l.address })),
+    .map((l) => ({
+      '@type': 'LocalBusiness',
+      name: l.name,
+      telephone: '+84' + l.phones[0].tel.slice(1),
+      address: { '@type': 'PostalAddress', streetAddress: l.address, addressCountry: 'VN' },
+    })),
 };
 ---
 
@@ -72,7 +80,7 @@ const orgSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
     {hreflang && (
       <>
         <link rel="alternate" hreflang="vi" href={new URL(hreflang.vi, Astro.site)} />

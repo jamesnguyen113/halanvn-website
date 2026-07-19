@@ -19,7 +19,7 @@ import { categories, byCategory } from '../../data/products';
   </div>
 
   <div class="mx-auto max-w-6xl px-4 py-10">
-    {categories.map((c) => (
+    {categories.filter((c) => byCategory(c.slug).length > 0).map((c) => (
       <section class="pt-10 first:pt-0">
         <h2 class="display border-l-4 border-brand pl-3 text-2xl text-steel-950">{c.nameEn}</h2>
         <div class="mt-5 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
