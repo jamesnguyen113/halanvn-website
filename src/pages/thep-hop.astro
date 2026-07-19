@@ -1,0 +1,170 @@
+---
+import Base from '../layouts/Base.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
+import { site } from '../data/site';
+
+const faq = [
+  {
+    q: 'Thép hộp và sắt hộp có khác nhau không?',
+    a: 'Không — "thép hộp" và "sắt hộp" là hai cách gọi cho cùng một loại vật tư: thép cuộn cán nguội hoặc mạ kẽm được định hình thành ống tiết diện vuông hoặc chữ nhật. Ngoài công trường, khách quen gọi "sắt hộp"; trong hóa đơn, phiếu xuất kho ghi "thép hộp".',
+  },
+  {
+    q: 'Thép hộp vuông và thép hộp chữ nhật khác nhau ở đâu?',
+    a: 'Thép hộp vuông (20x20, 30x30, 40x40, 50x50, 60x60, 75x75, 100x100 mm...) chịu lực đều các phía, dùng làm khung, cột, trụ. Thép hộp chữ nhật (30x60, 40x80, 50x100 mm...) chịu lực tốt hơn theo cạnh dài, thường dùng làm xà, dầm, khung mái, kèo.',
+  },
+  {
+    q: 'Độ dày thép hộp phổ biến là bao nhiêu?',
+    a: 'Từ 1,0 mm đến 3,0 mm tùy quy cách. Khung nhà xưởng, mái che nhẹ dùng 1,2 — 1,5 mm; kết cấu chịu lực, cổng, lan can nên dùng 1,8 — 2,5 mm trở lên. Hà Lan tư vấn độ dày theo tải trọng thực tế của công trình.',
+  },
+  {
+    q: 'Mua thép hộp ở Hà Lan có xuất hóa đơn VAT không?',
+    a: 'Có. Thép hộp Hà Lan cung cấp nguồn hàng nhà máy lớn, đầy đủ chứng chỉ CO/CQ và xuất hóa đơn VAT theo yêu cầu — phù hợp công trình cần quyết toán.',
+  },
+  {
+    q: 'Đặt thép hộp cùng tôn, xà gồ có được giao chung không?',
+    a: `Được. Nhiều khách mua thép hộp làm khung, kèo và tôn — xà gồ lợp mái trong cùng một đơn — Hà Lan gom hàng và giao một chuyến tận công trình tại TP.HCM, Bình Dương, Tây Ninh, tiết kiệm chi phí vận chuyển. Gọi ${site.hotline.display} để đặt gộp.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Thép hộp' },
+  ],
+};
+
+const sizes = [
+  { kind: 'Hộp vuông', specs: '20x20 · 25x25 · 30x30 · 40x40 · 50x50 · 60x60 · 75x75 · 100x100 mm' },
+  { kind: 'Hộp chữ nhật', specs: '10x20 · 20x40 · 30x60 · 40x80 · 50x100 · 60x120 mm' },
+  { kind: 'Độ dày', specs: '1,0 — 3,0 mm (theo yêu cầu tải trọng)' },
+  { kind: 'Chiều dài cây', specs: '6 m tiêu chuẩn' },
+  { kind: 'Bề mặt', specs: 'Thép đen hoặc mạ kẽm chống gỉ' },
+];
+---
+
+<Base
+  title="Thép hộp, sắt hộp — giá hôm nay, đủ quy cách vuông & chữ nhật | Hà Lan"
+  description={`Mua thép hộp, sắt hộp vuông và chữ nhật đủ quy cách 20x20 — 100x100 mm, độ dày 1,0 — 3,0 mm. Giao tận công trình TP.HCM, Bình Dương. Gọi ${site.hotline.display} báo giá thép hộp hôm nay.`}
+  schema={[breadcrumbSchema, faqSchema]}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="eyebrow text-brand-soft">Sắt thép xây dựng</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Thép hộp, sắt hộp — đủ quy cách</h1>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-steel-300">
+        Thép hộp vuông và chữ nhật, thép đen hoặc mạ kẽm, đủ độ dày cho khung nhà xưởng, mái che,
+        cổng, lan can — gọi <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        để có giá thép hộp hôm nay.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        <strong>Thép hộp</strong> (còn gọi sắt hộp) là thép cuộn được cán định hình thành ống tiết
+        diện vuông hoặc chữ nhật, dùng làm khung kết cấu cho nhà xưởng, nhà tiền chế, mái che, cổng,
+        lan can, kệ hàng và khung quảng cáo. Hà Lan cung cấp cả hai dòng — <strong>hộp vuông</strong>
+        chịu lực đều các phía, phù hợp làm cột, trụ; <strong>hộp chữ nhật</strong> chịu lực tốt theo
+        cạnh dài, phù hợp làm xà, dầm, khung mái.
+      </p>
+      <p>
+        Nguồn hàng nhà máy lớn, đầy đủ chứng chỉ CO/CQ, xuất hóa đơn VAT — nhiều khách công trình
+        mua thép hộp làm khung, kèo cùng lúc với tôn lợp mái và xà gồ C, Z; Hà Lan gom hàng giao
+        một chuyến tận công trình tại TP.HCM, Thủ Đức, Bình Dương, Tây Ninh, tiết kiệm chi phí vận
+        chuyển so với đặt riêng từng loại vật tư.
+      </p>
+    </section>
+
+    <section class="mt-10 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Quy cách thép hộp Hà Lan</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-steel-950 text-left text-white">
+              <th class="px-3 py-2.5 font-semibold">Thông số</th>
+              <th class="px-3 py-2.5 font-semibold">Quy cách</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sizes.map((s, i) => (
+              <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
+                <td class="px-3 py-2.5 font-semibold text-steel-950">{s.kind}</td>
+                <td class="px-3 py-2.5 text-steel-700">{s.specs}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-steel-500">
+        Quy cách tham khảo — Hà Lan còn cung cấp thép vằn D10 — D40, ống phi tròn, thép hình
+        H — U — I — V. Xem đầy đủ tại trang <a href="/san-pham/sat-thep-xay-dung/" class="text-brand underline">sắt thép xây dựng</a>.
+      </p>
+    </section>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Giá thép hộp theo ngày — gọi để chốt</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Giá thay đổi theo thị trường thép và độ dày. Đọc quy cách và số lượng qua điện thoại —
+        báo giá chính xác trong ngày, đã gồm VAT.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Ứng dụng thường gặp</h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-steel-700">
+        <li>Khung nhà xưởng, nhà thép tiền chế — kết hợp với xà gồ C, Z và tôn lợp mái.</li>
+        <li>Khung mái che, mái hiên, mái tôn dân dụng.</li>
+        <li>Cổng, hàng rào, lan can, cầu thang.</li>
+        <li>Kệ hàng, giá đỡ trong kho xưởng.</li>
+        <li>Khung bảng hiệu, khung quảng cáo ngoài trời.</li>
+      </ul>
+      <p class="mt-3 text-sm font-semibold text-steel-800">
+        Gọi <a href={`tel:${site.hotline.tel}`} class="text-brand underline">{site.hotline.display}</a> —
+        Hà Lan tư vấn quy cách và độ dày phù hợp tải trọng công trình.
+      </p>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <SeoCrossLinks current="/thep-hop/" />
+  </div>
+</Base>
