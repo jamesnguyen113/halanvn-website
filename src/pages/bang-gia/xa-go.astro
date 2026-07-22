@@ -2,15 +2,32 @@
 import Base from '../../layouts/Base.astro';
 import SeoCrossLinks from '../../components/SeoCrossLinks.astro';
 import { site } from '../../data/site';
-import { purlinSizes } from '../../data/purlin';
+import {
+  purlinSizes,
+  purlinRates,
+  purlinPriceOf,
+  purlinThicknesses,
+  purlinPricesUpdated,
+} from '../../data/purlin';
+import { fmtVnd } from '../../data/prices';
 
 // Xà gồ được báo giá theo quy cách + khối lượng từng công trình — bảng dưới
 // liệt kê quy cách sản xuất được, mỗi quy cách có trang barem + giá riêng.
+// "Từ … đ/m" = giá tham khảo rẻ nhất của nhóm (quy cách nhỏ nhất, độ dày mỏng
+// nhất, thép đen) tính từ purlinRates — số liệu sống theo purlin.ts.
+const tMin = purlinThicknesses[0];
+const fromPrice = (sizes: typeof purlinSizes) => {
+  const prices = sizes
+    .map((s) => purlinPriceOf(s.slug, 'black', tMin))
+    .filter((p): p is number => p != null);
+  return prices.length ? Math.min(...prices) : null;
+};
 const specs = [
   { profile: 'Xà gồ C', sizes: purlinSizes.filter((s) => s.section === 'C'), canh: '30 — 65 mm' },
   { profile: 'Xà gồ Z', sizes: purlinSizes.filter((s) => s.section === 'Z'), canh: 'theo bản vẽ' },
-];
+].map((s) => ({ ...s, from: fromPrice(s.sizes) }));
 const thicknesses = '1.4 — 3.0 mm';
+const hasRates = purlinRates.black != null && purlinRates.galv != null;
 ---
 
 <Base
@@ -38,6 +55,15 @@ const thicknesses = '1.4 — 3.0 mm';
   <div class="mx-auto max-w-4xl space-y-10 px-4 py-10">
     <section>
       <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Quy cách sản xuất được</h2>
+      {hasRates && (
+        <p class="mt-3 text-sm leading-relaxed text-steel-700">
+          Đơn giá tham khảo{purlinPricesUpdated && ` cập nhật ${purlinPricesUpdated}`}: thép đen
+          <strong class="tabular"> {fmtVnd(purlinRates.black!)} đ/kg</strong> — mạ kẽm
+          <strong class="tabular"> {fmtVnd(purlinRates.galv!)} đ/kg</strong> (đã gồm VAT 10%),
+          nhân với barem trọng lượng ra đ/m. <strong>Giá mang tính chất tham khảo</strong> —
+          chốt đơn giá theo khối lượng và thời điểm qua hotline.
+        </p>
+      )}
       <div class="mt-3 overflow-x-auto">
         <table class="w-full border-collapse text-sm">
           <thead>
@@ -46,7 +72,7 @@ const thicknesses = '1.4 — 3.0 mm';
               <th class="px-3 py-2.5 font-semibold">Chiều cao tiết diện</th>
               <th class="px-3 py-2.5 font-semibold">Cạnh</th>
               <th class="px-3 py-2.5 font-semibold">Độ dày</th>
-              <th class="px-3 py-2.5 text-right font-semibold">Đơn giá</th>
+              <th class="px-3 py-2.5 text-right font-semibold">Đơn giá tham khảo</th>
             </tr>
           </thead>
           <tbody class="tabular">
@@ -63,8 +89,12 @@ const thicknesses = '1.4 — 3.0 mm';
                 </td>
                 <td class="px-3 py-2.5">{s.canh}</td>
                 <td class="px-3 py-2.5">{thicknesses}</td>
-                <td class="px-3 py-2.5 text-right font-bold">
-                  <a href={`tel:${site.hotline.tel}`} class="text-brand underline">Liên hệ</a>
+                <td class="px-3 py-2.5 text-right font-bold whitespace-nowrap">
+                  {s.from != null ? (
+                    `Từ ${fmtVnd(s.from)} đ/m`
+                  ) : (
+                    <a href={`tel:${site.hotline.tel}`} class="text-brand underline">Liên hệ</a>
+                  )}
                 </td>
               </tr>
             ))}
