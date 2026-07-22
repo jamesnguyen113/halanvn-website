@@ -2,9 +2,6 @@
 import Base from '../layouts/Base.astro';
 import { site, locations } from '../data/site';
 
-// TODO trước khi công bố: đăng ký key miễn phí tại https://web3forms.com (nhập email nhận liên hệ)
-// rồi thay YOUR_WEB3FORMS_KEY bên dưới. Form sẽ gửi về email đó, không cần server.
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
 const hq = locations.find((l) => l.kind === 'office')!;
 ---
 
@@ -57,45 +54,47 @@ const hq = locations.find((l) => l.kind === 'office')!;
     </div>
 
     <div>
-      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Gửi yêu cầu báo giá</h2>
-      <form action="https://api.web3forms.com/submit" method="POST" class="mt-5 space-y-4">
-        <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-        <input type="hidden" name="subject" value="Yêu cầu báo giá từ halanvn.com" />
-        <input type="hidden" name="redirect" value="https://halanvn.com/lien-he/cam-on/" />
-        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" aria-hidden="true" />
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Nhận báo giá nhanh</h2>
+      <div class="mt-5 border border-steel-200 bg-steel-50 p-6">
+        <p class="text-sm leading-relaxed text-steel-700">
+          Tôn và xà gồ C — Z báo giá theo quy cách từng công trình. Gọi hotline hoặc nhắn Zalo,
+          nhà máy tính khối lượng và báo đơn giá <strong>ngay trong ngày</strong>.
+        </p>
 
-        <div>
-          <label for="name" class="mb-1 block text-sm font-semibold text-steel-800">Họ và tên *</label>
-          <input id="name" name="name" autocomplete="name" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+        <div class="mt-5 space-y-3">
+          <a
+            href={`tel:${site.hotline.tel}`}
+            class="display flex items-center justify-center gap-2 bg-brand px-6 py-4 text-base tracking-widest text-white uppercase hover:bg-brand-hot"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
+            </svg>
+            Gọi {site.hotline.display}
+          </a>
+          <a
+            href={site.zaloUrl}
+            target="_blank"
+            rel="noopener"
+            class="display flex items-center justify-center gap-2 bg-[#0068ff] px-6 py-4 text-base tracking-widest text-white uppercase hover:brightness-110"
+          >
+            Nhắn Zalo báo giá
+          </a>
         </div>
-        <div>
-          <label for="phone" class="mb-1 block text-sm font-semibold text-steel-800">Số điện thoại *</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
+
+        <div class="mt-6 border-t border-steel-200 pt-5">
+          <p class="text-sm font-semibold text-steel-800">Nhắn sẵn 4 thông tin để báo giá đúng:</p>
+          <ul class="mt-2 space-y-1 text-sm text-steel-700">
+            <li>• Chủng loại (tôn, hoặc xà gồ C — Z đen / mạ kẽm)</li>
+            <li>• Độ dày và quy cách</li>
+            <li>• Số lượng (mét, cây hoặc tấm)</li>
+            <li>• Nơi giao hàng</li>
+          </ul>
         </div>
-        <div>
-          <label for="email" class="mb-1 block text-sm font-semibold text-steel-800">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand" />
-        </div>
-        <div>
-          <label for="message" class="mb-1 block text-sm font-semibold text-steel-800">
-            Nội dung * <span class="font-normal text-steel-500">(chủng loại, độ dày, số lượng, nơi giao)</span>
-          </label>
-          <textarea id="message" name="message" rows="5" required class="w-full border border-steel-300 px-3 py-2.5 text-sm focus:border-brand"></textarea>
-        </div>
-        <button
-          type="submit"
-          class="display w-full bg-brand px-6 py-3.5 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
-        >
-          Gửi yêu cầu
-        </button>
-        <p class="text-xs text-steel-500">
-          Chúng tôi gọi lại trong giờ làm việc. Cần gấp? Gọi thẳng {site.hotline.display}.
+
+        <p class="mt-5 text-xs text-steel-500">
+          Tiếp nhận trong giờ làm việc. Đơn giá đã gồm VAT, có xe giao tận nơi.
         </p>
-        <p class="text-xs text-steel-500">
-          Thông tin bạn gửi chỉ dùng để liên hệ báo giá, không chia sẻ cho bên thứ ba —
-          xem <a href="/bao-mat/" class="underline hover:text-brand">chính sách bảo mật</a>.
-        </p>
-      </form>
+      </div>
     </div>
   </div>
 </Base>

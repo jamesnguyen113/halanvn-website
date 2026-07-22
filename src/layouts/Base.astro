@@ -37,6 +37,9 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const isHome = Astro.url.pathname === '/';
 
+// Số hotline (khác số nhà máy) — phân loại event click_hotline / click_factory_phone
+const hotlineTels = site.phones.filter((p) => p.label.startsWith('Hotline')).map((p) => p.tel);
+
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -123,5 +126,22 @@ const orgSchema = {
     </main>
     {!noChrome && <Footer />}
     {!noChrome && <MobileCTA />}
+    <!-- Đếm bấm gọi / Zalo cho Google Ads. Tên event khớp cấu hình key event GA4
+         và import conversion trong Google Ads — không đổi tên. -->
+    <script is:inline define:vars={{ hotlineTels }}>
+      document.addEventListener('click', (e) => {
+        const a = e.target instanceof Element ? e.target.closest('a[href]') : null;
+        if (!a || typeof gtag !== 'function') return;
+        const href = a.getAttribute('href');
+        if (href.startsWith('tel:')) {
+          const num = href.slice(4).replace(/\D/g, '');
+          gtag('event', hotlineTels.includes(num) ? 'click_hotline' : 'click_factory_phone', {
+            phone_number: num,
+          });
+        } else if (href.includes('zalo.me')) {
+          gtag('event', 'click_zalo');
+        }
+      });
+    </script>
   </body>
 </html>
