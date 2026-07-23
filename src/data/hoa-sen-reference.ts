@@ -10,7 +10,7 @@ export interface HoaSenFamily {
 }
 
 export const hoaSenReference = {
-  updated: '22/07/2026',
+  updated: '23/07/2026',
   source: 'Hoa Sen Home (hoasenhome.vn) — giá bán lẻ niêm yết',
   rows: [
   {
