@@ -31,17 +31,17 @@ const year = new Date().getFullYear();
 
     <div>
       <p class="eyebrow mb-4 text-steel-400">Liên hệ</p>
-      <ul class="space-y-2 text-sm tabular">
+      <ul class="text-sm tabular">
         {site.phones.map((p) => (
           <li>
-            <a href={`tel:${p.tel}`} class="hover:text-white">
+            <a href={`tel:${p.tel}`} class="inline-block py-1.5 hover:text-white">
               <span class="text-steel-400">{p.label}:</span>
               {p.display}
             </a>
           </li>
         ))}
         <li>
-          <a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a>
+          <a href={`mailto:${site.email}`} class="inline-block py-1.5 hover:text-white">{site.email}</a>
         </li>
       </ul>
       <ul class="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase">

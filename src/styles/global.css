@@ -32,11 +32,16 @@ html {
   html {
     scroll-behavior: auto;
   }
+  /* Neutralize looping/entrance animation and movement, but keep short
+     colour/opacity transitions so hover and focus feedback still reads. */
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .group:hover img {
+    transform: none !important;
   }
 }
 

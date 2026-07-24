@@ -62,12 +62,12 @@ const featured = [
       {categories.map((c) => (
         <a
           href={`/san-pham/${c.slug}/`}
-          class="group border-l-4 border-steel-200 bg-steel-50 p-5 transition-colors hover:border-brand hover:bg-white hover:shadow-md"
+          class="group border-t-4 border-steel-200 bg-steel-50 p-5 transition-colors hover:border-brand hover:bg-white hover:shadow-md"
         >
           <h3 class="display text-lg text-steel-950 group-hover:text-brand">{c.name}</h3>
           <p class="mt-2 text-sm leading-relaxed text-steel-700">{c.blurb}</p>
           <p class="eyebrow mt-3 text-steel-700 group-hover:text-brand">
-            {byCategory(c.slug).length} sản phẩm →
+            {byCategory(c.slug).length > 0 ? `${byCategory(c.slug).length} sản phẩm →` : 'Xem chi tiết →'}
           </p>
         </a>
       ))}
@@ -124,9 +124,9 @@ const featured = [
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.mapQuery)}`}
               target="_blank"
               rel="noopener"
-              class="eyebrow mt-2 inline-block text-steel-400 hover:text-white"
+              class="eyebrow mt-1 inline-flex items-center py-2 text-steel-400 hover:text-white"
             >
-              Xem bản đồ →
+              Xem bản đồ&nbsp;↗
             </a>
           </div>
         ))}
