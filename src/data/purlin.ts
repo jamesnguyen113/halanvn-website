@@ -5,7 +5,7 @@
 // nội suy vào <title> và sitemap lastmod. Giá thiếu → hiển thị "Liên hệ".
 // Automation KHÔNG được sửa file này.
 
-export const purlinPricesUpdated: string | null = '18/07/2026';
+export const purlinPricesUpdated: string | null = '27/07/2026';
 
 /**
  * Đơn giá đ/kg (ĐÃ gồm VAT 10%) — nhân với barem ra đ/m cho mọi quy cách.
