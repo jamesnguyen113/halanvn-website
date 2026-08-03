@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
+import { site } from '../data/site';
+
+const faq = [
+  {
+    q: 'Ống thép và ống phi có phải cùng một loại không?',
+    a: '"Ống thép" và "ống phi" là hai cách gọi cho cùng một loại vật tư: thép cuộn cán nguội hoặc mạ kẽm được định hình và hàn thành ống tiết diện tròn. "Phi" (viết tắt của đường kính, ký hiệu Ø) là cách gọi quen thuộc ngoài công trường — ví dụ "ống phi 42" nghĩa là ống thép đường kính 42 mm.',
+  },
+  {
+    q: 'Ống thép đen và ống thép mạ kẽm khác nhau ở đâu?',
+    a: 'Ống thép đen giá thấp hơn, dùng cho kết cấu trong nhà hoặc sẽ sơn phủ sau (khung kèo, giàn giáo che tạm). Ống thép mạ kẽm có lớp kẽm chống gỉ, chịu được mưa nắng ngoài trời — phù hợp làm giàn giáo, hàng rào, khung mái che, đường ống cấp nước không cần sơn lại.',
+  },
+  {
+    q: 'Độ dày ống thép phổ biến là bao nhiêu?',
+    a: 'Từ 1,2 mm đến 3,0 mm tùy quy cách và tải trọng. Giàn giáo, hàng rào nhẹ dùng 1,2 — 1,5 mm; khung kèo, cột đỡ chịu lực nên dùng 1,8 — 2,5 mm trở lên. Hà Lan tư vấn độ dày theo đúng tải trọng thực tế của công trình.',
+  },
+  {
+    q: 'Mua ống thép ở Hà Lan có xuất hóa đơn VAT không?',
+    a: 'Có. Ống thép Hà Lan cung cấp nguồn hàng nhà máy lớn, đầy đủ chứng chỉ CO/CQ và xuất hóa đơn VAT theo yêu cầu — phù hợp công trình cần quyết toán.',
+  },
+  {
+    q: 'Đặt ống thép cùng tôn, xà gồ, thép hộp có được giao chung không?',
+    a: `Được. Nhiều khách mua ống thép làm giàn giáo, khung phụ cùng lúc với tôn lợp mái, xà gồ và thép hộp — Hà Lan gom hàng, giao một chuyến tận công trình tại TP.HCM, Bình Dương, Tây Ninh, tiết kiệm chi phí vận chuyển. Gọi ${site.hotline.display} để đặt gộp.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Ống thép' },
+  ],
+};
+
+const sizes = [
+  { kind: 'Đường kính (phi)', specs: 'Ø21 · Ø27 · Ø34 · Ø42 · Ø49 · Ø60 · Ø76 · Ø90 · Ø114 mm' },
+  { kind: 'Độ dày', specs: '1,2 — 3,0 mm (theo yêu cầu tải trọng)' },
+  { kind: 'Chiều dài cây', specs: '6 m tiêu chuẩn' },
+  { kind: 'Bề mặt', specs: 'Thép đen hoặc mạ kẽm chống gỉ' },
+];
+---
+
+<Base
+  title="Ống thép, ống phi mạ kẽm — giá hôm nay, đủ quy cách | Hà Lan"
+  description={`Mua ống thép, ống phi tròn đen và mạ kẽm đủ quy cách Ø21 — Ø114 mm, độ dày 1,2 — 3,0 mm. Giao tận công trình TP.HCM, Bình Dương. Gọi ${site.hotline.display} báo giá ống thép hôm nay.`}
+  schema={[breadcrumbSchema, faqSchema]}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="eyebrow text-brand-soft">Sắt thép xây dựng</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Ống thép, ống phi — đủ quy cách</h1>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-steel-300">
+        Ống thép phi tròn đen và mạ kẽm, đủ đường kính cho giàn giáo, khung kèo, hàng rào, cột
+        đỡ — gọi <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        để có giá ống thép hôm nay.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        <strong>Ống thép</strong> (ống phi) là thép cuộn được cán và hàn định hình thành ống tiết
+        diện tròn, dùng làm giàn giáo, khung kèo phụ, hàng rào, cột đỡ, lan can và đường ống cấp
+        thoát nước. Hà Lan cung cấp cả hai dòng — <strong>ống thép đen</strong> giá thấp hơn, phù
+        hợp kết cấu trong nhà hoặc sẽ sơn phủ; <strong>ống thép mạ kẽm</strong> chống gỉ tốt, phù
+        hợp công trình ngoài trời không cần sơn lại.
+      </p>
+      <p>
+        Nguồn hàng nhà máy lớn, đầy đủ chứng chỉ CO/CQ, xuất hóa đơn VAT — nhiều khách công trình
+        mua ống thép làm giàn giáo, khung phụ cùng lúc với tôn lợp mái, xà gồ C, Z và thép hộp;
+        Hà Lan gom hàng giao một chuyến tận công trình tại TP.HCM, Thủ Đức, Bình Dương, Tây Ninh,
+        tiết kiệm chi phí vận chuyển so với đặt riêng từng loại vật tư.
+      </p>
+    </section>
+
+    <section class="mt-10 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Quy cách ống thép Hà Lan</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-steel-950 text-left text-white">
+              <th class="px-3 py-2.5 font-semibold">Thông số</th>
+              <th class="px-3 py-2.5 font-semibold">Quy cách</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sizes.map((s, i) => (
+              <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
+                <td class="px-3 py-2.5 font-semibold text-steel-950">{s.kind}</td>
+                <td class="px-3 py-2.5 text-steel-700">{s.specs}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-steel-500">
+        Quy cách tham khảo — Hà Lan còn cung cấp thép vằn D10 — D40, thép hộp vuông & chữ nhật,
+        thép hình H — U — I — V. Xem đầy đủ tại trang <a href="/san-pham/sat-thep-xay-dung/" class="text-brand underline">sắt thép xây dựng</a>.
+      </p>
+    </section>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Giá ống thép theo ngày — gọi để chốt</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Giá thay đổi theo thị trường thép và độ dày. Đọc quy cách và số lượng qua điện thoại —
+        báo giá chính xác trong ngày, đã gồm VAT.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Ứng dụng thường gặp</h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-steel-700">
+        <li>Giàn giáo, khung chống thi công.</li>
+        <li>Khung kèo phụ, cột đỡ mái che, mái hiên.</li>
+        <li>Hàng rào, lan can, cổng.</li>
+        <li>Đường ống cấp thoát nước, ống dẫn khí trong công trình dân dụng.</li>
+        <li>Khung kệ, khung bảng hiệu ngoài trời.</li>
+      </ul>
+      <p class="mt-3 text-sm font-semibold text-steel-800">
+        Gọi <a href={`tel:${site.hotline.tel}`} class="text-brand underline">{site.hotline.display}</a> —
+        Hà Lan tư vấn quy cách và độ dày phù hợp tải trọng công trình.
+      </p>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <SeoCrossLinks current="/ong-thep/" />
+  </div>
+</Base>
