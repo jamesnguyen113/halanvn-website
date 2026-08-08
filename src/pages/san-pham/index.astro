@@ -1,7 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import { categories, byCategory } from '../../data/products';
+import { categories, byCategory, byFamily } from '../../data/products';
+
+// Thép hộp là một dòng sản phẩm riêng bên trong danh mục Sắt thép xây dựng và
+// có hub SEO riêng ở /thep-hop/ — nên nó có module riêng trên trang này thay vì
+// nằm lẫn trong danh mục. Sản phẩm đã thuộc một `family` được lược khỏi khối
+// danh mục để không xuất hiện hai lần trên cùng một trang.
+const thepHop = byFamily('thep-hop');
+const looseIn = (slug: string) => byCategory(slug).filter((p) => !p.family);
 ---
 
 <Base
@@ -28,6 +35,9 @@ import { categories, byCategory } from '../../data/products';
           {c.name}
         </a>
       ))}
+      <a href="/thep-hop/" class="eyebrow border border-steel-300 px-3 py-2 text-steel-700 hover:border-brand hover:text-brand">
+        Thép hộp
+      </a>
     </nav>
 
     {categories.map((c) => (
@@ -36,9 +46,9 @@ import { categories, byCategory } from '../../data/products';
           <a href={`/san-pham/${c.slug}/`} class="hover:text-brand">{c.name}</a>
         </h2>
         <p class="mt-2 max-w-2xl pl-4 text-sm text-steel-700">{c.blurb}</p>
-        {byCategory(c.slug).length > 0 ? (
+        {looseIn(c.slug).length > 0 ? (
           <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
-            {byCategory(c.slug).map((p) => <ProductCard product={p} />)}
+            {looseIn(c.slug).map((p) => <ProductCard product={p} />)}
           </div>
         ) : (
           <p class="mt-4 pl-4 text-sm">
@@ -49,5 +59,24 @@ import { categories, byCategory } from '../../data/products';
         )}
       </section>
     ))}
+
+    <!-- Thép hộp: dòng sản phẩm riêng, hub ở /thep-hop/ -->
+    <section id="thep-hop" class="scroll-mt-28 pt-12">
+      <h2 class="display border-l-4 border-brand pl-3 text-2xl text-steel-950">
+        <a href="/thep-hop/" class="hover:text-brand">Thép hộp — sắt hộp</a>
+      </h2>
+      <p class="mt-2 max-w-2xl pl-4 text-sm text-steel-700">
+        Hộp vuông 20x20 — 100x100 mm và hộp chữ nhật 10x20 — 60x120 mm, thép đen hoặc mạ kẽm,
+        độ dày 1,0 — 3,0 mm, cây 6 m tiêu chuẩn.
+      </p>
+      <div class="mt-6 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        {thepHop.map((p) => <ProductCard product={p} />)}
+      </div>
+      <p class="mt-4 pl-4 text-sm">
+        <a href="/thep-hop/" class="font-semibold text-brand underline">
+          Xem quy cách, cách chọn đen — mạ kẽm và quy trình đặt hàng thép hộp →
+        </a>
+      </p>
+    </section>
   </div>
 </Base>
