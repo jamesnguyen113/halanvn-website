@@ -42,6 +42,9 @@
 /vn/phoi-thep-ma-kem.html /san-pham/phoi-thep-ma-kem/ 301
 /vn/phoi-thep-den.html /san-pham/phoi-thep-den/ 301
 /vn/sat-thep-xay-dun.html /san-pham/sat-thep-xay-dung/ 301
+# Menu cũ gộp "Sắt hộp - Ống phi" thành một trang; ý định chính là sắt hộp, và
+# hub /thep-hop/ có liên kết sang /ong-thep/ ngay trong phần "mua chung một chuyến".
+/vn/sat-hop-ong-phi.html /thep-hop/ 301
 
 # Product category listing pages
 /vn/ton-lop.html /san-pham/ton-lop/ 301
@@ -89,6 +92,7 @@
 /m/vn/phoi-thep-ma-kem.html /san-pham/phoi-thep-ma-kem/ 301
 /m/vn/phoi-thep-den.html /san-pham/phoi-thep-den/ 301
 /m/vn/sat-thep-xay-dun.html /san-pham/sat-thep-xay-dung/ 301
+/m/vn/sat-hop-ong-phi.html /thep-hop/ 301
 /m/vn/ton-lop.html /san-pham/ton-lop/ 301
 /m/vn/xa-go-chu-c-z.html /san-pham/xa-go/ 301
 /m/vn/ton-cach-nhiet.html /san-pham/ton-cach-nhiet/ 301

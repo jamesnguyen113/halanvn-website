@@ -5,6 +5,9 @@ export interface Product {
   name: string;
   nameEn: string;
   category: string;
+  /** Nhóm sản phẩm con trong một danh mục, ví dụ 'thep-hop' — để trang hub
+   *  lọc theo nhóm thay vì hardcode danh sách slug. */
+  family?: string;
   short: string;
   detail: string[];
   specs: Record<string, string>;
@@ -53,15 +56,18 @@ export const categories: Category[] = [
     blurb: 'Phôi thép đen và phôi mạ kẽm cho gia công xà gồ.',
     productSlugs: ['phoi-thep-ma-kem', 'phoi-thep-den'],
   },
-  // Nội dung thép vằn/sắt hộp nằm trực tiếp trên trang danh mục (không có
-  // trang sản phẩm con — trang cũ /san-pham/sat-thep-xay-dun/ trùng nội dung
-  // đã được 301 về đây).
+  // Thép vằn, ống phi và thép hình vẫn nằm trực tiếp trên trang danh mục
+  // (trang cũ /san-pham/sat-thep-xay-dun/ trùng nội dung đã được 301 về đây).
+  // Riêng thép hộp có 4 trang sản phẩm con — hub SEO là /thep-hop/.
   {
     slug: 'sat-thep-xay-dung',
     name: 'Sắt thép xây dựng',
     nameEn: 'Construction steel',
     blurb: 'Thép vằn D10–D40, sắt hộp, ống phi, thép hình H — U — I — V.',
-    productSlugs: [],
+    productSlugs: [
+      'thep-hop-vuong-den', 'thep-hop-vuong-ma-kem',
+      'thep-hop-chu-nhat-den', 'thep-hop-chu-nhat-ma-kem',
+    ],
   },
 ];
 
@@ -84,6 +90,10 @@ const namesEn: Record<string, string> = {
   'xa-go-thep-chu-z': 'Z purlin',
   'phoi-thep-ma-kem': 'Galvanized steel strip',
   'phoi-thep-den': 'Black steel strip',
+  'thep-hop-vuong-den': 'Black square steel tube',
+  'thep-hop-vuong-ma-kem': 'Galvanized square steel tube',
+  'thep-hop-chu-nhat-den': 'Black rectangular steel tube',
+  'thep-hop-chu-nhat-ma-kem': 'Galvanized rectangular steel tube',
 };
 
 // A few pages on the old site had empty or garbled short descriptions — patch them here.
@@ -106,6 +116,7 @@ export const products: Product[] = (raw as any[]).map((p) => {
     name: p.name,
     nameEn: namesEn[p.slug] ?? p.name,
     category: catOf[p.slug] ?? 'ton-lop',
+    family: p.family,
     short: shortOverrides[p.slug] ?? p.short,
     detail: (p.detail as string[]) ?? [],
     specs: Object.fromEntries(
@@ -118,3 +129,4 @@ export const products: Product[] = (raw as any[]).map((p) => {
 
 export const bySlug = new Map(products.map((p) => [p.slug, p]));
 export const byCategory = (slug: string) => products.filter((p) => p.category === slug);
+export const byFamily = (family: string) => products.filter((p) => p.family === family);

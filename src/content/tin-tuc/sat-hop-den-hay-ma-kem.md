@@ -9,9 +9,9 @@ date: 2026-08-05
 ## Khác nhau ở lớp bề mặt
 
 - **Sắt hộp đen**: thép cuộn cán định hình để trần, không phủ lớp chống rỉ nào. Giá thấp hơn, nhưng gặp ẩm là bắt đầu oxy hóa — cần sơn lót chống rỉ và sơn hoàn thiện ngay sau khi hàn lắp.
-- **Sắt hộp mạ kẽm**: bề mặt phủ lớp kẽm ngay từ nhà máy, chống oxy hóa mà không cần sơn thêm, chịu mưa nắng và độ ẩm cao tốt hơn nhiều so với thép đen để trần.
+- **Sắt hộp mạ kẽm**: bề mặt phủ lớp kẽm ngay từ nhà máy, chống oxy hóa mà không cần sơn thêm, chịu mưa nắng và độ ẩm cao tốt hơn nhiều so với thép đen để trần. Lưu ý: vết cắt và mối hàn làm mất lớp kẽm tại chỗ — phải xử lý lại bằng sơn giàu kẽm, nếu không đây chính là điểm bắt đầu gỉ.
 
-Về khả năng chịu lực, hai loại như nhau ở cùng tiết diện và độ dày — khác biệt chính là tuổi thọ bề mặt và chi phí bảo trì về sau.
+Về khả năng chịu lực, hai loại tương đương khi cùng mác thép, cùng tiết diện và cùng độ dày thực tế — khác biệt chính là tuổi thọ bề mặt và chi phí bảo trì về sau.
 
 ## Khi nào nên chọn sắt hộp đen
 
@@ -28,7 +28,7 @@ Về khả năng chịu lực, hai loại như nhau ở cùng tiết diện và 
 
 ## Chênh lệch giá bao nhiêu
 
-Đơn giá sắt hộp mạ kẽm cao hơn thép đen khoảng vài phần trăm trên mỗi kg tùy quy cách và thời điểm thị trường — mức chênh này thường thấp hơn chi phí sơn chống rỉ và nhân công sơn dặm định kỳ mà sắt hộp đen phải cộng thêm khi dùng ngoài trời. Với hạng mục để lộ thiên, chọn mạ kẽm ngay từ đầu thường tiết kiệm hơn tính đường dài.
+Đơn giá sắt hộp mạ kẽm cao hơn thép đen, mức chênh thay đổi theo quy cách và theo thị trường từng thời điểm — gọi hotline để biết mức chênh hiện tại cho đúng quy cách bạn cần. Đổi lại, hàng mạ kẽm không phải cộng thêm chi phí sơn chống rỉ và nhân công sơn dặm định kỳ như sắt hộp đen dùng ngoài trời, nên với hạng mục để lộ thiên, chọn mạ kẽm ngay từ đầu thường tiết kiệm hơn tính đường dài.
 
 ## Bảng so sánh nhanh
 
@@ -36,12 +36,12 @@ Về khả năng chịu lực, hai loại như nhau ở cùng tiết diện và 
 | --- | --- | --- |
 | Bề mặt | Thép trần, không phủ | Phủ lớp kẽm chống rỉ |
 | Chống rỉ | Phải sơn thêm | Có sẵn từ nhà máy |
-| Giá | Thấp hơn | Cao hơn vài %/kg |
-| Bảo trì | Sơn dặm định kỳ | Gần như không cần |
+| Giá | Thấp hơn | Cao hơn — gọi để biết mức chênh |
+| Bảo trì | Sơn dặm định kỳ | Ít hơn, nhưng vết cắt và mối hàn vẫn phải xử lý lại |
 | Hợp vị trí | Trong nhà, có sơn hoàn thiện | Ngoài trời, ẩm, ven biển |
 
 ## Nên chọn loại nào?
 
-Nếu khung nằm trong nhà và sẽ sơn hoàn thiện toàn bộ, sắt hộp **đen** đủ dùng và tiết kiệm ban đầu. Nếu hạng mục ở ngoài trời, ẩm, ven biển, hoặc cần giữ thẩm mỹ lâu năm như cổng, hàng rào, lan can, chọn **mạ kẽm** để khỏi lo bảo trì. Cả hai loại đều có đủ quy cách vuông và chữ nhật tại [thép hộp Hà Lan](/thep-hop/), cán tại các nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh, xuất hóa đơn VAT.
+Nếu khung nằm trong nhà và sẽ sơn hoàn thiện toàn bộ, sắt hộp **đen** đủ dùng và tiết kiệm ban đầu. Nếu hạng mục ở ngoài trời, ẩm, ven biển, hoặc cần giữ thẩm mỹ lâu năm như cổng, hàng rào, lan can, chọn **mạ kẽm** để khỏi lo bảo trì. Cả hai loại đều có đủ quy cách vuông và chữ nhật tại [thép hộp Hà Lan](/thep-hop/), giao từ hệ thống kho — nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh, xuất hóa đơn VAT theo yêu cầu.
 
 Xem thêm các loại sắt thép xây dựng khác tại [sắt thép xây dựng](/san-pham/sat-thep-xay-dung/), giá tham khảo tại [bảng giá](/bang-gia/), rồi gọi hotline **0931 390 068** để nhà máy tư vấn lớp mạ phù hợp và báo giá chính xác trong ngày.
