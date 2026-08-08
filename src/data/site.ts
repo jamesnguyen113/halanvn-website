@@ -6,8 +6,10 @@ export const site = {
   domain: 'https://halanvn.com',
   email: 'tonthepxagohalan@gmail.com',
   tagline: 'Tôn lợp · Xà gồ C, Z · Sắt hộp · Thép xây dựng',
+  // Hà Lan cán tôn và xà gồ tại nhà máy của mình; sắt hộp và thép xây dựng là
+  // hàng phân phối — không gộp hai vế vào một chữ "sản xuất".
   description:
-    'Công ty Cổ phần Hà Lan — sản xuất và cung cấp tôn lợp, xà gồ C/Z, sắt hộp, thép xây dựng từ năm 2002. Bốn nhà máy tại TP.HCM, Bình Dương và Tây Ninh. Giao hàng tận nơi.',
+    'Công ty Cổ phần Hà Lan — sản xuất tôn lợp, xà gồ C/Z và phân phối sắt hộp, thép xây dựng từ năm 2002. Bốn nhà máy tại TP.HCM, Bình Dương và Tây Ninh. Giao hàng tận nơi.',
   hotline: { tel: '0931390068', display: '0931 390 068' },
   zaloUrl: 'https://zalo.me/0931390068',
   phones: [
