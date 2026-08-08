@@ -1,0 +1,176 @@
+---
+import Base from '../layouts/Base.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
+import { site } from '../data/site';
+
+const faq = [
+  {
+    q: 'Thép vằn và thép gân có phải là một không?',
+    a: 'Đúng — "thép vằn" và "thép gân" là hai cách gọi cho cùng một loại vật tư: thép cốt bê tông có các đường gân nổi trên bề mặt để tăng lực bám dính với bê tông, phân biệt với thép tròn trơn.',
+  },
+  {
+    q: 'Ký hiệu D trên thép vằn nghĩa là gì?',
+    a: 'D là đường kính danh nghĩa tính bằng milimét, đo tại thân cây thép (không tính phần gân). Thép D16 có đường kính thân khoảng 16mm; số càng lớn thì cây thép càng to, chịu lực kéo càng cao.',
+  },
+  {
+    q: 'Công trình nhà dân dụng thường dùng size thép vằn nào?',
+    a: 'Sàn và thép đai thường dùng D10 — D12; dầm, cột nhà phố dùng D14 — D22; móng và cột chịu tải lớn dùng D25 trở lên. Đường kính chính xác phải theo bản vẽ kết cấu do kỹ sư tính toán, không tự ý thay đổi.',
+  },
+  {
+    q: 'Mua thép vằn ở Hà Lan có xuất hóa đơn VAT không?',
+    a: 'Có. Thép vằn Hà Lan cung cấp nguồn hàng nhà máy lớn, đúng tiêu chuẩn TCVN 1651-2:2018, xuất hóa đơn VAT ghi rõ đường kính và mác thép — phù hợp công trình cần quyết toán, đối chiếu bản vẽ.',
+  },
+  {
+    q: 'Đặt thép vằn cùng sắt hộp, xà gồ có được giao chung không?',
+    a: `Được. Nhiều công trình vừa cần cốt thép vừa cần khung kèo mái — Hà Lan gom thép vằn với sắt hộp, xà gồ C/Z, tôn lợp trong cùng một đơn, giao một chuyến tận công trình tại TP.HCM, Bình Dương, Tây Ninh. Gọi ${site.hotline.display} để đặt gộp.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Thép vằn' },
+  ],
+};
+
+const sizes = [
+  { kind: 'D10 — D12', specs: 'Sàn, thép đai cột/dầm, thép cấu tạo — chịu lực nhẹ' },
+  { kind: 'D14 — D16', specs: 'Dầm nhà dân dụng, cột nhà phố, sàn mái' },
+  { kind: 'D18 — D22', specs: 'Cột chịu tải lớn, dầm nhịp rộng, móng nhà phố' },
+  { kind: 'D25 — D32', specs: 'Móng, cột nhà xưởng, cọc, đài móng công trình lớn' },
+  { kind: 'D32 — D40', specs: 'Móng bè, móng cọc công trình công nghiệp, tải trọng rất lớn' },
+  { kind: 'Chiều dài cây', specs: '11,7 m tiêu chuẩn' },
+];
+---
+
+<Base
+  title="Thép vằn D10 — D40 — giá hôm nay, đúng tiêu chuẩn TCVN | Hà Lan"
+  description={`Mua thép vằn (thép gân) D10 — D40, tiêu chuẩn TCVN 1651-2:2018, đủ mác CB300V — CB500V. Giao tận công trình TP.HCM, Bình Dương. Gọi ${site.hotline.display} báo giá thép vằn hôm nay.`}
+  schema={[breadcrumbSchema, faqSchema]}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="eyebrow text-brand-soft">Sắt thép xây dựng</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Thép vằn D10 — D40</h1>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-steel-300">
+        Thép vằn (thép gân) đủ đường kính D10 — D40, đúng tiêu chuẩn TCVN, cho móng, cột, dầm, sàn —
+        gọi <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>
+        để có giá thép vằn hôm nay.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        <strong>Thép vằn</strong> (còn gọi thép gân, thép có gờ) là thép cốt bê tông với các đường
+        gân nổi trên bề mặt, giúp bê tông bám dính tốt hơn thép tròn trơn — gần như bắt buộc cho
+        cốt chịu lực chính của mọi công trình bê tông cốt thép. Hà Lan cung cấp đủ đường kính từ
+        <strong>D10 đến D40</strong>, sản xuất theo tiêu chuẩn <strong>TCVN 1651-2:2018</strong>,
+        các mác thép phổ biến CB300V, CB400V, CB500V.
+      </p>
+      <p>
+        Nguồn hàng nhà máy lớn, xuất hóa đơn VAT ghi rõ đường kính và mác thép — đối chiếu đúng
+        bản vẽ kết cấu khi nghiệm thu. Nhiều khách công trình mua thép vằn cùng lúc với sắt hộp và
+        xà gồ C, Z; Hà Lan gom hàng giao một chuyến tận công trình tại TP.HCM, Thủ Đức, Bình Dương,
+        Tây Ninh, tiết kiệm chi phí vận chuyển so với đặt riêng từng loại vật tư.
+      </p>
+    </section>
+
+    <section class="mt-10 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Thép vằn dùng cho hạng mục nào</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-steel-950 text-left text-white">
+              <th class="px-3 py-2.5 font-semibold">Đường kính</th>
+              <th class="px-3 py-2.5 font-semibold">Hạng mục thường dùng</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sizes.map((s, i) => (
+              <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
+                <td class="px-3 py-2.5 font-semibold text-steel-950">{s.kind}</td>
+                <td class="px-3 py-2.5 text-steel-700">{s.specs}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-steel-500">
+        Bảng tham khảo thực tế thị trường — đường kính, số lượng và bố trí thép luôn phải theo đúng
+        bản vẽ kết cấu đã được kỹ sư tính toán. Xem chi tiết cách đọc ký hiệu D tại bài
+        <a href="/tin-tuc/thep-van-d10-d40/" class="text-brand underline">thép vằn D10 — D40 dùng cho hạng mục nào</a>.
+        Hà Lan còn cung cấp <a href="/thep-hop/" class="text-brand underline">sắt hộp</a>,
+        <a href="/ong-thep/" class="text-brand underline">ống thép</a> và
+        <a href="/thep-hinh/" class="text-brand underline">thép hình H — U — I — V</a>. Xem đầy đủ tại trang
+        <a href="/san-pham/sat-thep-xay-dung/" class="text-brand underline">sắt thép xây dựng</a>.
+      </p>
+    </section>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Giá thép vằn theo ngày — gọi để chốt</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Giá thay đổi theo thị trường thép và mác thép. Đọc đường kính, số lượng theo bản vẽ qua
+        điện thoại — báo giá chính xác trong ngày, đã gồm VAT.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Ứng dụng thường gặp</h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-steel-700">
+        <li>Móng, cột, dầm, sàn nhà dân dụng và nhà phố.</li>
+        <li>Móng, cột nhà xưởng, cọc, đài móng công trình công nghiệp.</li>
+        <li>Móng bè, móng cọc công trình hạ tầng, tải trọng lớn.</li>
+        <li>Thép đai, thép cấu tạo phụ trong khung bê tông cốt thép.</li>
+        <li>Kết hợp cùng sắt hộp, xà gồ C/Z cho công trình vừa cần cốt thép vừa cần khung kèo mái.</li>
+      </ul>
+      <p class="mt-3 text-sm font-semibold text-steel-800">
+        Gọi <a href={`tel:${site.hotline.tel}`} class="text-brand underline">{site.hotline.display}</a> —
+        Hà Lan báo giá theo đường kính và số lượng trong bản vẽ.
+      </p>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <SeoCrossLinks current="/thep-van/" />
+  </div>
+</Base>
