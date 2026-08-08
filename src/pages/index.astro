@@ -3,12 +3,18 @@ import Base from '../layouts/Base.astro';
 import Corrugation from '../components/Corrugation.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { site, locations } from '../data/site';
-import { categories, byCategory, bySlug } from '../data/products';
+import { categories, byCategory, byFamily, bySlug } from '../data/products';
 
 const featured = [
   'ton-ma-mau', 'ton-lanh', 'ton-9-song-vuong', 'ton-cliplock',
   'xa-go-thep-chu-c', 'xa-go-thep-chu-z', 'ton-cach-nhiet-pe', 'ton-do-san',
 ].map((s) => bySlug.get(s)!);
+
+// Thép hộp có tile riêng (hub /thep-hop/) nên không đếm vào tile danh mục —
+// Sắt thép xây dựng còn thép vằn, ống phi, thép hình, thép tấm chưa có trang con,
+// đếm "4 sản phẩm" ở đó sẽ hiểu nhầm là cả danh mục chỉ có 4 mặt hàng.
+const looseIn = (slug: string) => byCategory(slug).filter((p) => !p.family);
+const thepHopCount = byFamily('thep-hop').length;
 ---
 
 <Base
@@ -67,10 +73,21 @@ const featured = [
           <h3 class="display text-lg text-steel-950 group-hover:text-brand">{c.name}</h3>
           <p class="mt-2 text-sm leading-relaxed text-steel-700">{c.blurb}</p>
           <p class="eyebrow mt-3 text-steel-700 group-hover:text-brand">
-            {byCategory(c.slug).length > 0 ? `${byCategory(c.slug).length} sản phẩm →` : 'Xem chi tiết →'}
+            {looseIn(c.slug).length > 0 ? `${looseIn(c.slug).length} sản phẩm →` : 'Xem chi tiết →'}
           </p>
         </a>
       ))}
+      <a
+        href="/thep-hop/"
+        class="group border-t-4 border-steel-200 bg-steel-50 p-5 transition-colors hover:border-brand hover:bg-white hover:shadow-md"
+      >
+        <h3 class="display text-lg text-steel-950 group-hover:text-brand">Thép hộp — sắt hộp</h3>
+        <p class="mt-2 text-sm leading-relaxed text-steel-700">
+          Hộp vuông 20x20 — 100x100 mm và hộp chữ nhật 10x20 — 60x120 mm, thép đen hoặc mạ kẽm,
+          dày 1,0 — 3,0 mm, cây 6 m.
+        </p>
+        <p class="eyebrow mt-3 text-steel-700 group-hover:text-brand">{thepHopCount} sản phẩm →</p>
+      </a>
     </div>
   </section>
 
