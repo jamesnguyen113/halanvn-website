@@ -1,6 +1,6 @@
 ---
 title: 'Độ dốc mái tôn bao nhiêu là chuẩn? Mức tối thiểu theo từng loại sóng tôn'
-description: 'Độ dốc mái tôn tối thiểu theo từng loại sóng, cách tính độ dốc và lỗi làm mái thoải gây dột. Gọi 0931 390 068 để nhà máy tư vấn và báo giá tôn.'
+description: 'Độ dốc mái tôn tối thiểu theo từng loại sóng, cách tính độ dốc và lỗi làm mái thoải gây dột. Gọi 0937 185 968 để nhà máy tư vấn và báo giá tôn.'
 date: 2026-07-28
 ---
 
@@ -61,4 +61,4 @@ Chênh nhau khoảng 4 cm trên mỗi cây tôn, tức chỉ hơn 1% khối lư�
 
 Các mức độ dốc trên là kinh nghiệm thi công phổ biến, **không phải số liệu thiết kế bảo đảm an toàn cho mọi công trình**. Vùng mưa lớn, khu vực gió bão, mái quá dài theo phương dốc hoặc mái có lắp pin năng lượng mặt trời đều cần tính riêng. Với nhà xưởng và công trình lớn, luôn đối chiếu bản vẽ kết cấu trước khi đặt hàng số lượng lớn.
 
-Cần chốt nhanh cho công trình của mình? Gọi hotline **0931 390 068**, cho biết khẩu độ mái, độ dốc dự kiến và loại sóng muốn lợp — nhà máy tư vấn độ dày tôn phù hợp, cán đúng quy cách, cắt theo chiều dài mái và báo giá trong ngày, đã gồm VAT. Hàng cán tại các nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh, giao tận công trình. Tham khảo trước [bảng giá tôn lợp](/bang-gia/ton-lop/) hoặc xem toàn bộ [các loại tôn lợp](/san-pham/ton-lop/) để có sẵn khoảng giá khi gọi.
+Cần chốt nhanh cho công trình của mình? Gọi hotline **0937 185 968**, cho biết khẩu độ mái, độ dốc dự kiến và loại sóng muốn lợp — nhà máy tư vấn độ dày tôn phù hợp, cán đúng quy cách, cắt theo chiều dài mái và báo giá trong ngày, đã gồm VAT. Hàng cán tại các nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh, giao tận công trình. Tham khảo trước [bảng giá tôn lợp](/bang-gia/ton-lop/) hoặc xem toàn bộ [các loại tôn lợp](/san-pham/ton-lop/) để có sẵn khoảng giá khi gọi.

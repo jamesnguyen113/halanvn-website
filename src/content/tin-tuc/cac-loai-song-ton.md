@@ -1,6 +1,6 @@
 ---
 title: 'Các loại sóng tôn — sóng 5, sóng 9, cliplock: chọn loại nào?'
-description: 'So sánh tôn sóng 5, sóng 9, sóng vòm, sóng ngói và cliplock: ưu nhược điểm, công trình phù hợp. Đọc xong gọi 0931 390 068 để chốt loại sóng cho mái nhà.'
+description: 'So sánh tôn sóng 5, sóng 9, sóng vòm, sóng ngói và cliplock: ưu nhược điểm, công trình phù hợp. Đọc xong gọi 0937 185 968 để chốt loại sóng cho mái nhà.'
 date: 2026-07-20
 ---
 
@@ -48,4 +48,4 @@ Xem chi tiết cách tính giá tại [tôn cliplock Đông Á](/ton-dong-a/clip
 
 Nếu chỉ so giá, tôn sóng vuông (5 hoặc 9) vẫn là lựa chọn kinh tế nhất cho phần lớn nhà ở và nhà xưởng phổ thông. Nếu công trình cần mái bền lâu, ít bảo trì và không muốn lỗ vít lộ trên bề mặt, cliplock đáng cân nhắc dù chi phí ban đầu cao hơn. Sóng vòm và sóng ngói nên dành cho những vị trí ưu tiên thẩm mỹ hơn diện tích.
 
-Chưa chắc chọn loại nào cũng không sao — đọc diện tích mái và mục đích sử dụng qua hotline **0931 390 068**, nhà máy tư vấn loại sóng phù hợp và báo giá luôn trong ngày, đã gồm VAT.
+Chưa chắc chọn loại nào cũng không sao — đọc diện tích mái và mục đích sử dụng qua hotline **0937 185 968**, nhà máy tư vấn loại sóng phù hợp và báo giá luôn trong ngày, đã gồm VAT.

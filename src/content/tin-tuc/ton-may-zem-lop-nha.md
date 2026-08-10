@@ -1,6 +1,6 @@
 ---
 title: 'Tôn mấy zem lợp nhà ở là đủ? Chọn độ dày theo công trình'
-description: 'Nhà ở nên lợp tôn 4 zem hay 4.5 zem? Bảng chọn độ dày tôn theo loại công trình, bước xà gồ, khu vực gió bão. Gọi 0931 390 068 tư vấn theo đúng nhà bạn.'
+description: 'Nhà ở nên lợp tôn 4 zem hay 4.5 zem? Bảng chọn độ dày tôn theo loại công trình, bước xà gồ, khu vực gió bão. Gọi 0937 185 968 tư vấn theo đúng nhà bạn.'
 date: 2026-08-01
 ---
 
@@ -33,4 +33,4 @@ Với cùng khổ và sóng tôn, giá tăng gần như tuyến tính theo độ
 - **Chỉ hỏi giá mà không hỏi độ dày cụ thể**: hai báo giá "tôn 4 zem" có thể chênh nhau nếu một bên đôn zem — luôn yêu cầu hóa đơn VAT ghi rõ độ dày để đối chiếu.
 - **Đổi độ dày nhưng giữ nguyên bước xà gồ cũ khi thay mái**: nếu mái cũ lợp tôn dày mà nay đổi sang mỏng hơn, cần kiểm tra lại bước xà gồ có còn phù hợp không.
 
-Đọc diện tích mái và loại công trình, gọi **0931 390 068** (Zalo cùng số) — nhà máy tư vấn đúng độ dày theo bước xà gồ thực tế, báo giá theo [bảng giá tôn lợp](/bang-gia/ton-lop/) đã gồm VAT, giao hàng tận nơi tại TP.HCM, Bình Dương, Tây Ninh.
+Đọc diện tích mái và loại công trình, gọi **0937 185 968** (Zalo cùng số) — nhà máy tư vấn đúng độ dày theo bước xà gồ thực tế, báo giá theo [bảng giá tôn lợp](/bang-gia/ton-lop/) đã gồm VAT, giao hàng tận nơi tại TP.HCM, Bình Dương, Tây Ninh.

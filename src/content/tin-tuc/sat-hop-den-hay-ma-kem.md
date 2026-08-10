@@ -1,6 +1,6 @@
 ---
 title: 'Sắt hộp mạ kẽm hay sắt hộp đen — nên chọn loại nào?'
-description: 'So sánh sắt hộp đen và sắt hộp mạ kẽm: giá, độ bền ngoài trời, ứng dụng phù hợp mỗi loại. Gọi 0931 390 068 để chốt quy cách và số lượng hôm nay.'
+description: 'So sánh sắt hộp đen và sắt hộp mạ kẽm: giá, độ bền ngoài trời, ứng dụng phù hợp mỗi loại. Gọi 0937 185 968 để chốt quy cách và số lượng hôm nay.'
 date: 2026-08-05
 ---
 
@@ -44,4 +44,4 @@ Về khả năng chịu lực, hai loại tương đương khi cùng mác thép,
 
 Nếu khung nằm trong nhà và sẽ sơn hoàn thiện toàn bộ, sắt hộp **đen** đủ dùng và tiết kiệm ban đầu. Nếu hạng mục ở ngoài trời, ẩm, ven biển, hoặc cần giữ thẩm mỹ lâu năm như cổng, hàng rào, lan can, chọn **mạ kẽm** để khỏi lo bảo trì. Cả hai loại đều có đủ quy cách vuông và chữ nhật tại [thép hộp Hà Lan](/thep-hop/) — hàng phân phối, giao tận công trình từ [hệ thống Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh](/nha-may/), xuất hóa đơn VAT theo yêu cầu.
 
-Xem thêm các loại sắt thép xây dựng khác tại [sắt thép xây dựng](/san-pham/sat-thep-xay-dung/), giá tham khảo tại [bảng giá](/bang-gia/), rồi gọi hotline **0931 390 068** để nhà máy tư vấn lớp mạ phù hợp và báo giá chính xác trong ngày.
+Xem thêm các loại sắt thép xây dựng khác tại [sắt thép xây dựng](/san-pham/sat-thep-xay-dung/), giá tham khảo tại [bảng giá](/bang-gia/), rồi gọi hotline **0937 185 968** để nhà máy tư vấn lớp mạ phù hợp và báo giá chính xác trong ngày.

@@ -10,13 +10,13 @@ export const site = {
   // hàng phân phối — không gộp hai vế vào một chữ "sản xuất".
   description:
     'Công ty Cổ phần Hà Lan — sản xuất tôn lợp, xà gồ C/Z và phân phối sắt hộp, thép xây dựng từ năm 2002. Bốn nhà máy tại TP.HCM, Bình Dương và Tây Ninh. Giao hàng tận nơi.',
-  hotline: { tel: '0931390068', display: '0931 390 068' },
-  zaloUrl: 'https://zalo.me/0931390068',
+  hotline: { tel: '0937185968', display: '0937 185 968' },
+  zaloUrl: 'https://zalo.me/0937185968',
   phones: [
     { label: 'Văn phòng Tân Bình', tel: '02837271662', display: '(028) 3727 1662' },
-    { label: 'Hotline', tel: '0931390068', display: '0931 390 068' },
+    { label: 'Hotline', tel: '0937185968', display: '0937 185 968' },
     { label: 'Hotline 2', tel: '0934063768', display: '0934 063 768' },
-    { label: 'Bình Dương', tel: '02743617808', display: '(0274) 361 7808' },
+    { label: 'Bình Dương', tel: '02837271662', display: '(028) 3727 1662' },
   ],
   bank: 'STK 11802990811 — Vietinbank CN Đông TP.HCM – PGD An Phú (Công Ty Cổ Phần Hà Lan)',
 };
@@ -38,7 +38,7 @@ export const locations: Location[] = [
     address: '80 Quốc lộ 1A, P. Hiệp Bình Phước, TP. Thủ Đức, TP. Hồ Chí Minh',
     phones: [
       { tel: '02837271662', display: '(028) 3727 1662' },
-      { tel: '0931390068', display: '0931 390 068' },
+      { tel: '0937185968', display: '0937 185 968' },
     ],
     mapQuery: '80 Quốc lộ 1A, Hiệp Bình Phước, Thủ Đức',
   },
@@ -49,7 +49,7 @@ export const locations: Location[] = [
     address: '358 Cộng Hòa, Phường 13, Quận Tân Bình, TP. Hồ Chí Minh',
     phones: [
       { tel: '02837271662', display: '(028) 3727 1662' },
-      { tel: '0931390068', display: '0931 390 068' },
+      { tel: '0937185968', display: '0937 185 968' },
     ],
     mapQuery: '358 Cộng Hòa, Phường 13, Tân Bình, Hồ Chí Minh',
   },
@@ -59,8 +59,8 @@ export const locations: Location[] = [
     kind: 'factory',
     address: '327 Quốc lộ 13, Dốc AB, P. An Thạnh, TP. Thuận An, Bình Dương',
     phones: [
-      { tel: '02743617808', display: '(0274) 361 7808' },
-      { tel: '0931390068', display: '0931 390 068' },
+      { tel: '02837271662', display: '(028) 3727 1662' },
+      { tel: '0937185968', display: '0937 185 968' },
     ],
     mapQuery: '327 Quốc lộ 13, An Thạnh, Thuận An, Bình Dương',
   },

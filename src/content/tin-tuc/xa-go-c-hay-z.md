@@ -1,6 +1,6 @@
 ---
 title: 'Xà gồ C hay xà gồ Z — khác gì nhau, chọn loại nào?'
-description: 'So sánh xà gồ C và xà gồ Z: tiết diện, khả năng nối chồng, khẩu độ vượt nhịp và công trình phù hợp. Đọc xong gọi 0931 390 068 để chốt quy cách và độ dày.'
+description: 'So sánh xà gồ C và xà gồ Z: tiết diện, khả năng nối chồng, khẩu độ vượt nhịp và công trình phù hợp. Đọc xong gọi 0937 185 968 để chốt quy cách và độ dày.'
 date: 2026-07-22
 ---
 
@@ -53,4 +53,4 @@ Hà Lan cán xà gồ C60 — C300 và Z100 — Z300 **theo đúng quy cách và
 
 ## Nên chọn loại nào?
 
-Nếu là mái tôn nhà ở hay nhà xưởng khẩu độ vừa, cứ chọn xà gồ **C** — đủ khỏe, dễ thi công, giá tốt. Chỉ khi mái dài nhiều nhịp liên tục và muốn tối ưu thép cho công trình lớn thì cân nhắc xà gồ **Z** theo bản vẽ kết cấu. Chưa chắc quy cách hay độ dày cũng không sao — xem [bảng giá xà gồ C/Z tham khảo](/bang-gia/xa-go/), rồi đọc khẩu độ mái và khoảng cách vì kèo qua hotline **0931 390 068**, nhà máy tư vấn tiết diện phù hợp và báo giá luôn trong ngày, đã gồm VAT.
+Nếu là mái tôn nhà ở hay nhà xưởng khẩu độ vừa, cứ chọn xà gồ **C** — đủ khỏe, dễ thi công, giá tốt. Chỉ khi mái dài nhiều nhịp liên tục và muốn tối ưu thép cho công trình lớn thì cân nhắc xà gồ **Z** theo bản vẽ kết cấu. Chưa chắc quy cách hay độ dày cũng không sao — xem [bảng giá xà gồ C/Z tham khảo](/bang-gia/xa-go/), rồi đọc khẩu độ mái và khoảng cách vì kèo qua hotline **0937 185 968**, nhà máy tư vấn tiết diện phù hợp và báo giá luôn trong ngày, đã gồm VAT.

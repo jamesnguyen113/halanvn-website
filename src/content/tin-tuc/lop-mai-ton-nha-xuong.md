@@ -1,6 +1,6 @@
 ---
 title: 'Lợp mái tôn nhà xưởng: chọn tôn, độ dày, khung kèo xà gồ'
-description: 'Hướng dẫn chọn tôn, độ dày và xà gồ C/Z khi lợp mái nhà xưởng. Tính đúng từ đầu tránh dột, võng mái. Gọi 0931 390 068 để nhà máy tư vấn theo bản vẽ.'
+description: 'Hướng dẫn chọn tôn, độ dày và xà gồ C/Z khi lợp mái nhà xưởng. Tính đúng từ đầu tránh dột, võng mái. Gọi 0937 185 968 để nhà máy tư vấn theo bản vẽ.'
 date: 2026-07-31
 ---
 
@@ -44,4 +44,4 @@ Xưởng sản xuất, kho hàng thường cần chống nóng chủ động hơ
 
 Đây là mức tham khảo — quy mô thực tế còn phụ thuộc tải gió khu vực và bản vẽ kết cấu, nên đọc kỹ khẩu độ và bước cột trước khi chốt.
 
-Hà Lan cán tôn và xà gồ C/Z theo đúng quy cách công trình tại 4 nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh — xem địa chỉ từng nhà máy tại [trang nhà máy](/nha-may/), hoặc tham khảo công trình đã thi công tại [dự án](/du-an/). Có bản vẽ hoặc số đo khẩu độ mái, gọi **0931 390 068** (Zalo cùng số) để nhà máy tư vấn loại tôn, độ dày và quy cách xà gồ phù hợp, báo giá kèm hóa đơn VAT trong ngày.
+Hà Lan cán tôn và xà gồ C/Z theo đúng quy cách công trình tại 4 nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh — xem địa chỉ từng nhà máy tại [trang nhà máy](/nha-may/), hoặc tham khảo công trình đã thi công tại [dự án](/du-an/). Có bản vẽ hoặc số đo khẩu độ mái, gọi **0937 185 968** (Zalo cùng số) để nhà máy tư vấn loại tôn, độ dày và quy cách xà gồ phù hợp, báo giá kèm hóa đơn VAT trong ngày.

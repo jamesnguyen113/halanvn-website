@@ -1,6 +1,6 @@
 ---
 title: 'Cách tính số mét tôn lợp mái — công thức đơn giản, ví dụ cụ thể'
-description: 'Hướng dẫn tự tính số tấm tôn và số mét tôn lợp mái theo khổ hữu dụng 1 m: công thức, hệ số độ dốc, ví dụ nhà 5×20 m. Tính xong gọi 0931 390 068 để chốt giá.'
+description: 'Hướng dẫn tự tính số tấm tôn và số mét tôn lợp mái theo khổ hữu dụng 1 m: công thức, hệ số độ dốc, ví dụ nhà 5×20 m. Tính xong gọi 0937 185 968 để chốt giá.'
 date: 2026-07-18
 ---
 
@@ -40,4 +40,4 @@ Tôn tại Hà Lan **cán đúng chiều dài từng tấm theo mái của bạn
 - Mái dốc lớn hơn 50% hoặc mái vòm: gọi hotline đọc kích thước, nhà máy tính giúp trong vài phút.
 - Số lượng lớn nên đặt cán theo bản vẽ để tối ưu — [gửi quy cách, nhận báo giá trong ngày](/bang-gia/).
 
-Tính xong số mét? Xem [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/) rồi gọi **0931 390 068** đọc số mét + độ dày — nhà máy báo tổng tiền và lịch giao ngay, đã gồm VAT.
+Tính xong số mét? Xem [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/) rồi gọi **0937 185 968** đọc số mét + độ dày — nhà máy báo tổng tiền và lịch giao ngay, đã gồm VAT.

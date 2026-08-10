@@ -1,6 +1,6 @@
 ---
 title: '"Dem" là gì? Cách kiểm tra độ dày tôn khi mua, tránh tôn đôn dem'
-description: 'Dem là cách gọi độ dày tôn theo phần mười mm. Hướng dẫn đo, kiểm tra tôn đôn dem trước khi mua. Gọi 0931 390 068 chốt độ dày đúng, có hóa đơn VAT.'
+description: 'Dem là cách gọi độ dày tôn theo phần mười mm. Hướng dẫn đo, kiểm tra tôn đôn dem trước khi mua. Gọi 0937 185 968 chốt độ dày đúng, có hóa đơn VAT.'
 date: 2026-07-22
 ---
 
@@ -41,4 +41,4 @@ Cách đơn giản và hiệu quả nhất với khách hàng phổ thông là *
 
 Giá tôn chênh lệch theo từng mức độ dày này không lớn so với tổng chi phí một mái nhà, nhưng ảnh hưởng trực tiếp đến độ bền và khả năng chống dột về lâu dài — không nên chọn độ dày chỉ vì rẻ hơn vài trăm đồng một mét.
 
-Xem đầy đủ các mức giá theo độ dày tại [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/). Tôn tại Hà Lan cán từ thép nền rõ nguồn gốc, in thương hiệu và độ dày trên từng tấm, xuất hóa đơn VAT ghi đúng quy cách — gọi **0931 390 068** (Zalo cùng số) để đọc số mét cần lợp, nhà máy báo giá theo đúng độ dày bạn chọn, đo kiểm được tại chỗ khi giao hàng.
+Xem đầy đủ các mức giá theo độ dày tại [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/). Tôn tại Hà Lan cán từ thép nền rõ nguồn gốc, in thương hiệu và độ dày trên từng tấm, xuất hóa đơn VAT ghi đúng quy cách — gọi **0937 185 968** (Zalo cùng số) để đọc số mét cần lợp, nhà máy báo giá theo đúng độ dày bạn chọn, đo kiểm được tại chỗ khi giao hàng.

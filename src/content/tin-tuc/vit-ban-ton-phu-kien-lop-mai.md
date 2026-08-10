@@ -1,6 +1,6 @@
 ---
 title: 'Vít bắn tôn và phụ kiện lợp mái cần chuẩn bị những gì?'
-description: 'Danh sách vít bắn tôn, nẹp, diềm mái, máng xối cần chuẩn bị trước khi lợp — chọn đúng loại vít theo độ dày tôn, khoảng cách bắn vít. Tư vấn 0931 390 068.'
+description: 'Danh sách vít bắn tôn, nẹp, diềm mái, máng xối cần chuẩn bị trước khi lợp — chọn đúng loại vít theo độ dày tôn, khoảng cách bắn vít. Tư vấn 0937 185 968.'
 date: 2026-08-07
 ---
 
@@ -48,4 +48,4 @@ Trước ngày thi công, nên có sẵn trong tay:
 
 Thiếu một trong các mục trên đều có thể làm gián đoạn buổi thi công hoặc để lại điểm yếu gây dột sau này.
 
-Cần tư vấn số lượng vít, phụ kiện đi kèm cho công trình cụ thể? Gọi hotline **0931 390 068**, đọc diện tích mái và loại tôn dự định lợp — nhà máy tư vấn đủ danh mục và báo giá trong ngày, đã gồm VAT. Tham khảo trước [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/) và [sản phẩm tôn lợp](/san-pham/ton-lop/) trước khi gọi.
+Cần tư vấn số lượng vít, phụ kiện đi kèm cho công trình cụ thể? Gọi hotline **0937 185 968**, đọc diện tích mái và loại tôn dự định lợp — nhà máy tư vấn đủ danh mục và báo giá trong ngày, đã gồm VAT. Tham khảo trước [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/) và [sản phẩm tôn lợp](/san-pham/ton-lop/) trước khi gọi.

@@ -1,6 +1,6 @@
 ---
 title: 'Khoảng cách xà gồ mái tôn bao nhiêu là chuẩn? Bảng tra theo độ dày tôn'
-description: 'Khoảng cách xà gồ mái tôn theo độ dày tôn và quy cách C/Z, kèm ví dụ tính bước xà gồ thực tế. Gọi 0931 390 068 để nhà máy tư vấn đúng công trình.'
+description: 'Khoảng cách xà gồ mái tôn theo độ dày tôn và quy cách C/Z, kèm ví dụ tính bước xà gồ thực tế. Gọi 0937 185 968 để nhà máy tư vấn đúng công trình.'
 date: 2026-07-24
 ---
 
@@ -50,4 +50,4 @@ Muốn tính luôn ra số mét tôn cần mua sau khi chốt bước xà gồ, 
 
 Các mức khoảng cách trên là kinh nghiệm thi công phổ biến, **không phải số liệu tính toán kết cấu đảm bảo an toàn cho mọi công trình**. Tải trọng gió theo khu vực, độ dốc mái, tải phụ (tôn cách nhiệt, trần thạch cao treo dưới mái, pin mặt trời) đều làm thay đổi bước xà gồ và độ dày cần dùng. Với nhà xưởng, công trình có tải đặc biệt, hoặc khu vực gió bão mạnh, nên nhờ kỹ sư kết cấu tính lại và luôn đối chiếu với bản vẽ trước khi đặt hàng số lượng lớn.
 
-Cần tư vấn nhanh cho công trình cụ thể? Gọi hotline **0931 390 068**, đọc khẩu độ vì kèo và loại tôn dự định lợp — nhà máy tư vấn quy cách xà gồ phù hợp và báo giá trong ngày, đã gồm VAT. Tham khảo thêm [bảng giá xà gồ C/Z](/bang-gia/xa-go/) trước khi gọi để có sẵn khoảng giá theo độ dày.
+Cần tư vấn nhanh cho công trình cụ thể? Gọi hotline **0937 185 968**, đọc khẩu độ vì kèo và loại tôn dự định lợp — nhà máy tư vấn quy cách xà gồ phù hợp và báo giá trong ngày, đã gồm VAT. Tham khảo thêm [bảng giá xà gồ C/Z](/bang-gia/xa-go/) trước khi gọi để có sẵn khoảng giá theo độ dày.

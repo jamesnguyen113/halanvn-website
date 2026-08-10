@@ -1,6 +1,6 @@
 ---
 title: 'Xà gồ đen hay xà gồ mạ kẽm — chọn loại nào cho mái tôn?'
-description: 'So sánh xà gồ thép đen và xà gồ mạ kẽm: độ bền, chênh lệch giá, công trình nào hợp loại nào. Gọi 0931 390 068 để chốt quy cách và lớp mạ phù hợp.'
+description: 'So sánh xà gồ thép đen và xà gồ mạ kẽm: độ bền, chênh lệch giá, công trình nào hợp loại nào. Gọi 0937 185 968 để chốt quy cách và lớp mạ phù hợp.'
 date: 2026-07-26
 ---
 
@@ -46,4 +46,4 @@ Theo bảng giá tham khảo của Hà Lan, đơn giá mạ kẽm cao hơn thép
 
 Nếu khung mái nằm trong nhà và sẽ sơn hoàn thiện, xà gồ **đen** đủ dùng và tiết kiệm ban đầu. Nếu công trình ở nơi ẩm, ven biển, hoặc mái hở tiếp xúc mưa nắng trực tiếp, chọn **mạ kẽm** để khỏi lo bảo trì nhiều năm. Cả hai lớp mạ đều có trên đủ 16 quy cách [xà gồ C và Z](/tin-tuc/xa-go-c-hay-z/) tại Hà Lan, cán tại các nhà máy Thủ Đức, Thuận An (Bình Dương), Bình Chánh và Tây Ninh, xuất hóa đơn VAT.
 
-Xem giá tham khảo cả hai loại theo từng quy cách tại [bảng giá xà gồ](/bang-gia/xa-go/), rồi gọi hotline **0931 390 068** để nhà máy tư vấn lớp mạ phù hợp với môi trường công trình và báo giá chính xác trong ngày.
+Xem giá tham khảo cả hai loại theo từng quy cách tại [bảng giá xà gồ](/bang-gia/xa-go/), rồi gọi hotline **0937 185 968** để nhà máy tư vấn lớp mạ phù hợp với môi trường công trình và báo giá chính xác trong ngày.

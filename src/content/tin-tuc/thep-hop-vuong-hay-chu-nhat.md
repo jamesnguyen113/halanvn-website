@@ -1,6 +1,6 @@
 ---
 title: 'Thép hộp vuông hay chữ nhật — chọn loại nào cho công trình?'
-description: 'So sánh thép hộp vuông và chữ nhật: chịu lực theo tiết diện, ứng dụng làm cột hay làm xà, cách đặt đúng chiều. Gọi 0931 390 068 để chốt quy cách hôm nay.'
+description: 'So sánh thép hộp vuông và chữ nhật: chịu lực theo tiết diện, ứng dụng làm cột hay làm xà, cách đặt đúng chiều. Gọi 0937 185 968 để chốt quy cách hôm nay.'
 date: 2026-08-10
 ---
 
@@ -46,4 +46,4 @@ Với cấu kiện chịu lực (cột chính, dầm mái, kết cấu chịu t�
 
 Chọn xong vuông hay chữ nhật, bước tiếp theo là chọn bề mặt: khung trong nhà sẽ sơn hoàn thiện thì dùng **thép hộp đen**; khung lộ thiên, ẩm, ven biển thì dùng **thép hộp mạ kẽm**. Xem chi tiết tại [sắt hộp đen hay mạ kẽm — nên chọn loại nào](/tin-tuc/sat-hop-den-hay-ma-kem/).
 
-Hà Lan phân phối đủ bốn nhóm — [thép hộp vuông đen](/san-pham/thep-hop-vuong-den/), [thép hộp vuông mạ kẽm](/san-pham/thep-hop-vuong-ma-kem/), [thép hộp chữ nhật đen](/san-pham/thep-hop-chu-nhat-den/), [thép hộp chữ nhật mạ kẽm](/san-pham/thep-hop-chu-nhat-ma-kem/) — xem tổng quan quy cách tại [thép hộp](/thep-hop/), giá tham khảo tại [bảng giá](/bang-gia/). Gửi quy cách và số lượng qua hotline **0931 390 068** hoặc Zalo, Hà Lan kiểm tra hàng thực tế và báo giá trong ngày, đã gồm VAT.
+Hà Lan phân phối đủ bốn nhóm — [thép hộp vuông đen](/san-pham/thep-hop-vuong-den/), [thép hộp vuông mạ kẽm](/san-pham/thep-hop-vuong-ma-kem/), [thép hộp chữ nhật đen](/san-pham/thep-hop-chu-nhat-den/), [thép hộp chữ nhật mạ kẽm](/san-pham/thep-hop-chu-nhat-ma-kem/) — xem tổng quan quy cách tại [thép hộp](/thep-hop/), giá tham khảo tại [bảng giá](/bang-gia/). Gửi quy cách và số lượng qua hotline **0937 185 968** hoặc Zalo, Hà Lan kiểm tra hàng thực tế và báo giá trong ngày, đã gồm VAT.

@@ -1,6 +1,6 @@
 ---
 title: 'Cách chống nóng mái tôn — các phương án và chi phí thực tế'
-description: 'So sánh tôn PU, tôn PE, túi khí, phun foam, trần thạch cao và phun nước mái tôn: hiệu quả giảm nhiệt, chi phí, hợp công trình nào. Tư vấn 0931 390 068.'
+description: 'So sánh tôn PU, tôn PE, túi khí, phun foam, trần thạch cao và phun nước mái tôn: hiệu quả giảm nhiệt, chi phí, hợp công trình nào. Tư vấn 0937 185 968.'
 date: 2026-07-29
 ---
 
@@ -62,4 +62,4 @@ Hợp với: giải pháp tình thế khi chưa có ngân sách làm cách nhi�
 - **Vừa muốn chống nóng vừa muốn trần đẹp** → đóng trần thạch cao, kết hợp thêm túi khí hoặc tôn cách nhiệt để hiệu quả cao hơn.
 - Đừng chỉ trông chờ vào phun nước — đó là biện pháp chữa cháy tạm thời, không thay được vật liệu cách nhiệt.
 
-Giá tôn PU, tôn PE cán theo sóng có sẵn trong [bảng giá hôm nay](/bang-gia/). Còn phân vân nên chọn phương án nào cho công trình cụ thể, gọi **0931 390 068** đọc diện tích mái và mục đích sử dụng — nhà máy tư vấn phương án phù hợp và báo giá trong ngày.
+Giá tôn PU, tôn PE cán theo sóng có sẵn trong [bảng giá hôm nay](/bang-gia/). Còn phân vân nên chọn phương án nào cho công trình cụ thể, gọi **0937 185 968** đọc diện tích mái và mục đích sử dụng — nhà máy tư vấn phương án phù hợp và báo giá trong ngày.

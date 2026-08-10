@@ -1,6 +1,6 @@
 ---
 title: 'Tôn cách nhiệt PE hay tôn PU — chọn loại nào để chống nóng?'
-description: 'So sánh tôn dán PE-OPP và tôn PU 18 mm: khả năng giảm nhiệt, cách âm, giá thành và trường hợp nên dùng từng loại. Tư vấn nhanh qua 0931 390 068.'
+description: 'So sánh tôn dán PE-OPP và tôn PU 18 mm: khả năng giảm nhiệt, cách âm, giá thành và trường hợp nên dùng từng loại. Tư vấn nhanh qua 0937 185 968.'
 date: 2026-07-18
 ---
 
@@ -35,4 +35,4 @@ Hợp với: nhà ở muốn chống nóng triệt để không cần đóng tr�
 - Mái đã lợp rồi, không muốn thay tôn → cân nhắc trải [túi khí cách nhiệt](/san-pham/tui-khi-cach-nhiet/) dưới mái, thi công nhanh.
 - Cả tôn PE và PU đều cán từ tôn màu chính hãng theo yêu cầu ([Đông Á](/ton-dong-a/), nhập khẩu...) — chất lượng lớp tôn chọn riêng được.
 
-Xem chi tiết thông số từng loại: [tôn cách nhiệt PE](/san-pham/ton-cach-nhiet-pe/) · [tôn PU](/san-pham/ton-pu/), giá lớp PE cán theo sóng có sẵn trong [bảng giá hôm nay](/bang-gia/). Còn phân vân, gọi **0931 390 068** đọc loại công trình — nhà máy tư vấn loại phù hợp và báo giá trong ngày.
+Xem chi tiết thông số từng loại: [tôn cách nhiệt PE](/san-pham/ton-cach-nhiet-pe/) · [tôn PU](/san-pham/ton-pu/), giá lớp PE cán theo sóng có sẵn trong [bảng giá hôm nay](/bang-gia/). Còn phân vân, gọi **0937 185 968** đọc loại công trình — nhà máy tư vấn loại phù hợp và báo giá trong ngày.

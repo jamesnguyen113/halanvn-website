@@ -1,6 +1,6 @@
 ---
 title: 'Tôn cliplock là gì? Khi nào nên dùng — ưu nhược điểm, cách lợp'
-description: 'Tôn cliplock là loại tôn lợp bằng đai kẹp, không bắn vít xuyên tôn — chống dột tối đa cho mái nhà xưởng. Tìm hiểu khi nào nên dùng, gọi 0931 390 068 báo giá.'
+description: 'Tôn cliplock là loại tôn lợp bằng đai kẹp, không bắn vít xuyên tôn — chống dột tối đa cho mái nhà xưởng. Tìm hiểu khi nào nên dùng, gọi 0937 185 968 báo giá.'
 date: 2026-07-22
 ---
 
@@ -46,4 +46,4 @@ Giá một mái cliplock gồm **ba phần cộng lại**: giá tôn theo độ 
 
 Hà Lan cán tôn cliplock từ cuộn ngay tại **4 nhà máy (Thủ Đức, Thuận An, Bình Chánh, Tây Ninh)**, cắt đúng chiều dài mái để giảm mối nối giữa mái — xuất hóa đơn VAT đầy đủ, giao tận công trình khu vực TP.HCM và miền Nam.
 
-Đang phân vân mái nhà xưởng nên lợp cliplock hay tôn sóng thường? Đọc kích thước mái và độ dốc qua hotline **0931 390 068** (Zalo cùng số) — nhà máy tư vấn loại phù hợp, tính trọn gói tôn + gia công + đai kẹp và báo lịch giao trong ngày.
+Đang phân vân mái nhà xưởng nên lợp cliplock hay tôn sóng thường? Đọc kích thước mái và độ dốc qua hotline **0937 185 968** (Zalo cùng số) — nhà máy tư vấn loại phù hợp, tính trọn gói tôn + gia công + đai kẹp và báo lịch giao trong ngày.

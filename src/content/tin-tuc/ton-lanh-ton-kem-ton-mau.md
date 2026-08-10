@@ -1,6 +1,6 @@
 ---
 title: 'Tôn lạnh, tôn kẽm, tôn màu khác gì nhau? Nên chọn loại nào cho mái nhà'
-description: 'Phân biệt tôn lạnh (mạ nhôm kẽm), tôn mạ kẽm và tôn mạ màu: cấu tạo, độ bền, giá cả và nên dùng loại nào. Gọi 0931 390 068 để nhà máy tư vấn theo công trình.'
+description: 'Phân biệt tôn lạnh (mạ nhôm kẽm), tôn mạ kẽm và tôn mạ màu: cấu tạo, độ bền, giá cả và nên dùng loại nào. Gọi 0937 185 968 để nhà máy tư vấn theo công trình.'
 date: 2026-07-28
 ---
 
@@ -32,4 +32,4 @@ Tôn mạ màu là bước hoàn thiện cao nhất: nền thép cán nguội đ
 
 Nếu công trình là mái tạm, nhà kho ít người qua lại, ngân sách eo hẹp — tôn mạ kẽm là đủ dùng. Nếu cần độ bền cao hơn cho nhà xưởng công nghiệp, khu vực mưa nhiều, mà chưa quan trọng màu sắc — chọn tôn lạnh. Còn với nhà ở, showroom, công trình mặt tiền cần đẹp và bền lâu dài — tôn mạ màu là lựa chọn hợp lý nhất dù giá cao hơn. Cả ba loại đều nên phối cùng [xà gồ C/Z](/bang-gia/xa-go/) và đóng đủ vít đúng kỹ thuật để tránh dột, xem thêm [cách tính số mét tôn lợp mái](/tin-tuc/cach-tinh-ton-lop-mai/) khi lên dự trù vật tư.
 
-Gọi hotline **0931 390 068** hoặc nhắn Zalo, cho biết loại công trình và diện tích mái — nhà máy tư vấn đúng loại tôn, độ dày phù hợp và báo giá trong ngày, đã gồm VAT. Xem thêm chi tiết từng loại tại [tôn mạ kẽm](/san-pham/ton-ma-kem/), [tôn lạnh](/san-pham/ton-lanh/) và [tôn mạ màu](/san-pham/ton-ma-mau/), hoặc [bảng giá tôn lợp mới nhất](/bang-gia/ton-lop/) để so giá theo độ dày.
+Gọi hotline **0937 185 968** hoặc nhắn Zalo, cho biết loại công trình và diện tích mái — nhà máy tư vấn đúng loại tôn, độ dày phù hợp và báo giá trong ngày, đã gồm VAT. Xem thêm chi tiết từng loại tại [tôn mạ kẽm](/san-pham/ton-ma-kem/), [tôn lạnh](/san-pham/ton-lanh/) và [tôn mạ màu](/san-pham/ton-ma-mau/), hoặc [bảng giá tôn lợp mới nhất](/bang-gia/ton-lop/) để so giá theo độ dày.

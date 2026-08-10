@@ -1,6 +1,6 @@
 ---
 title: 'Mái tôn bị dột — nguyên nhân theo từng vị trí và cách xử lý'
-description: 'Mái tôn dột thường lộ ra ở 4 vị trí cố định: lỗ vít, mí chồng, mối nối ngang, máng xối. Xác định đúng chỗ để vá đúng bệnh. Tư vấn 0931 390 068.'
+description: 'Mái tôn dột thường lộ ra ở 4 vị trí cố định: lỗ vít, mí chồng, mối nối ngang, máng xối. Xác định đúng chỗ để vá đúng bệnh. Tư vấn 0937 185 968.'
 date: 2026-07-30
 ---
 
@@ -36,4 +36,4 @@ Vá đúng vị trí xử lý được dột cục bộ, nhưng không đáng l�
 
 Ngược lại, nếu tôn còn dày, chỉ dột tại 1 — 2 vị trí cụ thể do vít lỏng hoặc mí chồng hở thì vá là đủ, không cần thay.
 
-Không chắc mái nhà mình nên vá hay thay? Gọi hotline **0931 390 068**, mô tả vị trí dột và tuổi mái — nhà máy tư vấn hướng xử lý phù hợp, báo giá tôn thay mới nếu cần trong ngày, đã gồm VAT. Tham khảo trước [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/) để có sẵn khoảng giá khi gọi.
+Không chắc mái nhà mình nên vá hay thay? Gọi hotline **0937 185 968**, mô tả vị trí dột và tuổi mái — nhà máy tư vấn hướng xử lý phù hợp, báo giá tôn thay mới nếu cần trong ngày, đã gồm VAT. Tham khảo trước [bảng giá tôn lợp hôm nay](/bang-gia/ton-lop/) để có sẵn khoảng giá khi gọi.
