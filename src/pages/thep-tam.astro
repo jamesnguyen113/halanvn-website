@@ -1,0 +1,192 @@
+---
+import Base from '../layouts/Base.astro';
+import SeoCrossLinks from '../components/SeoCrossLinks.astro';
+import { site } from '../data/site';
+
+const faq = [
+  {
+    q: 'Thép tấm cán nóng và cán nguội khác nhau thế nào?',
+    a: 'Thép tấm cán nóng cán ở nhiệt độ cao, bề mặt có lớp vảy cán (mill scale) hơi thô ráp, độ dày phổ biến từ 3 mm trở lên — dùng nhiều cho kết cấu xây dựng, khung máy, sàn thao tác vì giá thành thấp hơn. Thép tấm cán nguội cán ở nhiệt độ thường, bề mặt sáng bóng, kích thước chính xác hơn nhưng thường mỏng dưới 3 mm — dùng khi cần bề mặt đẹp hoặc gia công cơ khí chính xác. Nói với Hà Lan hạng mục cụ thể để được tư vấn đúng loại.',
+  },
+  {
+    q: 'Thép tấm có những độ dày nào?',
+    a: 'Độ dày thông dụng: 2, 3, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 25, 30 mm và dày hơn theo yêu cầu. Khổ rộng phổ biến 1.000 — 2.000 mm, chiều dài tấm tiêu chuẩn 6.000 mm (6 m); cắt theo kích thước bản vẽ nếu cần.',
+  },
+  {
+    q: 'Thép tấm dùng làm gì trong xây dựng và cơ khí?',
+    a: 'Lót sàn thao tác, sàn thép, bậc thang, tấm đế máy, mặt bích, gia cường chân cột, khung bệ máy, thùng bồn, kết cấu hàn — hạng mục nào cần mặt phẳng chịu lực hoặc chịu mài mòn đều dùng được thép tấm, chọn độ dày theo tải trọng thực tế.',
+  },
+  {
+    q: 'Thép tấm theo tiêu chuẩn nào, có xuất hóa đơn VAT không?',
+    a: 'Thép tấm Hà Lan cung cấp theo các mác thông dụng SS400, A36, Q235B, Q345B — nguồn hàng nhà máy lớn, đầy đủ chứng chỉ CO/CQ, xuất hóa đơn VAT theo yêu cầu, phù hợp công trình cần quyết toán.',
+  },
+  {
+    q: 'Đặt thép tấm cùng thép hình, xà gồ, tôn lợp có giao chung được không?',
+    a: `Được. Nhiều khách công trình đặt thép tấm làm sàn thao tác, tấm đế cùng lúc với thép hình, xà gồ C, Z và tôn lợp mái trong một đơn — Hà Lan gom hàng, giao một chuyến tận công trình tại TP.HCM, Bình Dương, Tây Ninh. Gọi ${site.hotline.display} để đặt gộp.`,
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Trang chủ', item: new URL('/', Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: 'Thép tấm' },
+  ],
+};
+
+const specs = [
+  { kind: 'Độ dày', specs: '2 · 3 · 4 · 5 · 6 · 8 · 10 · 12 · 14 · 16 · 18 · 20 · 25 · 30 mm — dày hơn theo yêu cầu' },
+  { kind: 'Khổ rộng', specs: '1.000 · 1.250 · 1.500 · 2.000 mm' },
+  { kind: 'Chiều dài tấm', specs: '6.000 mm (6 m) tiêu chuẩn — cắt theo kích thước bản vẽ' },
+  { kind: 'Mác thép', specs: 'SS400 · A36 · Q235B · Q345B' },
+  { kind: 'Bề mặt', specs: 'Cán nóng (thô, có vảy cán) hoặc cán nguội (sáng, phẳng)' },
+];
+---
+
+<Base
+  title="Thép tấm cán nóng, cán nguội — giá hôm nay, đủ độ dày | Hà Lan"
+  description={`Mua thép tấm cán nóng, cán nguội đủ độ dày 2 — 30 mm cho sàn thao tác, kết cấu, cơ khí. Giao tận công trình TP.HCM, Bình Dương. Gọi ${site.hotline.display} báo giá thép tấm hôm nay.`}
+  schema={[breadcrumbSchema, faqSchema]}
+>
+  <div class="bg-steel-950 py-10 text-white">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="eyebrow text-brand-soft">Sắt thép xây dựng</p>
+      <h1 class="display mt-2 text-3xl sm:text-4xl">Thép tấm cán nóng, cán nguội — đủ độ dày</h1>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-steel-300">
+        Thép tấm làm sàn thao tác, tấm đế, kết cấu hàn — gọi{' '}
+        <a href={`tel:${site.hotline.tel}`} class="font-bold text-white underline">{site.hotline.display}</a>{' '}
+        để có giá thép tấm hôm nay.
+      </p>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-10">
+    <section class="max-w-3xl space-y-3 text-[0.95rem] leading-relaxed text-steel-800">
+      <p>
+        <strong>Thép tấm</strong> là thép cán thành dạng phẳng, hai loại chính là <strong>cán
+        nóng</strong> (cán ở nhiệt độ cao, bề mặt có lớp vảy cán hơi thô, độ dày phổ biến từ 3 mm
+        trở lên, giá thành thấp hơn — hợp kết cấu xây dựng, sàn thao tác) và <strong>cán
+        nguội</strong> (cán ở nhiệt độ thường, bề mặt sáng phẳng, kích thước chính xác hơn nhưng
+        thường mỏng dưới 3 mm — hợp gia công cơ khí, bề mặt cần thẩm mỹ). Khác với thép hình H, U,
+        I, V vốn đã định hình sẵn tiết diện, thép tấm là phôi phẳng để cắt, hàn theo đúng kích
+        thước cần dùng.
+      </p>
+      <p>
+        Nguồn hàng nhà máy lớn, đầy đủ chứng chỉ CO/CQ, xuất hóa đơn VAT — nhiều khách công trình
+        đặt thép tấm làm sàn, tấm đế cùng lúc với thép hình, xà gồ C, Z và tôn lợp mái; Hà Lan gom
+        hàng giao một chuyến tận công trình tại TP.HCM, Thủ Đức, Bình Dương, Tây Ninh, tiết kiệm chi
+        phí vận chuyển so với đặt riêng từng loại vật tư.
+      </p>
+    </section>
+
+    <section class="mt-10 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Quy cách thép tấm Hà Lan</h2>
+      <div class="mt-3 overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="bg-steel-950 text-left text-white">
+              <th class="px-3 py-2.5 font-semibold">Thông số</th>
+              <th class="px-3 py-2.5 font-semibold">Quy cách</th>
+            </tr>
+          </thead>
+          <tbody>
+            {specs.map((s, i) => (
+              <tr class:list={[i % 2 ? 'bg-steel-50' : 'bg-white', 'border-b border-steel-200']}>
+                <td class="px-3 py-2.5 font-semibold text-steel-950">{s.kind}</td>
+                <td class="px-3 py-2.5 text-steel-700">{s.specs}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2 text-xs text-steel-500">
+        Quy cách tham khảo — Hà Lan còn cung cấp thép hình H — U — I — V, thép vằn D10 — D40, sắt
+        hộp, ống phi tròn. Xem đầy đủ tại trang{' '}
+        <a href="/san-pham/sat-thep-xay-dung/" class="text-brand underline">sắt thép xây dựng</a>.
+      </p>
+    </section>
+
+    <div class="mt-10 border-l-4 border-brand bg-steel-50 p-5">
+      <p class="display text-lg text-steel-950">Giá thép tấm theo ngày — gọi để chốt</p>
+      <p class="mt-1 text-sm text-steel-700">
+        Giá thay đổi theo thị trường thép và độ dày. Đọc quy cách, mác thép và số lượng qua điện
+        thoại — báo giá chính xác trong ngày, đã gồm VAT.
+      </p>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href={`tel:${site.hotline.tel}`}
+          class="display bg-brand px-5 py-3 text-sm tracking-widest text-white uppercase hover:bg-brand-hot"
+        >
+          {site.hotline.display}
+        </a>
+        <a
+          href={site.zaloUrl}
+          target="_blank"
+          rel="noopener"
+          class="display border border-steel-950 px-5 py-3 text-sm tracking-widest text-steel-950 uppercase hover:bg-steel-950 hover:text-white"
+        >
+          Nhắn Zalo
+        </a>
+      </div>
+    </div>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">
+        Cán nóng hay cán nguội — chọn loại nào?
+      </h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-steel-700">
+        <li>
+          <strong>Thép tấm cán nóng</strong> — độ dày lớn (3 mm trở lên), giá thành thấp hơn, chọn
+          khi cần chịu lực, chịu mài mòn hoặc làm kết cấu ngoài trời sẽ sơn phủ sau: sàn thao tác,
+          tấm đế máy, gia cường chân cột, thùng bồn.
+        </li>
+        <li>
+          <strong>Thép tấm cán nguội</strong> — mỏng hơn (dưới 3 mm), bề mặt sáng phẳng, kích thước
+          chính xác, chọn khi cần gia công cơ khí chi tiết hoặc bề mặt hoàn thiện đẹp mà không sơn
+          phủ dày.
+        </li>
+        <li>
+          Không chắc nên chọn mác thép, độ dày nào — gọi{' '}
+          <a href={`tel:${site.hotline.tel}`} class="text-brand underline">{site.hotline.display}</a>{' '}
+          báo hạng mục và tải trọng, Hà Lan tư vấn quy cách phù hợp.
+        </li>
+      </ul>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Ứng dụng thường gặp</h2>
+      <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-steel-700">
+        <li>Sàn thao tác, sàn thép, bậc thang, lối đi trong nhà xưởng.</li>
+        <li>Tấm đế máy, mặt bích, gia cường chân cột thép hình.</li>
+        <li>Thùng bồn, kết cấu hàn, khung bệ máy công nghiệp.</li>
+        <li>Gia công cơ khí: cắt CNC, chấn, hàn theo bản vẽ.</li>
+        <li>Ốp lót, tấm chắn chịu va đập tại khu vực bốc xếp.</li>
+      </ul>
+    </section>
+
+    <section class="mt-12 max-w-3xl">
+      <h2 class="display border-l-4 border-brand pl-3 text-xl text-steel-950">Câu hỏi thường gặp</h2>
+      <div class="mt-4 space-y-5">
+        {faq.map((f) => (
+          <div>
+            <h3 class="font-semibold text-steel-950">{f.q}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-steel-700">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <SeoCrossLinks current="/thep-tam/" />
+  </div>
+</Base>
