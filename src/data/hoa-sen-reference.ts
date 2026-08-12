@@ -10,7 +10,7 @@ export interface HoaSenFamily {
 }
 
 export const hoaSenReference = {
-  updated: '11/08/2026',
+  updated: '12/08/2026',
   source: 'Hoa Sen Home (hoasenhome.vn) — giá bán lẻ niêm yết',
   rows: [
   {
@@ -29,7 +29,7 @@ export const hoaSenReference = {
     family: 'Tôn lạnh',
     variants: 4,
     min: 97900,
-    max: 135850
+    max: 132000
   },
   {
     family: 'Tôn Hoa Sen Gold',
