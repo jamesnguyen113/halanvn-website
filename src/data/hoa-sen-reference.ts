@@ -10,31 +10,31 @@ export interface HoaSenFamily {
 }
 
 export const hoaSenReference = {
-  updated: '21/08/2026',
+  updated: '10/09/2026',
   source: 'Hoa Sen Home (hoasenhome.vn) — giá bán lẻ niêm yết',
   rows: [
   {
     family: 'Tôn cách nhiệt PU',
     variants: 32,
-    min: 178200,
-    max: 213400
+    min: 179300,
+    max: 214500
   },
   {
     family: 'Tôn lạnh màu',
     variants: 32,
-    min: 91850,
-    max: 141350
+    min: 92400,
+    max: 142450
   },
   {
     family: 'Tôn lạnh',
     variants: 4,
-    min: 97900,
-    max: 132000
+    min: 98450,
+    max: 133100
   },
   {
     family: 'Tôn Hoa Sen Gold',
     variants: 17,
-    min: 149600,
+    min: 150700,
     max: 231000
   }
 ] as HoaSenFamily[],
