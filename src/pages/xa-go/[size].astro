@@ -44,7 +44,7 @@ const groups = [coatGroup('black'), coatGroup('galv')];
 const specList = [
   { k: 'Chiều cao tiết diện', v: `${size.height} mm` },
   { k: 'Cạnh', v: size.flange },
-  { k: 'Độ dày', v: '1,4 — 3,0 mm' },
+  { k: 'Độ dày', v: '1,4 — 3,0 mm (thợ quen gọi 1.4 — 3 ly)' },
   { k: 'Chiều dài', v: 'cắt theo bản vẽ, đột lỗ theo thiết kế' },
   {
     k: 'Vật liệu',
@@ -57,7 +57,7 @@ const others = purlinSizes.filter((s) => s.slug !== size.slug);
 const title = purlinPricesUpdated
   ? `Giá xà gồ ${label} hôm nay ${purlinPricesUpdated} — đen & mạ kẽm | Hà Lan`
   : `Giá xà gồ ${label} hôm nay — đen & mạ kẽm, barem trọng lượng | Hà Lan`;
-const description = `Báo giá xà gồ ${label} đen và mạ kẽm theo quy cách: barem trọng lượng từng độ dày 1.4 — 3.0 mm, cắt và đột lỗ theo bản vẽ. Sản xuất tại TP.HCM, Bình Dương. Gọi ${site.hotline.display}.`;
+const description = `Báo giá xà gồ ${label} đen và mạ kẽm theo quy cách: barem trọng lượng từng độ dày 1.4 — 3.0 mm (1.4 — 3 ly), cắt và đột lỗ theo bản vẽ. Sản xuất tại TP.HCM, Bình Dương. Gọi ${site.hotline.display}.`;
 
 const faq = [
   {

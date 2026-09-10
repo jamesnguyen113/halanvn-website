@@ -1,6 +1,6 @@
 ---
-title: 'Tôn cliplock là gì? Khi nào nên dùng — ưu nhược điểm, cách lợp'
-description: 'Tôn cliplock là loại tôn lợp bằng đai kẹp, không bắn vít xuyên tôn — chống dột tối đa cho mái nhà xưởng. Tìm hiểu khi nào nên dùng, gọi 0937 185 968 báo giá.'
+title: 'Tôn cliplock là gì? Giá cán, ưu nhược điểm, khi nào nên dùng'
+description: 'Tôn cliplock lợp bằng đai kẹp, không vít xuyên mặt tôn nên gần như không dột. Cách tính giá cán, độ dày nên chọn và khi nào đáng tiền. Gọi 0937 185 968.'
 date: 2026-07-22
 ---
 
