@@ -63,8 +63,8 @@ export const dongAVariants: DongAVariant[] = [
   {
     slug: '4-5-dem',
     name: 'Tôn Đông Á 4.5 dem (0.45mm)',
-    title: `Giá tôn Đông Á 4.5 dem (0.45mm) hôm nay ${priceListUpdated} | Hà Lan`,
-    description: `Tôn Đông Á 4.5 dem (0.45mm) dòng ĐA-S: ${vnd(p045)} đã gồm VAT, cập nhật ${priceListUpdated}. Độ dày được chọn nhiều nhất cho mái nhà xây mới. Cán sóng theo công trình.`,
+    title: `Giá tôn Đông Á 4.5 dem (zem) hôm nay ${priceListUpdated} | Hà Lan`,
+    description: `Tôn Đông Á 4.5 dem (0.45mm) ĐA-S: ${vnd(p045)} đã gồm VAT, cập nhật ${priceListUpdated}. Cán sóng trong ngày. Gọi/Zalo 0937 185 968 báo giá theo số mét.`,
     callout: `Giá tôn Đông Á 4.5 dem hôm nay: ${vnd(p045)} (dòng ĐA-S, đã gồm VAT, cập nhật ${priceListUpdated}).`,
     groupIds: ['ton-mau-dong-a'],
     intro: [

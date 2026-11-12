@@ -1,6 +1,6 @@
 ---
-title: 'Tôn cliplock là gì? Báo giá cán tại xưởng'
-description: 'Tôn cliplock lợp bằng đai kẹp, không vít xuyên mặt tôn, gần như không dột. Xem giá cán theo độ dày. Gọi/Zalo 0937 185 968 để báo giá tại xưởng.'
+title: 'Tôn cliplock là gì? Giá cán, ưu nhược điểm, khi nào nên dùng'
+description: 'Tôn cliplock lợp bằng đai kẹp, không vít xuyên mặt tôn nên gần như không dột. Cách tính giá cán, độ dày nên chọn và khi nào đáng tiền. Gọi 0937 185 968.'
 date: 2026-07-22
 ---
 

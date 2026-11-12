@@ -1,6 +1,6 @@
 // Bảng giá — cập nhật số liệu tại đây rồi đổi `updated`.
 // Giá null = "Liên hệ". Đơn giá VND, hiển thị theo định dạng vi-VN (57.000 đ).
-export const priceListUpdated = '10/07/2026';
+export const priceListUpdated = '12/11/2026';
 
 export interface PriceRow {
   spec: string; // độ dày / quy cách
